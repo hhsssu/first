@@ -402,7 +402,7 @@
                     <div class="login-text">
                         <p>로그인</p>
                     </div>
-                    <form class="idpw-input" action="/loginCheck" method="post">
+                    <form class="idpw-input" action="/customer/login" method="post">
                         <input type="id" name="csId" placeholder="아이디" id="inputId">
                         <input type="password" name="csPw" placeholder="비밀번호" id="inputPw">
                     
@@ -411,7 +411,7 @@
                         <p>아이디 저장</p>
                     </div>
                     <div class="login-sumit-btn"> 
-                        <input type="button" value="로그인" onclick="go_login(this.form)" id="loginBtn">
+                        <input type="button" value="로그인" onclick="go_login()" id="loginBtn">
                     </div>
                     <div class="mem-search-join">
                         <a href="#">아이디/비밀번호 찾기</a>
@@ -425,7 +425,7 @@
                         <button>페이스북으로 시작하기</button>
                     </div>
                 </div>
-                    </form>
+                </form>
             </div>
         </section>
         <!-- //section login popUp container -->
@@ -476,13 +476,15 @@
 
 
         
-        function go_login(frm) {
+        function go_login() {
             if( $('#inputId').val() === '' || $('#inputId').val() === null ) {
                 alert('아이디를 입력하세요!');
+                doDisplay();
                 $('#inputId').focus();
                 return;
             } else if( $('#inputPw').val() === '' || $('#inputPw').val() === null) {
                 alert('비밀번호를 입력하세요!');
+                doDisplay();
                 $('#inputPw').focus();
                 return;
             } else {

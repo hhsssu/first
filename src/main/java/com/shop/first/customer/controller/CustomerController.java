@@ -98,11 +98,12 @@ public class CustomerController {
         return customerService.isDuplicate(checkId);
     }
 
+    /*
     @GetMapping("/login")
     public String loginCustomer() {
         log.info("회원 로그인 양식 요청 GET!");
         return "login/customer";
-    }
+    }*/
 
     //회원 로그인 검증
     @PostMapping("/login")
