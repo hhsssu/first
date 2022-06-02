@@ -402,8 +402,8 @@
                     <div class="login-text">
                         <p>로그인</p>
                     </div>
-                    <form class="idpw-input" action="/customer/login" method="post">
-                        <input type="id" name="csId" placeholder="아이디" id="inputId">
+                    <form class="idpw-input" action="/customer/login" method="post" autocomplete="off" enctype="multipart/form-data">
+                        <input type="text" name="csId" placeholder="아이디" id="inputId">
                         <input type="password" name="csPw" placeholder="비밀번호" id="inputPw">
                     
                     <div class="login-id-remember">
@@ -430,6 +430,28 @@
         </section>
         <!-- //section login popUp container -->
 
+
+        <!-- modal -->
+        <div class="modal fade" tabindex="-1" id="myModal" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">게시글 등록 완료</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>게시판 메인 페이지로 이동합니다.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="location.href='/board'">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  //modal -->
 
         <!-- footer -->
         <footer>
@@ -458,39 +480,47 @@
         function doDisplay() {
                 document.getElementById("login-popup-container").style.display = "block";
                 document.querySelector(".login-popup-box").style.display = "block";
-
         }
 
 
         $('#inputId').on('keypress', function(e){
             if(e.keyCode == '13'){
-                $('#loginBtn').click();
+                if( $('#inputId').val() === '' || $('#inputId').val() === null ) {
+                    //$('#loginBtn').click();
+                    $("#inputId").attr("placeholder", "아이디를 입력하세요");
+                }
             }
             });
 
         $('#inputPw').on('keypress', function(e){
         if(e.keyCode == '13'){
-            $('#loginBtn').click();
+            if( $('#inputPw').val() !== '' || $('#inputPw').val() !== null ) {
+                    $('#loginBtn').click();
+                }
         }
         });
-
-
         
         function go_login() {
             if( $('#inputId').val() === '' || $('#inputId').val() === null ) {
-                alert('아이디를 입력하세요!');
-                doDisplay();
+                $("#inputId").attr("placeholder", "아이디를 입력하세요");
+                $(".login-popup-box").attr("display","block");
+                $(".login-popup-box").attr("position","fixed");
+                
                 $('#inputId').focus();
                 return;
             } else if( $('#inputPw').val() === '' || $('#inputPw').val() === null) {
-                alert('비밀번호를 입력하세요!');
-                doDisplay();
+                $("#inputPw").attr("placeholder", "비밀번호를 입력하세요");
                 $('#inputPw').focus();
                 return;
             } else {
-               frm.submit();
+                $('#inputPw').on('keypress', function(e){
+                if(e.keyCode == '13'){
+                    $('#loginBtn').click();
+                }
+                });
             }
         }
+
     </script>
 
 </body>

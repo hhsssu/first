@@ -116,21 +116,28 @@ public class CustomerController {
         if (loginCustomer != null) {
             session.setAttribute("loginCustomer", loginCustomer);
             log.info("로그인 유저: " + loginCustomer);
-        } else {
+            return "customer/loginHome";
+        }
+        /*
+        else {
             response.setCharacterEncoding("UTF-8");
             response.setContentType("text/html; charset=UTF-8");
 
             PrintWriter out = response.getWriter();
-
-            out.println("<script>alert('아이디 또는 비밀번호가 틀립니다. ');");
-            out.println("history.back()");
+            log.info("else!!");
+            //out.println("<script>alert('아이디 또는 비밀번호가 틀립니다. ');");
+            out.println("<script>");
+            out.println("history.back();");
+            out.println("document.getElementById(\"login-popup-container\").style.display = \"block\";");
+            out.println("document.querySelector(\".login-popup-box\").style.display = \"block\";");
+           // out.println("doDisplay();");
             out.println("</script>");
             out.flush();
             response.flushBuffer();
             out.close();
-            return "login/customer";
-        }
-        return "customer/loginHome";
+            //return "login/customer";
+        }*/
+        return null;
     }
 
     @GetMapping("/logout")
