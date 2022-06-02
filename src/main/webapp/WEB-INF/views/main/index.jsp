@@ -500,12 +500,13 @@
         }
         });
         
+
+        let cmFunc = window.onbeforeunload;
+
         function go_login() {
             if( $('#inputId').val() === '' || $('#inputId').val() === null ) {
                 $("#inputId").attr("placeholder", "아이디를 입력하세요");
-                $(".login-popup-box").attr("display","block");
-                $(".login-popup-box").attr("position","fixed");
-                
+                cmFunc();
                 $('#inputId').focus();
                 return;
             } else if( $('#inputPw').val() === '' || $('#inputPw').val() === null) {
