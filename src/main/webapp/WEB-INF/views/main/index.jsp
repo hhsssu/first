@@ -18,7 +18,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
 
     <!-- custom css -->
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
 
@@ -50,7 +53,7 @@
                             </label>
                         </form>
                     </a>
-                    <a href="#" class="sign-in-up">
+                    <a href="#" class="sign-in-up" id="singUpBtn" onclick="javascript:doDisplay()">
                         <span>로그인</span>
                     </a>
                     <a href="#" class="sign-in-up">
@@ -72,7 +75,7 @@
             <section id="main-banner-container">
                 <div class="main-banner-img">
                     <a href="#">
-                        <img src="./image/banner1.png" alt="메인배너이미지1">
+                        <img src="/image/banner1.png" alt="메인배너이미지1">
                         <div class="banner-text">
                             <p>banner title1</p>
                         </div>
@@ -80,7 +83,7 @@
                 </div>
                 <div class="main-banner-img">
                     <a href="#">
-                        <img src="./image/banner2.png" alt="메인배너이미지2">
+                        <img src="/image/banner2.png" alt="메인배너이미지2">
                         <div class="banner-text">
                             <p>banner title2</p>
                         </div>
@@ -399,21 +402,22 @@
                     <div class="login-text">
                         <p>로그인</p>
                     </div>
-                    <form class="idpw-input">
-                        <input type="id" name="memId" placeholder="아이디">
-                        <input type="password" name="memPassword" placeholder="비밀번호">
-                    </form>
+                    <form class="idpw-input" action="/loginCheck" method="post">
+                        <input type="id" name="csId" placeholder="아이디" id="inputId">
+                        <input type="password" name="csPw" placeholder="비밀번호" id="inputPw">
+                    
                     <div class="login-id-remember">
                         <input type="checkbox" checked name="id-remember">
                         <p>아이디 저장</p>
                     </div>
-                    <div class="login-sumit-btn">
-                        <button type="submit">로그인</button>
+                    <div class="login-sumit-btn"> 
+                        <input type="button" value="로그인" onclick="go_login(this.form)" id="loginBtn">
                     </div>
                     <div class="mem-search-join">
                         <a href="#">아이디/비밀번호 찾기</a>
                         <a href="#">회원가입</a>
                     </div>
+
                     <div class="sns-join">
                         <button>카카오로 시작하기</button>
                         <button>네이버로 시작하기</button>
@@ -421,6 +425,7 @@
                         <button>페이스북으로 시작하기</button>
                     </div>
                 </div>
+                    </form>
             </div>
         </section>
         <!-- //section login popUp container -->
@@ -446,6 +451,46 @@
         </footer>
         <!-- //footer -->
     </div>
+
+
+    <script>
+
+        function doDisplay() {
+                document.getElementById("login-popup-container").style.display = "block";
+                document.querySelector(".login-popup-box").style.display = "block";
+
+        }
+
+
+        $('#inputId').on('keypress', function(e){
+            if(e.keyCode == '13'){
+                $('#loginBtn').click();
+            }
+            });
+
+        $('#inputPw').on('keypress', function(e){
+        if(e.keyCode == '13'){
+            $('#loginBtn').click();
+        }
+        });
+
+
+        
+        function go_login(frm) {
+            if( $('#inputId').val() === '' || $('#inputId').val() === null ) {
+                alert('아이디를 입력하세요!');
+                $('#inputId').focus();
+                return;
+            } else if( $('#inputPw').val() === '' || $('#inputPw').val() === null) {
+                alert('비밀번호를 입력하세요!');
+                $('#inputPw').focus();
+                return;
+            } else {
+               frm.submit();
+            }
+        }
+    </script>
+
 </body>
 
 </html>

@@ -1205,6 +1205,7 @@ footer .goTop {
     left: 0;
     right: 0;
     z-index: 15;
+    display: none;
 }
 
 /* 로그인 팝업 창 스타일 */
@@ -1219,6 +1220,7 @@ footer .goTop {
     right: 0;
     top: 20%;
     border-radius: 6px;
+    display: none;
 }
 
 /* 로그인 팝업 창 컨텐츠 스타일 */
