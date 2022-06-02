@@ -1,0 +1,451 @@
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The dishes Mall</title>
+
+    <!-- reset css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="/main.css">
+
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- header -->
+        <header>
+            <div class="inner-header">
+                <h1 class="logo">
+                    <a href="#">
+                        <img src="/image/Title_ex.png" alt="메인 로고 이미지">
+                    </a>
+                </h1>
+
+                <!-- 메인 네비게이션바 -->
+                <nav class="gnb">
+                    <a href="#">신상품</a>
+                    <a href="#">베스트</a>
+                    <a href="#">카테고리</a>
+                </nav>
+                <!-- 검색/찜/장바구니 -->
+                <nav class="tnb">
+                    <a href="#">
+                        <form action="/search" class="search">
+                            <label>
+                                <span class="lnr lnr-magnifier"></span>
+                                <input type="text" placeholder="검색어를 입력하세요" id="search">
+                                <i class="fas fa-search"></i>
+                            </label>
+                        </form>
+                    </a>
+                    <a href="#" class="sign-in-up">
+                        <span>로그인</span>
+                    </a>
+                    <a href="#" class="sign-in-up">
+                        <span>회원가입</span>
+                    </a>
+                    <a href="#"><i class="far fa-heart"></i></a>
+                    <a href="#"><i class="fas fa-cart-plus"></i></a>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+
+        <!-- section content container -->
+        <div class="container">
+
+            <!-- section content > main banner -->
+            <!-- 메인 배너 자리 -->
+            <section id="main-banner-container">
+                <div class="main-banner-img">
+                    <a href="#">
+                        <img src="./image/banner1.png" alt="메인배너이미지1">
+                        <div class="banner-text">
+                            <p>banner title1</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="main-banner-img">
+                    <a href="#">
+                        <img src="./image/banner2.png" alt="메인배너이미지2">
+                        <div class="banner-text">
+                            <p>banner title2</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="click-next-pre">
+                    <a href="#">Next</a>
+                    <p>&nbsp;&nbsp;|&nbsp;&nbsp;</p>
+                    <a href="#">Previous</a>
+                </div>
+            </section>
+            <!-- //section content > main banner -->
+
+
+
+            <!-- section content > category -->
+            <!-- 카테고리 이미지 영역 -->
+            <section id="category" class="common-style">
+                <div class="section-title">Category</div>
+                <div class="products">
+                    <a href="#" class="category-link one">
+                        <img src="/image/Cate_Cutlery.jpg" alt="카테고리1 Premium Quality Cutlery">
+                        <div class="box-info">
+                            <span class="pq-text">Premium Quality</span>
+                            <span class="category-nm">Cutlery</span>
+                        </div>
+                    </a>
+                    <a href="#" class="category-link two">
+                        <img src="/image/Cate_bowl.jpg" alt="카테고리2 Premium Quality Bowl">
+                        <div class="box-info">
+                            <span class="pq-text">Premium Quality</span>
+                            <span class="category-nm">Bowl</span>
+                        </div>
+                    </a>
+                    <a href="#" class="category-link three">
+                        <img src="/image/Cate_Cup.jpg" alt="카테고리3 Premium Quality Cup">
+                        <div class="box-info">
+                            <span class="pq-text">Premium Quality</span>
+                            <span class="category-nm">Cup</span>
+                        </div>
+                    </a>
+                    <a href="#" class="category-link four">
+                        <img src="/image/Cate_Plate.jpg" alt="카테고리4 Premium Quality Plate">
+                        <div class="box-info">
+                            <span class="pq-text">Premium Quality</span>
+                            <span class="category-nm">Plate</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            <!-- //section content > category -->
+
+
+            <!-- section content > new product -->
+            <!-- 새 상품 정렬 (4개상품 한 줄로 노출) -->
+            <section id="new-products" class="common-style product-list-section">
+                <div class="section-title">New Products</div>
+                <div class="click-more">
+                    <a href="#">Next</a>&ensp; | &ensp;<a href="#">Previous</a>
+                </div>
+                <ul class="products-list">
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품1">
+                            <div class="box-info">
+                                <span class="pd_nm">product1</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품2">
+                            <div class="box-info">
+                                <span class="pd_nm" class="pd_nm">product2</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품3">
+                            <div class="box-info">
+                                <span class="pd_nm">product3</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품4">
+                            <div class="box-info">
+                                <span class="pd_nm">product4</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품1">
+                            <div class="box-info">
+                                <span class="pd_nm">product1</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품2">
+                            <div class="box-info">
+                                <span class="pd_nm" class="pd_nm">product2</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품3">
+                            <div class="box-info">
+                                <span class="pd_nm">product3</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품4">
+                            <div class="box-info">
+                                <span class="pd_nm">product4</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품1">
+                            <div class="box-info">
+                                <span class="pd_nm">product1</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품2">
+                            <div class="box-info">
+                                <span class="pd_nm" class="pd_nm">product2</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품3">
+                            <div class="box-info">
+                                <span class="pd_nm">product3</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품4">
+                            <div class="box-info">
+                                <span class="pd_nm">product4</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <!-- //section content > new product -->
+
+
+            <!-- section content > best product -->
+            <!-- 베스트 상품 정렬 (8개 상품 2줄로 노출) -->
+            <section id="best-products" class="common-style product-list-section">
+                <div class="section-title">Best Products</div>
+                <div class="click-more">
+                    <a href="#">Next</a> &ensp; | &ensp;<a href="#">Previous</a>
+                </div>
+                <ul class="products-list">
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품1">
+                            <div class="box-info">
+                                <span class="pd_nm">product1</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품2">
+                            <div class="box-info">
+                                <span class="pd_nm" class="pd_nm">product2</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품3">
+                            <div class="box-info">
+                                <span class="pd_nm">product3</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품4">
+                            <div class="box-info">
+                                <span class="pd_nm">product4</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품1">
+                            <div class="box-info">
+                                <span class="pd_nm">product1</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품2">
+                            <div class="box-info">
+                                <span class="pd_nm" class="pd_nm">product2</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품3">
+                            <div class="box-info">
+                                <span class="pd_nm">product3</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품4">
+                            <div class="box-info">
+                                <span class="pd_nm">product4</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품1">
+                            <div class="box-info">
+                                <span class="pd_nm">product1</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품2">
+                            <div class="box-info">
+                                <span class="pd_nm" class="pd_nm">product2</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품3">
+                            <div class="box-info">
+                                <span class="pd_nm">product3</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="#">
+                            <img src="http://via.placeholder.com/230" alt="상품4">
+                            <div class="box-info">
+                                <span class="pd_nm">product4</span>
+                                <span class="pd_price">10,000원</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <!-- //section content > best product -->
+
+
+            <!-- section content > labels -->
+            <section id="labels" class="common-style">
+
+                <ul>
+                    <li><img src="http://via.placeholder.com/150" alt=""></li>
+                    <li><img src="http://via.placeholder.com/150" alt=""></li>
+                    <li><img src="http://via.placeholder.com/150" alt=""></li>
+                    <li><img src="http://via.placeholder.com/150" alt=""></li>
+                    <li><img src="http://via.placeholder.com/150" alt=""></li>
+                </ul>
+            </section>
+            <!-- //section content > labels -->
+        </div>
+        <!-- //section content container -->
+
+
+        <!-- section login popUp container -->
+        <section id="login-popup-container" class="hide__">
+            <div class="login-popup-box">
+                <div class="login-join-box">
+                    <div class="login-text">
+                        <p>로그인</p>
+                    </div>
+                    <form class="idpw-input">
+                        <input type="id" name="memId" placeholder="아이디">
+                        <input type="password" name="memPassword" placeholder="비밀번호">
+                    </form>
+                    <div class="login-id-remember">
+                        <input type="checkbox" checked name="id-remember">
+                        <p>아이디 저장</p>
+                    </div>
+                    <div class="login-sumit-btn">
+                        <button type="submit">로그인</button>
+                    </div>
+                    <div class="mem-search-join">
+                        <a href="#">아이디/비밀번호 찾기</a>
+                        <a href="#">회원가입</a>
+                    </div>
+                    <div class="sns-join">
+                        <button>카카오로 시작하기</button>
+                        <button>네이버로 시작하기</button>
+                        <button>트위터로 시작하기</button>
+                        <button>페이스북으로 시작하기</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- //section login popUp container -->
+
+
+        <!-- footer -->
+        <footer>
+            <div id="site-map">
+                <div>
+                    <span>회사 소개</span>
+                    <span>이용약관</span>
+                    <span>개인정보 처리방침</span>
+                    <span>공지사항</span>
+                    <span>고객센터</span>
+                </div>
+            </div>
+            <div id="copyright">
+                <div>Copyright ⓒ2022 All rights reserved │ </div>
+            </div>
+            <p class="goTop">
+                ▲ <br> TOP
+            </p>
+        </footer>
+        <!-- //footer -->
+    </div>
+</body>
+
+</html>

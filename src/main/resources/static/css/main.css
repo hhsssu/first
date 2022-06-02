@@ -1,0 +1,1306 @@
+/* 웹 폰트 로딩 */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,400;1,700;1,900&family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+/* reset */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    outline: none;
+    border: none;
+}
+
+/* common */
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.wrap {
+    position: relative;
+    font-size: 15px;
+    font-family: 'NanumGothic', 'Noto Sans KR', 'Lato', sans-serif;
+
+    /* 색상표 */
+    color:#00B261
+        #d7f5e7
+        #89CAAC
+        #60E7AA
+        #006034
+        #002917
+
+        #CF0071
+        #DE96BE
+        #F064B1
+        #70003D
+        #30001A
+
+        #FFA500
+        #fff0d4
+        #FFE2AD
+        #FFCB6A
+        #8A5A00
+        #3C2700;
+
+    color: #333;
+    /* 기본 텍스트 색상 #333 */
+    /* 연한 회색 테두리 색상 #ccc */
+    /* 카테고리, 타이틀 텍스트 색상 #555 */
+    
+        
+    
+}
+
+.en {
+    font-family: 'Lato', sans-serif;
+}
+
+br.mo {
+    display: none;
+}
+
+.hide {
+    display: none !important;
+}
+
+/* ============== header ============= */
+header {
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    z-index: 10;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    /* background: orange; */
+}
+
+/* 스크롤시 헤더에 배경색상과 테두리하단선 생성 */
+header.scroll {
+    background: #fff;
+    border-bottom: #f6f6f6 solid 1px;
+}
+
+
+header .inner-header {
+    display: flex;
+    width: 80%;
+    /* min-width: 1000px; */
+    height: 60px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    color: #111;
+    /* background: pink; */
+}
+
+
+/* 네비게이션 정렬 */
+
+/* 메인 네비게이션 마우스 호버 효과 */
+/* 투명도 80% */
+header .inner-header .gnb a:hover {
+    color: #00B261;
+}
+
+header .inner-header .gnb {
+    /* background: greenyellow; */
+    margin-right: 8vw;
+    display: flex;
+    min-width: 250px;
+}
+
+header .inner-header .gnb a {
+    flex: auto;
+    font-weight: 800;
+    margin-right: 2em;
+}
+
+/* 우측 검색/찜/장바구니 배열 */
+header .inner-header .tnb {
+    display: flex;
+    align-items: center;
+}
+
+header .inner-header .tnb a {
+    margin-right: 1.5vw;
+}
+
+header .inner-header .tnb a.sign-in-up {
+    font-size: 0.8rem;
+}
+
+
+/* 검색창 디자인 */
+header .inner-header .tnb .search {
+    border: #333 solid 0.8px;
+    border-radius: 15px;
+    padding: 5px 10px;
+}
+
+/* 스크롤시 배경색상과 테두리색상 변경 */
+header .inner-header .tnb .search.scroll {
+    border: #ddd solid 0.8px;
+    border-radius: 15px;
+    padding: 5px 10px;
+    background: #fff;
+}
+
+header .inner-header .tnb .search label {
+    display: flex;
+}
+
+#search {
+    background: transparent;
+    display: block;
+}
+
+
+/* ============ header fin 🟨 ============ */
+
+
+
+/* ============ contents✅ ============ */
+
+/* ------- contents > main banner✅ ------- */
+section#main-banner-container {
+    position: relative;
+    width: 100%;
+    /* 전체 크기를 화면 크기와 동일하게 맞추기 */
+    height: 600px;
+    /* 높이 고정 */
+    overflow: hidden;
+    /* 나머지 부분 숨기기 */
+    margin: 0 auto;
+    padding-top: 100px;
+    display: block;
+}
+
+section#main-banner-container .main-banner-img {
+    position: absolute;
+    /* 화면 감소시 이미지 크기는 right, left 포지션값에 의해 결정된다. */
+    /* 포지션값을 -200% 시킴으로써 화면이 줄어들어도 이미지 크기가 감소하는 right, left 값이 되지 않음 */
+    top: 0;
+    right: -200%;
+    bottom: 0;
+    left: -200%;
+    margin-top: 85px;
+}
+
+section#main-banner-container .main-banner-img a img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 100%;
+
+}
+
+/* main banner text Style */
+/* 메인 배너 텍스트 스타일 */
+section#main-banner-container .main-banner-img a .banner-text {
+    position: absolute;
+    width: 50%;
+    height: 100px;
+    left: 10em;
+    bottom: 5em;
+    z-index: 100;
+}
+
+/* next \ previous Style */
+section#main-banner-container .click-next-pre {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    right: 20%;
+    font-weight: 700;
+    margin: 0 auto;
+    font-size: 0.9em;
+    padding: 15px 25px 25px;
+    background: #fff;
+
+}
+
+/* ------- contents > main banner fin 🟨 ------- */
+
+/* ------- contents > page banner✅ ------- */
+
+section#page-banner-container {
+    margin: 0 auto;
+    padding-top: 50px;
+    width: 100%;
+    height: 20em;
+    background: #d7f5e7;
+}
+
+section#page-banner-container.basket-bn {
+    background: #fff0d4;
+    /* background: #f8d9ea; */
+}
+
+
+section#page-banner-container .page-banner-img {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    justify-content: space-evenly;
+}
+
+section#page-banner-container .page-banner-img .page-banner-text {
+    /* text-align: center; */
+    position: relative;
+    top: 5rem;
+    /* margin-top: 50px; */
+    font-size: 2.2rem;
+    font-weight: 900;
+    font-family: 'Noto Sans KR', sans-serif;
+    cursor: default;
+    color: #555;
+}
+
+/* 페이지 배너 영문 타이틀 */
+section#page-banner-container .page-banner-img .page-banner-text p:last-child {
+    color: #555;
+    opacity: 0.6;
+    font-size: 2rem;
+}
+
+section#page-banner-container .page-banner-img img {
+    margin-top: 50px;
+    height: 200px;
+}
+
+/* ------- contents > page banner fin 🟨 ------- */
+
+/* ------- content common style✅ ------- */
+
+section.common-style {
+    width: 70%;
+    margin: 0 auto;
+}
+
+/* 각 섹션 텍스트 타이틀 스타일 */
+section .section-title {
+    font-size: 1.7em;
+    font-weight: 700;
+    margin: 5em 0 2em 0;
+    text-align: center;
+}
+
+
+/* ------- contents > category✅ ------- */
+/* 카테고리 섹션 디자인 */
+
+section#category {
+    margin: 0 auto;
+}
+
+
+/* 카테고리 섹션 이미지 정렬 */
+section#category .products {
+    margin-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    /* display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0.5rem; */
+}
+
+/* 카테고리 이미지 영역 */
+section#category .products .category-link {
+    width: 49%;
+    margin: 0.2vw;
+    /* background: rgb(249, 249, 249); */
+    position: relative;
+}
+
+section#category .products .category-link:nth-child(2n-1) {
+    margin-left: 0 !important;
+}
+
+section#category .products .category-link img {
+    width: 100%;
+}
+
+/* 카테고리 부가 텍스트 영역 */
+section#category .products .category-link .box-info .pq-text {
+    display: block;
+    position: absolute;
+    top: 2vw;
+    left: 2vw;
+    margin-bottom: 10px;
+    font-weight: 300;
+    color: #999;
+    font-family: 'Ubuntu', sans-serif;
+
+}
+
+/* 카테고리 이름 영역 */
+section#category .products .category-link .box-info .category-nm {
+    display: block;
+    position: absolute;
+    top: 3.5vw;
+    left: 2vw;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #333;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+/* ------- contents > category fin 🟨 ------- */
+
+
+
+/* ------- contents > new products✅ best products✅ ------- */
+
+/* next|previous 텍스트 버튼 스타일 */
+section .click-more {
+    margin-bottom: 20px;
+    text-align: end;
+    padding-right: 1em;
+}
+
+section .products-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+
+/* 상품 배열 스타일 */
+section .products-list .product {
+    width: 25%;
+    position: relative;
+    margin-bottom: 5vw;
+    /* background: #ddd; */
+    box-sizing: border-box;
+    /* padding-left: 0.5em; */
+    padding-right: 1em;
+}
+
+section .products-list .product a img {
+    width: 100%;
+}
+
+section .products-list .product a .box-info {
+    line-height: 1.7em;
+}
+
+section .products-list .product a .box-info .pd_nm {
+    text-align: start;
+    display: block;
+    /* font-weight: 600; */
+}
+
+section .products-list .product a .box-info .pd_price {
+    text-align: start;
+    font-weight: 700;
+    /* font-size: 1.1em; */
+}
+
+
+
+/* ------- contents > new products / best products fin 🟨 ------- */
+
+
+
+/* ------- contents > labels✅ ------- */
+
+section#labels ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+section#labels ul li {
+    width: 18%;
+    margin: 0 0.5vw 1.2vw;
+    text-align: center;
+
+}
+
+/* footer와의 간격 */
+section#labels ul li:last-child {
+    margin-bottom: 10vw;
+}
+
+/* 이미지 사이즈 조절 */
+section#labels ul li img {
+    width: 100%;
+    max-width: 150px;
+    /* 150px 이상으로 커지지 않도록 함 */
+}
+
+
+
+/* ------- contents > labels fin 🟨 ------- */
+
+
+
+
+
+/* =============== contents fin 🟨 ============== */
+
+
+
+/* =============== footer✅ =============== */
+footer {
+    padding: 20px 2vw;
+    background: #eee;
+    text-align: left;
+    font-size: 0.7em;
+    font-weight: normal;
+}
+
+footer #site-map {
+    margin: 0 auto 10vw;
+    width: 60%;
+}
+
+
+footer #site-map div span {
+    cursor: pointer;
+    margin-right: 1vw;
+}
+
+footer #copyright {
+    width: 60%;
+    margin: 0 auto;
+}
+
+/* 상단으로 올라가는 버튼 */
+footer .goTop {
+    position: fixed;
+    left: 90%;
+    bottom: 60px;
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    /* margin-left: 700px; */
+    padding-top: 13px;
+    box-sizing: border-box;
+    color: #002917;
+    font-size: 10px;
+    line-height: 1.1em;
+    text-align: center;
+    cursor: pointer;
+    background-color: #FFE2AD;
+    border-radius: 50%;
+}
+
+/* =============== footer fin 🟨 =============== */
+
+
+/* ==================== products_page style✅ ========================= */
+
+/* 사이드바 / 상품 구분 */
+.product-container {
+    display: flex;
+    padding-top: 10vh;
+}
+
+.category-list-sidebar-wrap {
+    flex: 1;
+    /* border: #ccc solid 2px; */
+    margin-right: 3em;
+    line-height: 2.2em;
+}
+
+/* 카테고리 "전체" 텍스트 스타일 */
+.category-list-sidebar-wrap .category-list-title {
+    font-weight: 900;
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+/* 각 카테고리 스타일 */
+.category-list-sidebar-wrap ul li.category-list-branch-title {
+    font-weight: 700;
+    color: #555;
+}
+
+/* 소카테고리 스타일 */
+.category-list-sidebar-wrap ul li.category-list-branch-title div ul li {
+    color: #666;
+    padding-left: 1em;
+}
+
+
+/* 상품목록 스타일 */
+#products {
+    flex: 4;
+}
+
+/* 상품의 카테고리 타이틀 스타일 (상품목록 바로 위의 텍스트) */
+#products .category-text {
+    border: none;
+    /* margin-top: 0.5em; */
+}
+
+/* ==================== products_page style fin 🟨 ========================= */
+
+
+
+/* ==================== detail_page style✅ ========================= */
+.product-detail-container {
+    padding-top: 15vh;
+}
+
+/* 상세페이지 가운데 정렬 */
+.product-detail-container .pd-content-wrap {
+    margin: 0 auto;
+    width: 100%;
+    min-width: 1000px;
+    position: relative;
+}
+
+/* 카테고리 경로 */
+.category-text {
+    font-size: 0.7em;
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ccc;
+}
+
+.category-text a:last-child {
+    font-weight: 800;
+}
+
+/* 해당 상품 이미지/텍스트 상자 */
+.pd-detail-wrap {
+    display: flex;
+    margin-bottom: 5em;
+}
+
+/* 상세 메인 이미지 상자 */
+.pd-detail-wrap .pd-detail-img-wrap {
+    margin: 0 1em;
+    flex: 1;
+}
+
+.pd-detail-wrap .pd-detail-img-wrap .main-img {
+    width: 500px;
+}
+
+.pd-detail-wrap .pd-detail-img-wrap .main-img img {
+    width: 100%;
+}
+
+/* 상세 메인 부가 이미지 */
+.pd-detail-wrap .pd-detail-img-wrap .add-img li {
+    width: 50px;
+    margin: 0.3em 0.5em 0 0;
+    position: relative;
+    float: left;
+}
+
+/* 부가 이미지 hover시 스타일 */
+.pd-detail-wrap .pd-detail-img-wrap .add-img li:hover {
+    cursor: pointer;
+}
+
+.pd-detail-wrap .pd-detail-img-wrap .add-img li:hover::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid #777;
+}
+
+.pd-detail-wrap .pd-detail-img-wrap .add-img li img {
+    width: 100%;
+}
+
+
+/* 상세 메인 상품 가격, 옵션 정보 상자 */
+.pd-detail-wrap .pd-detail-info-wrap {
+    padding: 1em;
+    flex: 1;
+    position: relative;
+}
+
+.pd-detail-wrap .pd-detail-info-wrap .pd-info {
+    font-weight: 700;
+}
+
+/* 상품명 스타일 */
+.pd-detail-wrap .pd-detail-info-wrap .pd-info .pd-title {
+    font-size: 1.8em;
+    font-weight: 800;
+    margin-bottom: 18px;
+    color: inherit;
+    padding: 0;
+}
+
+/* 상품 정가 스타일 */
+.pd-detail-wrap .pd-detail-info-wrap .pd-info .pd-price {
+    text-decoration: solid line-through;
+    color: #aaa;
+    line-height: 1em;
+    font-size: 1.5em;
+}
+
+/* 상품 할인가 스타일 */
+.pd-detail-wrap .pd-detail-info-wrap .pd-info .pd-dc-price {
+    font-size: 1.8em;
+    line-height: 1.5em;
+    margin-bottom: 18px;
+    font-weight: 900;
+    color: #222;
+}
+
+.pd-detail-wrap .pd-detail-info-wrap .pd-info .pd-dc-price span {
+    color: #00B261;
+}
+
+
+/* 상품 상세정보 배송/수량선택 스타일 */
+.pd-detail-wrap .pd-detail-info-wrap .pd-optionform-btn .pd-option-wrap {
+    /* display: flex; */
+    /* align-items: center; */
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.pd-detail-wrap .pd-detail-info-wrap .pd-optionform-btn .pd-option-wrap th {
+    margin-right: 15px;
+    margin-top: 2px;
+    font-weight: 900;
+    color: #006034;
+    line-height: 1.5em;
+    width: 20%;
+    text-align: end;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+/* 배송비 스타일 */
+.pd-detail-wrap .pd-detail-info-wrap .pd-optionform-btn .pd-option-wrap td {
+    line-height: 1.3em;
+}
+
+/* 수량 선택 스타일 */
+/* .pd-detail-wrap .pd-detail-info-wrap .pd-optionform-btn {
+    min-height: 310px;
+    position: relative;
+} */
+
+/* 주문 수량 스타일 */
+.pd-detail-wrap .pd-detail-info-wrap .pd-optionform-btn .pd-option-wrap .sale-amount {
+    padding-top: 2px;
+    width: 100px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#amount {
+    width: 70px;
+    text-align: center;
+    border-radius: 3px;
+    padding: 2px;
+    border: 1px #ddd solid;
+    background: #eee;
+}
+
+
+/* 총 주문 금액 스타일 */
+/* .total-sum {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    justify-content: space-between;
+    align-items: baseline;
+    font-weight: 900;
+} */
+
+/* .total-sum .total-text {
+    color: #006034;
+}
+
+.total-sum .total-price {
+    font-size: 1.2em;
+}
+
+.total-sum .total-price .total-amount {
+    font-weight: normal;
+    font-size: 0.8em;
+    margin-right: 1rem;
+} */
+
+/* 장바구니/바로구매 버튼 */
+.sale-basket-btn {
+    display: flex;
+    margin: 20px -3px 0;
+}
+
+/* 장바구니/바로구매 버튼 공통 스타일 */
+.sale-basket-btn button {
+    padding: 15px 0;
+    min-width: 47%;
+    font-weight: 700;
+    font-size: 1.1em;
+    border-radius: 3px;
+    background: #fff;
+    border: #00B261 solid 1px;
+    color: #00B261;
+    cursor: pointer;
+    flex: 1;
+    margin: 0 3px;
+}
+
+/* 바로구매 버튼 */
+.sale-basket-btn button:last-child {
+    background: #00B261;
+    color: #fff;
+}
+
+/* 해당 상품과 관련있는 상품 목록 스타일 */
+/* 상품목록 테두리 스타일, 패딩, 마진값 설정 */
+.together-pd-wrap {
+    border: #ddd solid 3px;
+    padding: 2em;
+    margin: 0 auto 7em;
+}
+
+/* 이 상품과 비슷한 상품 텍스트 스타일 */
+.together-pd-wrap .together-pd-title {
+    margin-bottom: 1.6em;
+    font-weight: 700;
+    color: #555;
+}
+
+.together-pd-wrap .products-list {
+    margin-bottom: 0;
+    flex-wrap: nowrap;
+}
+
+.together-pd-wrap .products-list .product {
+    margin: 0 auto;
+    width: 200px;
+}
+
+/* 상품TAB 스타일 */
+.product-tab-wrap {
+    position: sticky;
+    width: 100%;
+    top: 81px;
+    z-index: 90;
+    background: #fff;
+    border-bottom: #555 solid 1.5px;
+    padding-top: 10px;
+}
+
+.product-tab-wrap .product-tab {
+    display: flex;
+}
+
+.product-tab-wrap .product-tab li.current {
+    border: #888 solid 1px;
+    border-bottom: none;
+    border-left: #555 solid 1.5px;
+    border-right: #555 solid 1.5px;
+    border-top: #555 solid 1.5px;
+    background-color: #fff;
+    z-index: 100;
+    color: #00B261;
+}
+
+.product-tab-wrap .product-tab li {
+    padding: 12px 40px;
+    font-size: 0.9em;
+    margin-bottom: -1.5px;
+}
+
+
+/* 설명, 리뷰, 문의 타이틀 스타일 */
+.product-container .pd-content-wrap h2 {
+    font-weight: 900;
+    color: #555;
+    margin-bottom: 1.6em;
+    padding: 0 2em;
+    font-size: 1.2em;
+}
+
+
+/* 해당 상품 상세 설명 상자 */
+.pd-detail-explains-wrap {
+    margin-bottom: 10em;
+    padding-top: 100px;
+}
+
+.pd-detail-explains-wrap .pd-detail-explain {
+    width: 100%;
+}
+
+
+.pd-detail-explains-wrap .pd-detail-explain img {
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 상품 상세설명 하단 상품정보 테이블 스타일 */
+.pd-detail-explains-wrap .pd-essential-info {
+    margin: 100px auto;
+    text-align: left;
+    font-size: 0.7em;
+    width: 50%;
+    line-height: 1.5em;
+
+}
+
+.pd-detail-explains-wrap .pd-essential-info tr {
+    border-bottom: 1px solid #ccc;
+}
+
+.pd-detail-explains-wrap .pd-essential-info tr th {
+    padding: 10px;
+    width: 30%;
+    font-weight: 700;
+    color: #555;
+}
+
+.pd-detail-explains-wrap .pd-essential-info tr td {
+    padding: 10px;
+}
+
+
+
+/* 상품 리뷰 스타일 */
+.pd-reviews {
+    width: 100%;
+    margin-bottom: 10em;
+}
+
+.pd-reviews .review-header {
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: center;
+    line-height: 1em;
+}
+
+.pd-reviews .review-header h2 {
+    margin-right: 5px;
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+/* 리뷰 개수 */
+.pd-reviews .review-header .review-total-num {
+    color: #00B261;
+    font-weight: 900;
+    font-size: 1.3em;
+}
+
+/* 리뷰 정렬 필터 부분 */
+.pd-reviews .review-feed .review-feed-filter {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    padding: 10px 2px 10px 0;
+}
+
+.pd-reviews .review-feed .review-feed-filter .all-photo-btn {
+    font-weight: 700;
+    display: flex;
+    width: 7%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 리뷰 최신순-인기순 필터 */
+#rv-filter {
+    border: #ddd solid 1px;
+    padding: 2px;
+    background: #eee;
+    border-radius: 3px;
+    width: 7%;
+    text-align: center;
+}
+
+/* 리뷰 목록 부분 */
+.pd-reviews .review-feed .review-feed-list .reviews {
+    border-bottom: #ddd solid 1px;
+    padding: 1rem 0;
+}
+
+.pd-reviews .review-feed .review-feed-list .reviews .reviews-text-box .rv-info {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-end;
+    line-height: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+.pd-reviews .review-feed .review-feed-list .reviews .reviews-text-box .rv-info .rv-id-box .rv-id {
+    font-size: 0.9em;
+}
+
+.pd-reviews .review-feed .review-feed-list .reviews .reviews-text-box .rv-info .rv-id-box .rv-stars {
+    color: #00B261;
+}
+
+.pd-reviews .review-feed .review-feed-list .reviews .reviews-text-box .rv-info .rv-date {
+    font-size: 0.8em;
+    color: #555;
+}
+
+/* 리뷰 내용 부분 */
+.pd-reviews .review-feed .review-feed-list .reviews .reviews-text-box .rv-text {
+    line-height: 1.4em;
+    margin-bottom: 1.5em;
+    color: #555;
+}
+
+/* 리뷰 목록 - 포토 부분 */
+.pd-reviews .review-feed .review-feed-list .reviews .reviews-img {
+    width: 10%;
+}
+
+.pd-reviews .review-feed .review-feed-list .reviews .reviews-img:hover {
+    width: 500px;
+}
+
+.pd-reviews .review-feed .review-feed-list .reviews .reviews-img img {
+    width: 100%;
+}
+
+/* ==================== detail_page style fin 🟨 ========================= */
+
+/* ==================== basket_page style✅ ========================= */
+#basket-list-container {
+    width: 70%;
+    margin: 5vh auto;
+    font-size: 0.9rem;
+}
+
+#basket-list-container .basket-list {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* 장바구니 전체 선택/삭제 스타일 */
+#basket-list-container .basket-list-title {
+    display: flex;
+    border-bottom: 1.3px solid #ddd;
+    justify-content: space-between;
+    padding-bottom: 0.5em;
+}
+
+#basket-list-container .basket-list-title ul {
+    display: flex;
+    align-items: center;
+    
+}
+
+#basket-list-container .basket-list-title .basket-select-all li {
+    cursor: pointer;
+    line-height: 1em;
+}
+
+
+#basket-list-container .basket-list-title .basket-select-all li:first-child {
+    padding-right: 5px;
+}
+
+#basket-list-container .basket-list-title .basket-select-all li input {
+    background: #000;
+}
+
+/* 전체삭제/선택삭제 스타일 */
+#basket-list-container .basket-list-title .basket-delete li > button {
+    cursor: pointer;
+    border: #ddd 1px solid;
+    border-radius: 5px;
+    background: #fff;
+    padding: 0.6em 1em;
+    line-height: 1em;
+}
+
+#basket-list-container .basket-list-title .basket-delete li > button:hover {
+    color: #FFA500;
+}
+
+#basket-list-container .basket-list-title .basket-delete li:nth-child(2) {
+    cursor: default;
+}
+
+/* 상품 부분 너비 */
+/* #basket-list-container .basket-list .basket-list-title th:nth-child(2) {
+    width: 250px;
+} */
+
+/* 장바구니 상품 목록 하단 테두리 스타일 */
+#basket-list-container .basket-list .basket-list-pd .basket-pd-info {
+    border-bottom: 1px solid #ddd;
+}
+
+/* 장바구니 상품 목록 스타일 */
+#basket-list-container .basket-list .basket-list-pd .basket-pd-info td {
+    padding: 1rem 0;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 1.5em;
+}
+
+/* 상품 이름/옵션 부분 스타일 */
+#basket-list-container .basket-list .basket-list-pd .basket-pd-info td:nth-child(3) {
+    text-align: left !important;
+    padding-left: 20px;
+}
+
+/* 옵션 텍스트 스타일 */
+#basket-list-container .basket-list .basket-list-pd .basket-pd-info td:nth-child(3) > p:nth-child(2) {
+    color: #555;
+    font-size: 0.9em;
+}
+
+#basket-list-container .basket-list .basket-list-pd .basket-pd-info td:nth-child(4) {
+    font-weight: 700;
+}
+
+/* 상품 수량 스타일 */
+
+#basket-list-container .basket-list .basket-list-pd .basket-pd-info td input {
+    width: 40px;
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 3px 0;
+    font-size: 0.8em;
+    line-height: 1em;
+}
+
+/* #basket-list-container .basket-list .basket-list-pd .basket-pd-info td input::-webkit-outer-spin-button,
+#basket-list-container .basket-list .basket-list-pd .basket-pd-info td input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    
+} */
+
+#basket-list-container .basket-list .basket-list-pd .basket-pd-info td button {
+    font-size: 0.8em;
+    border: #ddd 1px solid;
+    padding: 3px 5px;
+    line-height: 1.1em;
+    cursor: pointer;
+}
+
+/* 상품 이미지 사이즈 */
+#basket-list-container .basket-list .basket-list-pd .basket-pd-info .basket-pd-img {
+    width: 50px;
+}
+
+#basket-list-container .basket-list .basket-list-pd .basket-pd-info .basket-pd-img img {
+    width: 100%;
+}
+
+#basket-list-container .basket-list .basket-list-pd .basket-pd-info i {
+    cursor: pointer;
+}
+
+
+/* 상품 결제금액 합산 스타일 */
+#basket-total-container {
+    width: 70%;
+    margin: 0 auto 1rem;
+    position: relative;
+}
+
+/* 상품 결제금액 합산/주문버튼 부분 */
+#basket-total-container>div {
+    width: 300px;
+    line-height: 3rem;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-radius: 5px;
+    float: right;
+    margin-bottom: 5rem;
+    padding: 0 20px;
+}
+
+#basket-total-container .basket-total-box {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+#basket-total-container .basket-total-box .basket-total tr {
+    font-size: 0.8rem;
+}
+
+#basket-total-container .basket-total-box .basket-total tr th {
+    width: 40%;
+    text-align: start;
+}
+
+#basket-total-container .basket-total-box .basket-total tr td {
+    text-align: end;
+}
+
+/* 금액(숫자)부분 스타일 */
+#basket-total-container .basket-total-box .basket-total tr td > span:first-child {
+    font-weight: 900;
+    font-size: 1rem;
+}
+
+/* 결제예정금액 부분 스타일 */
+#basket-total-container .basket-total-box .basket-total .bk-total {
+    border-top: #ddd 1px solid;
+}
+
+/* 결제예정금액 숫자부분 스타일 */
+#basket-total-container .basket-total-box .basket-total .bk-total > td > span:first-child {
+    color: #F064B1;
+    font-size: 1.1rem;
+}
+
+/* 전체/선택주문 스타일 */
+#basket-total-container div .bk-btn-box {
+    text-align: center;
+}
+
+#basket-total-container div .bk-btn-box .bk-btn {
+    width: 100%;
+    font-size: 1.2rem;
+    background: #FFA500;
+    border-radius: 6px;
+    line-height: 2.5em;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+/* 선택주문 스타일 */
+#basket-total-container div .bk-btn-box .bk-btn:last-child {
+    border: #FFA500 2px solid;
+    background: #fff;
+    color: #FFA500; 
+}
+
+/* ==================== basket_page style fin 🟨 ========================= */
+
+
+
+/* ==================== main_page login style ✅ ========================= */
+/* .wrap {
+    position: relative;
+    위에 추가함
+} */
+/* 로그인 팝업 배경 설정 */
+#login-popup-container {
+    background: RGBA(0,0,0,0.4);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 15;
+}
+
+/* 로그인 팝업 창 스타일 */
+#login-popup-container .login-popup-box {
+    background: #fff;
+    width: 400px;
+    /* height: 500px; */
+    position: fixed;
+    /* fixed 컨테이너 가운데로 정렬 */
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 20%;
+    border-radius: 6px;
+}
+
+/* 로그인 팝업 창 컨텐츠 스타일 */
+#login-popup-container .login-popup-box .login-join-box {
+    width: 90%;
+    margin: 50px auto;
+}
+
+#login-popup-container .login-popup-box .login-join-box .login-text {
+    margin-bottom: 1rem;
+}
+
+/* 상단 로그인 글자 스타일 */
+#login-popup-container .login-popup-box .login-join-box .login-text p {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-align: center;
+    cursor: default;
+}
+
+/* 아이디/비밀번호 입력칸 스타일 */
+#login-popup-container .login-popup-box .login-join-box form.idpw-input input{
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: #ddd 1px solid;
+    line-height: 3rem;
+    border-radius: 3px;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 아이디 저장 스타일 */
+#login-popup-container .login-popup-box .login-join-box .login-id-remember {
+    font-size: 0.8rem;
+    line-height: 1em;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+#login-popup-container .login-popup-box .login-join-box .login-id-remember input {
+    margin-right: 0.5em;
+}
+#login-popup-container .login-popup-box .login-join-box .login-id-remember p {
+    cursor: pointer;
+}
+
+/* 로그인 버튼 스타일 */
+#login-popup-container .login-popup-box .login-join-box .login-sumit-btn {
+    margin-bottom: 0.5rem;
+}
+
+#login-popup-container .login-popup-box .login-join-box button {
+    width: 100%;
+    line-height: 2rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 0.4rem;
+}
+
+#login-popup-container .login-popup-box .login-join-box .login-sumit-btn button {
+    /* width: 100%; */
+    /* border-radius: 3px; */
+    /* font-weight: 700; */
+    line-height: 3rem;
+    font-size: 1rem;
+    background: #00B261;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* 아이디/비번찾기, 회원가입 버튼 스타일 */
+#login-popup-container .login-popup-box .login-join-box .mem-search-join {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+#login-popup-container .login-popup-box .login-join-box .mem-search-join a {
+    font-size: 0.8rem;
+}
+/* ==================== main_page login style fin 🟨 ========================= */
