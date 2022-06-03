@@ -482,12 +482,11 @@
                 document.querySelector(".login-popup-box").style.display = "block";
         }
 
-
+        
+        /*
         $('#inputId').on('keypress', function(e){
             if(e.keyCode == '13'){
                 if( $('#inputId').val() === '' || $('#inputId').val() === null ) {
-                    //$('#loginBtn').click();
-                    
                     $("#inputId").attr("placeholder", "아이디를 입력하세요");
                 }
             }
@@ -497,8 +496,19 @@
         if(e.keyCode == '13'){
             if( $('#inputPw').val() !== '' || $('#inputPw').val() !== null ) {
                     $('#loginBtn').click();
+                
                 }
         }
+        }); */
+
+
+        $('input[type="text"]').keydown(function() {
+              if (event.keyCode === 13) {
+             event.preventDefault();
+             if( $('#inputId').val() === '' || $('#inputId').val() === null ) {
+                    $("#inputId").attr("placeholder", "아이디를 입력하세요");
+                } 
+            }
         });
         
 
