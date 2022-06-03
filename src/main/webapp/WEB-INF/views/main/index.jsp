@@ -507,26 +507,35 @@
              event.preventDefault();
              if( $('#inputId').val() === '' || $('#inputId').val() === null ) {
                     $("#inputId").attr("placeholder", "아이디를 입력하세요");
-                } 
+                    $("#inputId").css("background", "#00B261");
+                } else {
+                    $("#inputId").css("background", "#fff");
+                }
+
             }
         });
         
 
+        $('input[type="password"]').keydown(function() {
+              if (event.keyCode === 13) {
+             event.preventDefault();
+             if( $('#inputPw').val() === '' || $('#inputPw').val() === null ) {
+                    $("#inputPw").attr("placeholder", "비밀번호를 입력하세요");
+                    $("#inputPw").css("background", "#00B261");
+                } 
+            }
+        });
+
+
+
        // let cmFunc = window.onbeforeunload;
 
         function go_login() {
-            if( $('#inputId').val() === '' || $('#inputId').val() === null ) {
-                $("#inputId").attr("placeholder", "아이디를 입력하세요");
-                $('#inputId').focus();
-                return;
-            } else if( $('#inputPw').val() === '' || $('#inputPw').val() === null) {
-                $("#inputPw").attr("placeholder", "비밀번호를 입력하세요");
-                $('#inputPw').focus();
-                return;
-            } else {
+            if($('#inputId').val() !== '' || $('#inputId').val() !== null ||
+             $('#inputPw').val() !== '' || $('#inputPw').val() !== null ){
                 $('#inputPw').on('keypress', function(e){
                 if(e.keyCode == '13'){
-                    $('#loginBtn').click();
+                    $('#loginBtn').submit();
                 }
                 });
             }
