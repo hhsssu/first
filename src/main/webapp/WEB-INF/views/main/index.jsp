@@ -508,10 +508,14 @@
              if( $('#inputId').val() === '' || $('#inputId').val() === null ) {
                     $("#inputId").attr("placeholder", "아이디를 입력하세요");
                     $("#inputId").css("background", "#00B261");
-                } else {
-                    $("#inputId").css("background", "#fff");
                 }
+            }
+        });
 
+        // 키 입력 후 발생되는 이벤트
+        $('input[type="text"]').keyup()(function() {
+            if($('#inputId').val() !== '' || $('#inputId').val() !== null ) {
+                $("#inputId").css("background", "#fff");
             }
         });
         
