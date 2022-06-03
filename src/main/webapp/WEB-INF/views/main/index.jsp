@@ -402,8 +402,8 @@
                     <div class="login-text">
                         <p>로그인</p>
                     </div>
-                    <form class="idpw-input" action="/customer/login" method="post" autocomplete="off" enctype="multipart/form-data">
-                        <input type="text" name="csId" placeholder="아이디" id="inputId">
+                    <form class="idpw-input" action="/customer/login" method="post" autocomplete="off" id="loginForm">
+                        <input type="text" name="csId" placeholder="아이디" id="inputId" >
                         <input type="password" name="csPw" placeholder="비밀번호" id="inputPw">
                     
                     <div class="login-id-remember">
@@ -411,7 +411,7 @@
                         <p>아이디 저장</p>
                     </div>
                     <div class="login-sumit-btn"> 
-                        <input type="button" value="로그인" onclick="go_login()" id="loginBtn">
+                        <input type="button" value="로그인" id="loginBtn">
                     </div>
                     <div class="mem-search-join">
                         <a href="#">아이디/비밀번호 찾기</a>
@@ -533,25 +533,14 @@
              if( $('#inputPw').val() === '' || $('#inputPw').val() === null ) {
                     //$("#inputPw").attr("placeholder", "비밀번호를 입력하세요");
                    // $("#inputPw").css("background", "#00B261");
-                   alert("아이디를 입력하세요");
-                } 
+                   alert("비밀번호를 입력하세요");
+                } else {
+                    $("#loginForm").submit();
+                }
             }
         });
 
 
-
-       // let cmFunc = window.onbeforeunload;
-
-        function go_login() {
-            if($('#inputId').val() !== '' || $('#inputId').val() !== null ||
-             $('#inputPw').val() !== '' || $('#inputPw').val() !== null ){
-                $('#inputPw').on('keypress', function(e){
-                if(e.keyCode == '13'){
-                    $('#loginBtn').submit();
-                }
-                });
-            }
-        }
 
     </script>
 

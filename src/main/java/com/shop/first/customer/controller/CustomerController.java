@@ -124,10 +124,10 @@ public class CustomerController {
             response.setContentType("text/html; charset=UTF-8");
 
             PrintWriter out = response.getWriter();
-            log.info("else!!");
-            //out.println("<script>alert('아이디 또는 비밀번호가 틀립니다. ');");
+
+            out.println("<script>alert('아이디 또는 비밀번호가 틀립니다. ');");
             out.println("<script>");
-            out.println("opener.location.reload();");
+           // out.println("opener.location.reload();");
             out.println("</script>");
             out.flush();
             response.flushBuffer();
