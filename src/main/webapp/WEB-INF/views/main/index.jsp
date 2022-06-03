@@ -501,31 +501,39 @@
         }
         }); */
 
+           /*
+        // 키 입력 후 발생되는 이벤ㅌ
+        $('input[type="text"]').keyup(function() {
+            if($('#inputId').val()!== '' || $('#inputId').val() !== null ) {
+                $("#inputId").css("background", "#fff");
+            }
+        });*/
+
+        /* [명령안내]
+        .keydown() - 키 입력 시 발생되는 이벤트
+        .keypress() - keydown과 같이 키 입력 시 발생되는 이벤트지만 Enter, Tab 등의 특수키에는 발생하지 않음
+        .keyup() - 키 입력 후 발생되는 이벤트
+        */
 
         $('input[type="text"]').keydown(function() {
               if (event.keyCode === 13) {
              event.preventDefault();
              if( $('#inputId').val() === '' || $('#inputId').val() === null ) {
-                    $("#inputId").attr("placeholder", "아이디를 입력하세요");
-                    $("#inputId").css("background", "#00B261");
+                    //$("#inputId").attr("placeholder", "아이디를 입력하세요");
+                      //$("#inputId").css("background", "#00B261");
+                    alert("아이디를 입력하세요");
                 }
             }
         });
 
-        // 키 입력 후 발생되는 이벤트
-        $('input[type="text"]').keyup()(function() {
-            if($('#inputId').val() !== '' || $('#inputId').val() !== null ) {
-                $("#inputId").css("background", "#fff");
-            }
-        });
-        
 
         $('input[type="password"]').keydown(function() {
               if (event.keyCode === 13) {
              event.preventDefault();
              if( $('#inputPw').val() === '' || $('#inputPw').val() === null ) {
-                    $("#inputPw").attr("placeholder", "비밀번호를 입력하세요");
-                    $("#inputPw").css("background", "#00B261");
+                    //$("#inputPw").attr("placeholder", "비밀번호를 입력하세요");
+                   // $("#inputPw").css("background", "#00B261");
+                   alert("아이디를 입력하세요");
                 } 
             }
         });
