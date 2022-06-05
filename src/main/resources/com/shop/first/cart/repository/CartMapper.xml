@@ -53,7 +53,7 @@
         c.customer_id = #{csId}
     </select>
 
-    <resultMap id="productMap" type="com.example.shop.product.domain.Product">
+    <resultMap id="productMap" type="com.shop.first.product.domain.Product">
         <result property="prCode" column="product_code" />
         <result property="cateCode" column="cate_code" />
         <result property="prName" column="product_name" />
@@ -67,6 +67,7 @@
         <result property="prImg4" column="product_img4" />
         <result property="prImg5" column="product_img5" />
         <result property="prDate" column="product_date" />
+        <result property="prColor" column="product_color" />
     </resultMap>
 
     <!--  상품 목록 조회  -->

@@ -41,7 +41,7 @@ public class CartService {
     }
 
     //장바구니 수정
-    public void modifyCart(ModCart cart) {
+    public void modifyCart(Cart cart) {
         cartMapper.modifyCart(cart);
     }
 

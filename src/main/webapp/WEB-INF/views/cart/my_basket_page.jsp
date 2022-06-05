@@ -1,3 +1,7 @@
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -13,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
 
     <!-- custom css -->
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
@@ -68,7 +72,7 @@
                     <p>장바구니</p>
                     <p>Shopping basket</p>
                 </div>
-                <img src="./image/basket.png" alt="카테고리 배너 이미지">
+                <img src="/image/basket.png" alt="카테고리 배너 이미지">
             </div>
         </section>
         <!-- //section content > page banner -->
@@ -94,9 +98,9 @@
             </div>
             <table class="basket-list">
                 <tbody class="basket-list-pd">
-                   
+                    <c:forEach var="p" items="${product}">
                     <tr class="basket-pd-info">
-                        <c:forEach var="p" items="${product}">
+                       
                         <td>
                             <input type="checkbox" name="basket" checked>
                         </td>
@@ -120,10 +124,12 @@
                         <td>
                             <i class="fas fa-times"></i>
                         </td>
-                        </c:forEach>
+                       
                     </tr>
+                    </c:forEach>
                 
-                    <!-- <tr class="basket-pd-info">
+                      <!--
+                    <tr class="basket-pd-info">
                         <td>
                             <input type="checkbox" name="basket" checked>
                         </td>
@@ -143,8 +149,8 @@
                         </td>
                         <td>
                             <i class="fas fa-times"></i>
-                        </td>-->
-                    </tr>
+                        </td>
+                    </tr> -->
                 </tbody>
             </table>
             <div class="basket-sum">

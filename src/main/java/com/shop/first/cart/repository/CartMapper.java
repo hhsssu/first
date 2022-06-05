@@ -24,7 +24,7 @@ public interface CartMapper {
     void delete(int cartCode);
 
     //장바구니 수정
-    void modifyCart(ModCart cart);
+    void modifyCart(Cart cart);
 
     //장바구니 금액 합계
     int sumTotal(String csId);
