@@ -27,15 +27,7 @@
                 <!-- 메인 네비게이션바 -->
                 <nav class="gnb">
                     <ul>
-                        <!-- <li><a href="/product/write">상품 등록하기</a></li> -->
                         <li><a href="/product/product">상품 목록</a></li>
-                        <!-- <li><a href="/admin/list">관리자, 회원 공지사항 조회</a></li> -->
-                        <!-- <li><a href="/customer/account">회원가입</a></li> -->
-                        <!-- <li><a href="/admin/account">관리자등록</a></li> -->
-                        <!-- <li><a href="/admin/login">관리자 로그인</a></li> -->
-                        <!-- <li><a href="/customer/login">회원 로그인</a></li> -->
-                        <!-- <li><a href="/cart/list?csId=${loginCustomer.csId}">장바구니목록</a></li> -->
-                        
                         <li><a href="/cart/list">장바구니목록</a></li>
                         <li><a href="/customer/logout">회원 로그아웃</a></li>
                     </ul>
