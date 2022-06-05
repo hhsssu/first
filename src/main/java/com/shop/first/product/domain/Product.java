@@ -23,6 +23,7 @@ public class Product {
     private String prImg4;
     private String prImg5;
     private String prDate;
+    private String prColor;
 
     private static int seq;
 
@@ -32,7 +33,7 @@ public class Product {
 
     public Product(int prCode, int cateCode, String prName, int prPrice, int prYn,
                    String prImg1, String prImg2,String prImg3,
-                   String prImg4, String prImg5, int prAmount, String prThumb, String prDate) {
+                   String prImg4, String prImg5, int prAmount, String prThumb, String prDate, String prColor) {
         this();
         this.prCode = prCode;
         this.cateCode = cateCode;
@@ -47,6 +48,7 @@ public class Product {
         this.prImg4 = prImg4;
         this.prImg5 = prImg5;
         this.prDate = prDate;
+        this.prColor = prColor;
     }
 
     public Product(ResultSet rs) throws SQLException {
@@ -63,6 +65,7 @@ public class Product {
         this.prImg4 = rs.getString("product_img4");
         this.prImg5 = rs.getString("product_img5");
         this.prDate = rs.getString("product_date");
+        this.prColor = rs.getString("product_color");
     }
 
 }//

@@ -94,19 +94,24 @@
             </div>
             <table class="basket-list">
                 <tbody class="basket-list-pd">
+                   
                     <tr class="basket-pd-info">
+                        <c:forEach var="p" items="${product}">
                         <td>
                             <input type="checkbox" name="basket" checked>
                         </td>
                         <td class="basket-pd-img">
-                            <img src="./image/basket.png" alt="상품 이미지">
+                            <img src="/product/list/${p.prThumb}" alt="상품 이미지">
                         </td>
+                        
+                        
                         <td>
-                            <p>대나무 손잡이 바구니</p>
+                            <p>${p.prName}</p>
                             <p>색상: 메이플</p>
                         </td>
+                       
                         <td>
-                            <p>10,000원</p>
+                            <p>${p.prPrice}</p>
                         </td>
                         <td>
                             <input type="number" name="basket" value="1">
@@ -115,8 +120,10 @@
                         <td>
                             <i class="fas fa-times"></i>
                         </td>
+                        </c:forEach>
                     </tr>
-                    <tr class="basket-pd-info">
+                
+                    <!-- <tr class="basket-pd-info">
                         <td>
                             <input type="checkbox" name="basket" checked>
                         </td>
@@ -136,7 +143,7 @@
                         </td>
                         <td>
                             <i class="fas fa-times"></i>
-                        </td>
+                        </td>-->
                     </tr>
                 </tbody>
             </table>
