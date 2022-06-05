@@ -127,7 +127,7 @@
                                             주문 수량
                                         </th>
                                         <td class="sale-amount">
-                                            <select name="amount" id="amount" size="1">
+                                            <select name="prAmount" id="amount" size="1">
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
@@ -235,16 +235,18 @@
                             <p>이 상품과 비슷한 상품</p>
                         </div>
                         <ul class="products-list">
+                            <c:forEach var="a" items="${articles}">    
                             <li class="product">
-                                <a href="#">
-                                    <img src="http://via.placeholder.com/200" alt="상품1">
+                                <a href="/product/info?prCode=${a.prCode}">
+                                    <img src="/product/list/${a.prThumb}" alt="상품1">
                                     <div class="box-info">
-                                        <span class="pd_nm">product1</span>
-                                        <span class="pd_price">10,000원</span>
+                                        <span class="pd_nm">${a.prName}</span>
+                                        <span class="pd_price">${a.prPrice}</span>
                                     </div>
                                 </a>
                             </li>
-                            <li class="product">
+                            </c:forEach>
+                            <!--  <li class="product">
                                 <a href="#">
                                     <img src="http://via.placeholder.com/200" alt="상품2">
                                     <div class="box-info">
@@ -270,7 +272,7 @@
                                         <span class="pd_price">10,000원</span>
                                     </div>
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                     <!-- 상품 리뷰(후기) -->
