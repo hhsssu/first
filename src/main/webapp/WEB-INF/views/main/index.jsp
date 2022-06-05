@@ -60,7 +60,7 @@
                         <span>회원가입</span>
                     </a>
                     <a href="#"><i class="far fa-heart"></i></a>
-                    <a href="#"><i class="fas fa-cart-plus"></i></a>
+                    <a href="/cart/list"><i class="fas fa-cart-plus"></i></a>
                     </ul>
                 </nav>
             </div>

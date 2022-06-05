@@ -56,7 +56,7 @@
                         <span>회원가입</span>
                     </a>
                     <a href="#"><i class="far fa-heart"></i></a>
-                    <a href="#"><i class="fas fa-cart-plus"></i></a>
+                    <a href="/cart/list"><i class="fas fa-cart-plus"></i></a>
                     </ul>
                 </nav>
             </div>
@@ -159,10 +159,16 @@
                                 </tbody>
                             </table>
                             <!-- 장바구니 / 바로구매 버튼 섹션 -->
-                            <div class="sale-basket-btn">
-                                <button id="opbtn01" type="submit">장바구니</button>
-                                <button id="opbtn02" type="submit">바로구매</button>
-                            </div> 
+                            <form action="/cart/add" method="post">
+
+                                <input type="hidden" name="csId" value="${loginCustomer.csId}"> 
+                                <input type="hidden" name="prCode" value="${p.prCode}">    
+
+                                <div class="sale-basket-btn">
+                                    <button id="opbtn01" type="submit">장바구니</button>
+                                    <button id="opbtn02" type="submit">바로구매</button>
+                                </div> 
+                            </form>
                         </div>
                     </div>
                 </div>

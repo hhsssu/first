@@ -116,7 +116,8 @@ public class CustomerController {
         if (loginCustomer != null) {
             session.setAttribute("loginCustomer", loginCustomer);
             log.info("로그인 유저: " + loginCustomer);
-            return "customer/loginHome";
+            //return "customer/loginHome";
+            return "redirect:/";
         }
 
         else {
