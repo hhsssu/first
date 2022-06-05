@@ -1,3 +1,7 @@
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -13,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
 
     <!-- custom css -->
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
@@ -78,17 +82,17 @@
                     <!-- 상세 메인 이미지 상자 -->
                     <div class="pd-detail-img-wrap">
                         <div class="main-img">
-                            <img src="http://via.placeholder.com/500" alt="상품 메인 이미지">
+                            <img src="/product/list/${p.prThumb}" alt="상품 메인 이미지">
                         </div>
                         <ul class="add-img">
                             <li>
-                                <img src="http://via.placeholder.com/450" alt="상품 부가 이미지">
+                                <img src="/product/list/${p.prImg1}" alt="상품 부가 이미지">
                             </li>
                             <li>
-                                <img src="http://via.placeholder.com/450" alt="상품 부가 이미지">
+                                <img src="/product/list/${p.prImg2}" alt="상품 부가 이미지">
                             </li>
                             <li>
-                                <img src="http://via.placeholder.com/450" alt="상품 부가 이미지">
+                                <img src="/product/list/${p.prImg3}" alt="상품 부가 이미지">
                             </li>
                         </ul>
                     </div>
@@ -98,8 +102,8 @@
 
                         <!-- 상품 상세 정보 섹션 -->
                         <div class="pd-info">
-                            <h2 class="pd-title">카페 유리컵</h2>
-                            <div class="pd-price">10,000원</div>
+                            <h2 class="pd-title">${p.prName}</h2>
+                            <div class="pd-price">${p.prCode}</div>
                             <div class="pd-dc-price">9,800원 <span>[2%]</span></div>
                         </div>
 
@@ -145,20 +149,20 @@
                                         </td>
                                     </tr>
                                     <!-- 총 주문 금액 -->
-                                    <!-- <tr class="total-sum">
+                                     <tr class="total-sum">
                                         <th class="total-text">총 주문 금액</th>
                                         <td class="total-price">
                                             <span class="total-amount"> 총 수량 <span>1</span> 개</span>
                                             <span>9,800</span>원
                                         </td>
-                                    </tr> -->
+                                    </tr> 
                                 </tbody>
                             </table>
                             <!-- 장바구니 / 바로구매 버튼 섹션 -->
-                            <!-- <div class="sale-basket-btn">
+                            <div class="sale-basket-btn">
                                 <button id="opbtn01" type="submit">장바구니</button>
                                 <button id="opbtn02" type="submit">바로구매</button>
-                            </div> -->
+                            </div> 
                         </div>
                     </div>
                 </div>
@@ -178,7 +182,7 @@
                     <!-- 상품 상세 설명 -->
                     <div class="pd-detail-explain">
                         <h2>상품 설명</h2>
-                        <img src="http://via.placeholder.com/800x1500" alt="상품 상세 설명 이미지">
+                        <img src="/product/list/${p.prThumb}" alt="상품 상세 설명 이미지">
                     </div>
 
                     <table class="pd-essential-info">

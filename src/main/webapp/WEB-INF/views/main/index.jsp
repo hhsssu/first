@@ -147,7 +147,7 @@
                 <ul class="products-list">
                 <c:forEach var="a" items="${articles}">    
                     <li class="product">
-                        <a href="#">
+                        <a href="/product/info?prCode=${a.prCode}">
                             <img src="/product/list/${a.prThumb}" alt="상품1">
                             <div class="box-info">
                                 <span class="pd_nm">${a.prName}</span>
