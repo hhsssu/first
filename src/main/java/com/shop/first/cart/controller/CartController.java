@@ -4,7 +4,6 @@ import com.shop.first.cart.domain.Cart;
 import com.shop.first.cart.service.CartService;
 import com.shop.first.customer.domain.Customer;
 import com.shop.first.product.domain.Product;
-import com.sun.deploy.net.HttpResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
