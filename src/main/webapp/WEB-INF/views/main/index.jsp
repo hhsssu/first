@@ -145,8 +145,46 @@
                     <a href="#">Next</a>&ensp; | &ensp;<a href="#">Previous</a>
                 </div>
                 <ul class="products-list">
+                <c:forEach var="a" items="${articles}">    
                     <li class="product">
                         <a href="#">
+                            <img src="/product/list/${a.prThumb}" alt="상품1">
+                            <div class="box-info">
+                                <span class="pd_nm">${a.prName}</span>
+                                <span class="pd_price">${a.prPrice}</span>
+                            </div>
+                        </a>
+                    </li>
+                    </c:forEach>
+                   <!--  <li class="product">
+                        <a href="/product/info?prCode=${a.prCode}">
+                            <img src="/product/list/${a.prThumb}" alt="상품2">
+                            <div class="box-info">
+                                <span class="pd_nm" class="pd_nm">${a.prName}</span>
+                                <span class="pd_price">${a.prPrice}</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="/product/info?prCode=${a.prCode}">
+                            <img src="/product/list/${a.prThumb}" alt="상품3">
+                            <div class="box-info">
+                                <span class="pd_nm">${a.prName}</span>
+                                <span class="pd_price">${a.prPrice}</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="/product/info?prCode=${a.prCode}">
+                            <img src="/product/list/${a.prThumb}" alt="상품4">
+                            <div class="box-info">
+                                <span class="pd_nm">${a.prName}</span>
+                                <span class="pd_price">${a.prPrice}</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product">
+                        <a href="/product/info?prCode=${a.prCode}">
                             <img src="http://via.placeholder.com/230" alt="상품1">
                             <div class="box-info">
                                 <span class="pd_nm">product1</span>
@@ -216,43 +254,7 @@
                                 <span class="pd_price">10,000원</span>
                             </div>
                         </a>
-                    </li>
-                    <li class="product">
-                        <a href="#">
-                            <img src="http://via.placeholder.com/230" alt="상품1">
-                            <div class="box-info">
-                                <span class="pd_nm">product1</span>
-                                <span class="pd_price">10,000원</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="product">
-                        <a href="#">
-                            <img src="http://via.placeholder.com/230" alt="상품2">
-                            <div class="box-info">
-                                <span class="pd_nm" class="pd_nm">product2</span>
-                                <span class="pd_price">10,000원</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="product">
-                        <a href="#">
-                            <img src="http://via.placeholder.com/230" alt="상품3">
-                            <div class="box-info">
-                                <span class="pd_nm">product3</span>
-                                <span class="pd_price">10,000원</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="product">
-                        <a href="#">
-                            <img src="http://via.placeholder.com/230" alt="상품4">
-                            <div class="box-info">
-                                <span class="pd_nm">product4</span>
-                                <span class="pd_price">10,000원</span>
-                            </div>
-                        </a>
-                    </li>
+                    </li> -->
                 </ul>
             </section>
             <!-- //section content > new product -->
@@ -482,38 +484,6 @@
                 document.querySelector(".login-popup-box").style.display = "block";
         }
 
-        
-        /*
-        $('#inputId').on('keypress', function(e){
-            if(e.keyCode == '13'){
-                if( $('#inputId').val() === '' || $('#inputId').val() === null ) {
-                    $("#inputId").attr("placeholder", "아이디를 입력하세요");
-                }
-            }
-            });
-
-        $('#inputPw').on('keypress', function(e){
-        if(e.keyCode == '13'){
-            if( $('#inputPw').val() !== '' || $('#inputPw').val() !== null ) {
-                    $('#loginBtn').click();
-                
-                }
-        }
-        }); */
-
-           /*
-        // 키 입력 후 발생되는 이벤ㅌ
-        $('input[type="text"]').keyup(function() {
-            if($('#inputId').val()!== '' || $('#inputId').val() !== null ) {
-                $("#inputId").css("background", "#fff");
-            }
-        });*/
-
-        /* [명령안내]
-        .keydown() - 키 입력 시 발생되는 이벤트
-        .keypress() - keydown과 같이 키 입력 시 발생되는 이벤트지만 Enter, Tab 등의 특수키에는 발생하지 않음
-        .keyup() - 키 입력 후 발생되는 이벤트
-        */
 
         $('input[type="text"]').keydown(function() {
               if (event.keyCode === 13) {

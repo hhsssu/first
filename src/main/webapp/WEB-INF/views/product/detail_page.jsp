@@ -1,7 +1,3 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -114,7 +110,7 @@
                                     <!-- 배송 안내 -->
                                     <tr>
                                         <th>
-                                            배송
+                                            배송 구분
                                         </th>
                                         <td>
                                             <p>일반배송 3,000원</p>
@@ -124,7 +120,7 @@
                                     <!-- 주문 수량 설정 -->
                                     <tr>
                                         <th>
-                                            주문수량
+                                            주문 수량
                                         </th>
                                         <td class="sale-amount">
                                             <select name="amount" id="amount" size="1">
@@ -136,14 +132,26 @@
                                             </select>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <th>
+                                            옵션 선택
+                                        </th>
+                                        <td class="sale-option">
+                                            <select name="amount" id="option" size="1">
+                                                <option value="blue">블루 체크</option>
+                                                <option value="puple">퍼플 체크</option>
+                                                <option value="yellow">옐로우 도트</option>
+                                            </select>
+                                        </td>
+                                    </tr>
                                     <!-- 총 주문 금액 -->
-                                    <tr class="total-sum">
+                                    <!-- <tr class="total-sum">
                                         <th class="total-text">총 주문 금액</th>
                                         <td class="total-price">
                                             <span class="total-amount"> 총 수량 <span>1</span> 개</span>
                                             <span>9,800</span>원
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                 </tbody>
                             </table>
                             <!-- 장바구니 / 바로구매 버튼 섹션 -->
