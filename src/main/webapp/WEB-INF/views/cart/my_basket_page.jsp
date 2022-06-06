@@ -115,7 +115,7 @@
                         </td>
                        
                         <td>
-                            <p>${p.prPrice}</p>
+                            <p><fmt:formatNumber value="${p.prPrice}" pattern="#,###"/>원</p>
                         </td>
                         <td>
                             <input type="number" name="basket" value="1">
