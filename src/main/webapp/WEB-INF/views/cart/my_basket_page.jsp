@@ -174,7 +174,7 @@
                             상품금액
                         </th>
                         <td>
-                            <span class="">20,000</span>
+                            <span class="pr_Price"></span>
                             <span>원</span>
                         </td>
                     </tr>
@@ -183,7 +183,7 @@
                             배송비
                         </th>
                         <td>
-                            <span class="">+3,000</span>
+                            <span class="delivery"></span>
                             <span>원</span>
                         </td>
                     </tr>
@@ -239,30 +239,32 @@
         let plus_btn = document.getElementById('plus');
 
 
-        console.log(document.querySelector(".orderPrice"));
-        console.log(amount);
-        console.log(price);
-        console.log(input);
-
          // 체크박스 개별선택, 전체해제 
 
-
+        
          function calcGoodsPrice(prPrice, obj) {
 
+            let dv = 0;
+
             if (obj.checked == true) {
-                //alert("체크가 되었어요! :) ")
-
                 totalPrice += Number(amount) * Number(prPrice);
-
-                console.log("obj: ", obj);
-
-
-
             } else {
-                totalPrice -= amount * prPrice;
-
+                totalPrice -= Number(amount) * Number(prPrice);
             }
-            total = totalPrice;
+
+            
+            if(totalPrice >= 30000) {
+                $(".delivery").text(dv.toString());
+                totalPrice += 0;
+            } else {
+                dv = 3000;
+                totalPrice += 3000;
+                $(".delivery").text("+"+dv.toString());
+            }
+        
+            $(".pr_Price").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
+            $(".orderPrice").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
+
             }
 
             /* 체크박스 전체선택, 전체해제 */
@@ -279,16 +281,12 @@
                 let cart = document.getElementsByName("cartAmount");
 
                 for (let i = 0; i < chks.length; i++) {
-                    str = chks[i].parentElement.nextElementSibling.nextElementSibling.nextElementSibling.firstElementChild.textContent;
+                    str = chks[i].parentElement.nextElementSibling.nextElementSibling.
+                    nextElementSibling.firstElementChild.textContent;
+
                     n = parseInt(str.replace(/,/g,""));
 
                     arr[i] = n;
-
-                     console.log("==== 전체체크 ==== ");
-                     console.log("arr"+[i]+ "= "+ arr[i]);
-                     console.log("n= "+ arr[i]);
-                     console.log("cart: ", cart);
-                     console.log("cart" +[i]+ cart[i].value);
                     fSum = arr[i] * cart[i].value;
                     sSum += fSum
                     console.log("sSum: "+sSum);
@@ -300,7 +298,6 @@
             }
           
             $(".orderPrice").text(sSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')); 
-            //total.appendChild = sSum;
                 
             }
 
