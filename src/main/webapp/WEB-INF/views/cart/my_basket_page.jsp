@@ -101,11 +101,12 @@
             </div>
             <table class="basket-list">
                 <tbody class="basket-list-pd">
-                    <c:forEach var="p" items="${product}">
+                    <c:forEach var="p" items="${product}" varStatus="status">
+                        
                     <tr class="basket-pd-info">
                        
                         <td>
-                            <input type="checkbox" value='${p.prCode}' name="cartChecked" onclick="calcGoodsPrice('${p.prPrice}', this)"  id="input_check" checked>
+                            <input type="checkbox" value="${p.prCode}" name="cartChecked" onclick="calcGoodsPrice('${p.prPrice}', this)"  id="input_check" checked>
                         </td>
                         <td class="basket-pd-img">
                             <img src="/product/list/${p.prThumb}" alt="상품 이미지">
@@ -123,7 +124,7 @@
                             
                         </td>
                         <td>
-                            <input type="number" name="cartAmount"  id="cart_Amount" value="1">
+                            <input type="number" name="cartAmount" id="cart_Amount" value="${cart[status.index].cartAmount}">
                             <button type="submit">변경</button>
                         </td>
                         <td>
