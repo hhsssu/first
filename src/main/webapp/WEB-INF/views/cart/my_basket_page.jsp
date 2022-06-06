@@ -18,6 +18,9 @@
 
     <!-- custom css -->
     <link rel="stylesheet" href="/css/main.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -81,7 +84,7 @@
         <section id="basket-list-container">
             <div class="basket-list-title">
                 <ul class="basket-select-all">
-                    <li><input type="checkbox" name="basket" checked></li>
+                    <li><input type="checkbox" id="check_all" name="basket" onclick="checkAll();" checked></li>
                     <li>전체선택</li>
                 </ul>
                 <ul class="basket-delete">
@@ -102,7 +105,7 @@
                     <tr class="basket-pd-info">
                        
                         <td>
-                            <input type="checkbox" name="basket" checked>
+                            <input type="checkbox" value='${p.prCode}' name="cartChecked" onclick="calcGoodsPrice('${p.prPrice}', this)"  id="input_check" checked>
                         </td>
                         <td class="basket-pd-img">
                             <img src="/product/list/${p.prThumb}" alt="상품 이미지">
@@ -115,10 +118,12 @@
                         </td>
                        
                         <td>
-                            <p><fmt:formatNumber value="${p.prPrice}" pattern="#,###"/>원</p>
+                            <span id="prPrice"><fmt:formatNumber value="${p.prPrice}" pattern="#,###"/></span>
+                            <span>원</span>
+                            
                         </td>
                         <td>
-                            <input type="number" name="basket" value="1">
+                            <input type="number" name="cartAmount"  id="cart_Amount" value="1">
                             <button type="submit">변경</button>
                         </td>
                         <td>
@@ -186,7 +191,7 @@
                             결제예정금액
                         </th>
                         <td>
-                            <span class="">23,000</span>
+                            <span class="orderPrice"><fmt:formatNumber value="0" pattern="#,###"/></span>
                             <span>원</span>
                         </td>
                     </tr>
@@ -221,6 +226,83 @@
         </footer>
         <!-- //footer -->
     </div>
+
+    <script>
+
+
+        let totalPrice = 0;
+        let total = document.querySelector(".orderPrice").textContent;
+        let amount = document.getElementById('cart_Amount').value;
+        let price = document.getElementById('prPrice').textContent;
+        let input = document.getElementById('input_check');
+        let plus_btn = document.getElementById('plus');
+
+
+        console.log(total);
+        console.log(amount);
+        console.log(price);
+        console.log(input);
+
+         // 체크박스 개별선택, 전체해제 
+
+
+         function calcGoodsPrice(prPrice, obj) {
+
+            if (obj.checked == true) {
+                //alert("체크가 되었어요! :) ")
+
+                totalPrice += Number(amount) * Number(prPrice);
+
+                console.log("obj: ", obj);
+
+
+
+            } else {
+                totalPrice -= amount * prPrice;
+
+            }
+            total = totalPrice;
+            }
+
+            /* 체크박스 전체선택, 전체해제 */
+
+            let fSum = 0;
+            let sSum = 0;
+
+            function checkAll() {
+            if ($("#check_all").is(':checked')) {
+                $("input[name=cartChecked]").prop("checked", true);
+
+                let arr = new Array();
+                let chks = document.getElementsByName("cartChecked");
+                let cart = document.getElementsByName("cartAmount");
+
+                console.log("chks" , chks);
+                console.log("cart" , cart);
+
+                for (let i = 0; i < chks.length; i++) {
+                    arr[i] = parseInt(chks[i].value);
+
+                     console.log("==== 전체체크 ==== ");
+                     console.log("arr: ",arr);
+                     console.log("arr" +[i]+ arr[i]);
+                     console.log("cart: ", cart);
+                     console.log("cart" +[i]+ cart[i].value);
+                    fSum = arr[i] * cart[i].value;
+                    sSum += fSum
+
+                }
+
+            } else {
+                $("input[name=cartChecked]").prop("checked", false);
+                sSum = 0;
+            }
+            total = sSum;
+            }
+
+
+    </script>
+
 </body>
 
 </html>
