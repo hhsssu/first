@@ -128,7 +128,7 @@
                             <button type="submit">변경</button>
                         </td>
                         <td>
-                            <a href="/cart/delete?cartCode=${c.cartCode}" onclick="if(!confirm('삭제 하시겠습니까?'))"><i class="fas fa-times"></i></a>
+                            <a href="/cart/delete?cartCode=${c.cartCode}" onclick="return confirm('정말 삭제하시겠습니까?');"><i class="fas fa-times"></i></a>
                         </td>
                        
                     </tr>

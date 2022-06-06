@@ -126,8 +126,10 @@
                                         <th>
                                             주문 수량
                                         </th>
+                                         <!-- 장바구니 / 바로구매 버튼 섹션 -->
+                                         <form action="/cart/add" method="post">
                                         <td class="sale-amount">
-                                            <select name="prAmount" id="amount" size="1">
+                                            <select name="cartAmount" id="amount" size="1">
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
@@ -158,8 +160,7 @@
                                     </tr> 
                                 </tbody>
                             </table>
-                            <!-- 장바구니 / 바로구매 버튼 섹션 -->
-                            <form action="/cart/add" method="post">
+                           
 
                                 <input type="hidden" name="csId" value="${loginCustomer.csId}"> 
                                 <input type="hidden" name="prCode" value="${p.prCode}">    
