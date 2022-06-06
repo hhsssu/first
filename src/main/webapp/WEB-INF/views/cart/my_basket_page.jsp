@@ -281,12 +281,17 @@
                 console.log("chks" , chks);
                 console.log("cart" , cart);
 
+                
+
                 for (let i = 0; i < chks.length; i++) {
-                    arr[i] = parseInt(chks[i].value);
+                    str = chks[i].parentElement.nextElementSibling.nextElementSibling.nextElementSibling.firstElementChild.textContent;
+                    n = parseInt(str.replace(/,/g,""));
+
+                    arr[i] = n;
 
                      console.log("==== 전체체크 ==== ");
-                     console.log("arr: ",arr);
-                     console.log("arr" +[i]+ arr[i]);
+                     console.log("arr"+[i]+ "= "+ arr[i]);
+                     console.log("n= "+ arr[i]);
                      console.log("cart: ", cart);
                      console.log("cart" +[i]+ cart[i].value);
                     fSum = arr[i] * cart[i].value;
