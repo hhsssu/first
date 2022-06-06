@@ -101,34 +101,34 @@
             </div>
             <table class="basket-list">
                 <tbody class="basket-list-pd">
-                    <c:forEach var="p" items="${product}" varStatus="status">
+                    <c:forEach var="c" items="${cart}" varStatus="status">
                         
                     <tr class="basket-pd-info">
                        
                         <td>
-                            <input type="checkbox" value="${p.prCode}" name="cartChecked" onclick="calcGoodsPrice('${p.prPrice}', this)"  id="input_check" checked>
+                            <input type="checkbox" value="${product[status.index].prCode}" name="cartChecked" onclick="calcGoodsPrice('${p.prPrice}', this)"  id="input_check" checked>
                         </td>
                         <td class="basket-pd-img">
-                            <img src="/product/list/${p.prThumb}" alt="상품 이미지">
+                            <img src="/product/list/${product[status.index].prThumb}" alt="상품 이미지">
                         </td>
                         
                         
                         <td>
-                            <p>${p.prName}</p>
+                            <p>${product[status.index].prName}</p>
                             <p>색상: 메이플</p>
                         </td>
                        
                         <td>
-                            <span id="prPrice"><fmt:formatNumber value="${p.prPrice}" pattern="#,###"/></span>
+                            <span id="prPrice"><fmt:formatNumber value="${product[status.index].prPrice}" pattern="#,###"/></span>
                             <span>원</span>
                             
                         </td>
                         <td>
-                            <input type="number" name="cartAmount" id="cart_Amount" value="${cart[status.index].cartAmount}">
+                            <input type="number" name="cartAmount" id="cart_Amount" value="${c.cartAmount}">
                             <button type="submit">변경</button>
                         </td>
                         <td>
-                            <i class="fas fa-times"></i>
+                            <a href="/cart/delete?cartCode=${c.cartCode}" onclick="if(!confirm('삭제 하시겠습니까?'))"><i class="fas fa-times"></i></a>
                         </td>
                        
                     </tr>
@@ -301,6 +301,7 @@
                 
             }
 
+        
 
     </script>
 
