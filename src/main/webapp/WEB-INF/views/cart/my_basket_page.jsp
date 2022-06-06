@@ -84,7 +84,7 @@
         <section id="basket-list-container">
             <div class="basket-list-title">
                 <ul class="basket-select-all">
-                    <li><input type="checkbox" id="check_all" name="basket" onclick="checkAll();" checked></li>
+                    <li><input type="checkbox" id="check_all" onclick="checkAll();" ></li>
                     <li>전체선택</li>
                 </ul>
                 <ul class="basket-delete">
@@ -192,7 +192,7 @@
                             결제예정금액
                         </th>
                         <td>
-                            <span class="orderPrice"><fmt:formatNumber value="0" pattern="#,###"/></span>
+                            <span class="orderPrice"></span>
                             <span>원</span>
                         </td>
                     </tr>
@@ -239,7 +239,7 @@
         let plus_btn = document.getElementById('plus');
 
 
-        console.log(total);
+        console.log(document.querySelector(".orderPrice"));
         console.log(amount);
         console.log(price);
         console.log(input);
@@ -278,11 +278,6 @@
                 let chks = document.getElementsByName("cartChecked");
                 let cart = document.getElementsByName("cartAmount");
 
-                console.log("chks" , chks);
-                console.log("cart" , cart);
-
-                
-
                 for (let i = 0; i < chks.length; i++) {
                     str = chks[i].parentElement.nextElementSibling.nextElementSibling.nextElementSibling.firstElementChild.textContent;
                     n = parseInt(str.replace(/,/g,""));
@@ -296,14 +291,17 @@
                      console.log("cart" +[i]+ cart[i].value);
                     fSum = arr[i] * cart[i].value;
                     sSum += fSum
-
+                    console.log("sSum: "+sSum);
                 }
 
             } else {
                 $("input[name=cartChecked]").prop("checked", false);
                 sSum = 0;
             }
-            total = sSum;
+          
+            $(".orderPrice").text(sSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')); 
+            //total.appendChild = sSum;
+                
             }
 
 
