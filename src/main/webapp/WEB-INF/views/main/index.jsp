@@ -151,7 +151,7 @@
                             <img src="/product/list/${a.prThumb}" alt="상품1">
                             <div class="box-info">
                                 <span class="pd_nm">${a.prName}</span>
-                                <span class="pd_price">${a.prPrice}</span>
+                                <span class="pd_price"><fmt:formatNumber value="${a.prPrice}" pattern="#,###"/>원</span>
                             </div>
                         </a>
                     </li>
@@ -510,6 +510,8 @@
             }
         });
 
+
+        
 
 
     </script>
