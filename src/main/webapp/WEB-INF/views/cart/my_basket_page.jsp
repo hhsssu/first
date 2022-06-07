@@ -238,9 +238,6 @@
         let input = document.getElementById('input_check');
         let plus_btn = document.getElementById('plus');
 
-        console.log("test===>price" + price);
-
-
          // 체크박스 개별선택, 전체해제 
          function calcGoodsPrice(prPrice, obj, cartAm) {
 
@@ -248,14 +245,12 @@
 
             if (obj.checked == true) {
                 totalPrice += Number(cartAm) * Number(prPrice);
-                console.log("amount:" + Number(cartAm));
-                console.log("prPrice:" + Number(prPrice));
+                
                 if(totalPrice < 30000) {
                         dv = 3000;
                         totalPrice += 3000;
                         $(".delivery").text("+"+dv.toString());
                     } 
-
             } else {
                 totalPrice -= Number(cartAm) * Number(prPrice);
             }
