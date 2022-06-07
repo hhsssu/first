@@ -248,14 +248,11 @@
 
             if (obj.checked == true) {
                 totalPrice += Number(amount) * Number(prPrice);
-                    if(totalPrice >= 30000) {
-                    $(".delivery").text(dv.toString());
-                    totalPrice += 0;
-                } else {
-                    dv = 3000;
-                    totalPrice += 3000;
-                    $(".delivery").text("+"+dv.toString());
-                }
+                if(totalPrice < 30000) {
+                        dv = 3000;
+                        totalPrice += 3000;
+                        $(".delivery").text("+"+dv.toString());
+                    } 
 
             } else {
                 totalPrice -= Number(amount) * Number(prPrice);
@@ -293,14 +290,11 @@
                     sSum += fSum
                     console.log("sSum: "+sSum);
 
-                    if(totalPrice >= 30000) {
-                    $(".delivery").text(dv.toString());
-                    totalPrice += 0;
-                    } else {
+                    if(totalPrice < 30000) {
                         dv = 3000;
                         totalPrice += 3000;
                         $(".delivery").text("+"+dv.toString());
-                    }
+                    } 
                 }
 
             } else {
