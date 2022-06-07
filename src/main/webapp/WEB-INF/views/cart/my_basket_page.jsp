@@ -106,7 +106,7 @@
                     <tr class="basket-pd-info">
                        
                         <td>
-                            <input type="checkbox" value="${product[status.index].prCode}" name="cartChecked" onclick="calcGoodsPrice('${p.prPrice}', this)"  id="input_check" checked>
+                            <input type="checkbox" value="${product[status.index].prCode}" name="cartChecked" onclick="calcGoodsPrice('${p.prPrice}', this)"  id="input_check">
                         </td>
                         <td class="basket-pd-img">
                             <img src="/product/list/${product[status.index].prThumb}" alt="상품 이미지">
@@ -183,7 +183,7 @@
                             배송비
                         </th>
                         <td>
-                            <span class="delivery"></span>
+                            <span class="delivery">0</span>
                             <span>원</span>
                         </td>
                     </tr>
@@ -192,7 +192,7 @@
                             결제예정금액
                         </th>
                         <td>
-                            <span class="orderPrice"></span>
+                            <span class="orderPrice">0</span>
                             <span>원</span>
                         </td>
                     </tr>
@@ -248,19 +248,21 @@
 
             if (obj.checked == true) {
                 totalPrice += Number(amount) * Number(prPrice);
+                    if(totalPrice >= 30000) {
+                    $(".delivery").text(dv.toString());
+                    totalPrice += 0;
+                } else {
+                    dv = 3000;
+                    totalPrice += 3000;
+                    $(".delivery").text("+"+dv.toString());
+                }
+
             } else {
                 totalPrice -= Number(amount) * Number(prPrice);
             }
 
             
-            if(totalPrice >= 30000) {
-                $(".delivery").text(dv.toString());
-                totalPrice += 0;
-            } else {
-                dv = 3000;
-                totalPrice += 3000;
-                $(".delivery").text("+"+dv.toString());
-            }
+            
         
             $(".pr_Price").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
             $(".orderPrice").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
@@ -290,12 +292,22 @@
                     fSum = arr[i] * cart[i].value;
                     sSum += fSum
                     console.log("sSum: "+sSum);
+
+                    if(totalPrice >= 30000) {
+                    $(".delivery").text(dv.toString());
+                    totalPrice += 0;
+                    } else {
+                        dv = 3000;
+                        totalPrice += 3000;
+                        $(".delivery").text("+"+dv.toString());
+                    }
                 }
 
             } else {
                 $("input[name=cartChecked]").prop("checked", false);
                 sSum = 0;
             }
+        
           
             $(".orderPrice").text(sSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')); 
                 
