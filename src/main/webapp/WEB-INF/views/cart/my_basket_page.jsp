@@ -106,7 +106,7 @@
                     <tr class="basket-pd-info">
                        
                         <td>
-                            <input type="checkbox" value="${product[status.index].prCode}" name="cartChecked" onclick="calcGoodsPrice('${p.prPrice}', this)"  id="input_check">
+                            <input type="checkbox" value="${product[status.index].prCode}" name="cartChecked" onclick="calcGoodsPrice('${product[status.index].prPrice}', this)"  id="input_check">
                         </td>
                         <td class="basket-pd-img">
                             <img src="/product/list/${product[status.index].prThumb}" alt="상품 이미지">
@@ -234,20 +234,22 @@
         let totalPrice = 0;
         let total = document.querySelector(".orderPrice").textContent;
         let amount = document.getElementById('cart_Amount').value;
-        let price = document.getElementById('prPrice').textContent;
+        let price = document.querySelector('#prPrice').textContent;
         let input = document.getElementById('input_check');
         let plus_btn = document.getElementById('plus');
 
+        console.log("test===>price" + price);
+
 
          // 체크박스 개별선택, 전체해제 
-
-        
          function calcGoodsPrice(prPrice, obj) {
 
             let dv = 0;
 
             if (obj.checked == true) {
                 totalPrice += Number(amount) * Number(prPrice);
+                console.log("amount:" + Number(amount));
+                console.log("prPrice:" + Number(prPrice));
                 if(totalPrice < 30000) {
                         dv = 3000;
                         totalPrice += 3000;
@@ -257,17 +259,13 @@
             } else {
                 totalPrice -= Number(amount) * Number(prPrice);
             }
-
-            
-            
-        
+    
             $(".pr_Price").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
             $(".orderPrice").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
-
             }
 
-            /* 체크박스 전체선택, 전체해제 */
 
+            /* 체크박스 전체선택, 전체해제 */
             let fSum = 0;
             let sSum = 0;
 
