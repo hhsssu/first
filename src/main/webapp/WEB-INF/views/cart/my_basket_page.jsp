@@ -290,12 +290,14 @@
                     sSum += fSum
                     console.log("sSum: "+sSum);
 
-                    if(totalPrice < 30000) {
+                }
+
+                
+                if(sSum < 30000) {
                         dv = 3000;
-                        totalPrice += 3000;
+                        sSum += 3000;
                         $(".delivery").text("+"+dv.toString());
                     } 
-                }
 
             } else {
                 $("input[name=cartChecked]").prop("checked", false);
