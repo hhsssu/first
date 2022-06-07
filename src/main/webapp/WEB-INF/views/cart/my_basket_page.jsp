@@ -174,7 +174,7 @@
                             상품금액
                         </th>
                         <td>
-                            <span class="pr_Price"></span>
+                            <span class="pr_Price">0</span>
                             <span>원</span>
                         </td>
                     </tr>
