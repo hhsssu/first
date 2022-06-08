@@ -94,9 +94,12 @@
                     <li>
                         &nbsp;
                     </li>
-                    <li class="basket-delete-btn">
-                        <button type="submit">선택삭제</button>
-                    </li>
+                    <form action="/cart/checkDelete" method="post">
+                        <input name="delList" type="hidden" value="${c.cartCode}">
+                        <li class="basket-delete-btn">
+                            <button type="button" class="checkDel" onclick="checkDelete()">선택삭제</button>
+                        </li>
+                    </form>
                 </ul>
             </div>
             <table class="basket-list">
@@ -255,6 +258,7 @@
             let dv = 0;
 
             if (obj.checked == true) {
+
                 totalPrice += Number(cartAm) * Number(prPrice);
                 
                 if(totalPrice < 30000) {
@@ -312,13 +316,6 @@
             $(".orderPrice").text(sSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')); 
                 
             }
-
-
-        
-            /* 수량 수정 버튼 */
-            $(".modCart").on("click", function(){
-                
-            });
 
     </script>
 

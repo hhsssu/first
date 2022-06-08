@@ -8,10 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
@@ -103,6 +100,14 @@ public class CartController {
     public String delete(int cartCode) {
         log.info("장바구니 삭제: " + cartCode);
         cartService.delete(cartCode);
+        return "redirect:/cart/list";
+    }
+
+    //장바구니 선택 삭제
+    @PostMapping("/checkDelete")
+    public String checkDelete(@RequestParam("delList") int[] list) {
+        for(int i: list) cartService.delete(i);
+        log.info("장바구니 선택 삭제 ");
         return "redirect:/cart/list";
     }
 
