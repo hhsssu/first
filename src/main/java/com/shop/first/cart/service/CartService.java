@@ -45,10 +45,7 @@ public class CartService {
        return cartMapper.selectCart(csId, cartCode);
     }
 
-    //장바구니 수량 수정
-    public void modifyCart(int cartAmount) {
-       cartMapper.modifyCart(cartAmount);
-    }
+
 
     //장바구니 금액 합계
     public int sumTotal(String csId) {
@@ -61,5 +58,9 @@ public class CartService {
         return cartMapper.countCart(csId, prCode);
     }
 
+    //장바구니 수량 수정
+    public void modifyCart(int cartAmount) {
+        cartMapper.modifyCart(cartAmount);
+    }
 
 }//
