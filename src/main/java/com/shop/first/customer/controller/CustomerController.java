@@ -98,12 +98,6 @@ public class CustomerController {
         return customerService.isDuplicate(checkId);
     }
 
-    /*
-    @GetMapping("/login")
-    public String loginCustomer() {
-        log.info("회원 로그인 양식 요청 GET!");
-        return "login/customer";
-    }*/
 
     //회원 로그인 검증
     @PostMapping("/login")
@@ -138,13 +132,15 @@ public class CustomerController {
     }
 
     @GetMapping("/logout")
-    public String logout(HttpServletResponse response, HttpServletRequest request) {
+    public String logout(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         if (session != null) {
             session.invalidate();
         }
         return  "redirect:/";
     }
+
+
 
 
 }//

@@ -106,7 +106,7 @@
                     <tr class="basket-pd-info">
                        
                         <td>
-                            <input type="checkbox" value="${product[status.index].prCode}" name="cartChecked" onclick="calcGoodsPrice('${product[status.index].prPrice}', this, '${c.cartAmount}')"  id="input_check">
+                            <input type="checkbox" value="${c.cartCode}" name="cartChecked" onclick="calcGoodsPrice('${product[status.index].prPrice}', this, '${c.cartAmount}')"  id="input_check">
                         </td>
                         <td class="basket-pd-img">
                             <img src="/product/list/${product[status.index].prThumb}" alt="상품 이미지">
@@ -124,8 +124,14 @@
                             
                         </td>
                         <td>
+                        <form action="/cart/modify" method="post">
+
+                            <input type="hidden" name="cartCode" value="${c.cartCode}">  
+                            <input type="hidden" name="csId" value="${loginCustomer.csId}"> 
+                            
                             <input type="number" name="cartAmount" id="cart_Amount" value="${c.cartAmount}">
                             <button type="submit">변경</button>
+                        </form>
                         </td>
                         <td>
                             <a href="/cart/delete?cartCode=${c.cartCode}" onclick="return confirm('정말 삭제하시겠습니까?');"><i class="fas fa-times"></i></a>
@@ -238,8 +244,12 @@
         let input = document.getElementById('input_check');
         let plus_btn = document.getElementById('plus');
 
+        
+
          // 체크박스 개별선택, 전체해제 
          function calcGoodsPrice(prPrice, obj, cartAm) {
+
+            console.log("obj: " +obj.value);
 
             let dv = 0;
 

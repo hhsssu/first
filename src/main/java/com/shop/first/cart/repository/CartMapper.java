@@ -23,8 +23,8 @@ public interface CartMapper {
     //장바구니 삭제
     void delete(int cartCode);
 
-    //장바구니 수정
-    void modifyCart(Cart cart);
+    //장바구니 수량 수정
+    void modifyCart(int cartAmount);
 
     //장바구니 금액 합계
     int sumTotal(String csId);
@@ -32,7 +32,6 @@ public interface CartMapper {
     //장바구니 동일한 상품 확인
     int countCart(@Param("csId") String csId, @Param("prCode") int prCode);
 
-    //장바구니 상품수량 변경
-    void updateCart(Cart cart);
+
 
 }

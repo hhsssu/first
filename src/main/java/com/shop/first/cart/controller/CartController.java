@@ -104,4 +104,12 @@ public class CartController {
         cartService.delete(cartCode);
         return "redirect:/cart/list";
     }
+
+    //장바구니 수량 변경
+    @PostMapping("/modify")
+    public String modify(int cartAmount) {
+        log.info("장바구니 수량변경: " + cartAmount);
+        cartService.modifyCart(cartAmount);
+        return null;
+    }
 }//
