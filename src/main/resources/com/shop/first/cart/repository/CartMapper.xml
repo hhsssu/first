@@ -85,7 +85,7 @@
     </select>
 
     <!--  장바구니 수량 변경  -->
-    <update id="modifyCart">
+    <update id="modifyCart" parameterType="int">
         UPDATE cart
         SET cart_amount =#{cartAmount}
         WHERE cart_code = #{cartCode} AND customer_id = #{csId}
