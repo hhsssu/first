@@ -17,6 +17,9 @@ public interface CartMapper {
     //장바구니 목록
     List<Cart> listCart(String csId);
 
+    //장바구니 조회
+    Cart selectCart(String csId, int cartCode);
+
     //상품 목록
     Product listProduct(int proCode);
 

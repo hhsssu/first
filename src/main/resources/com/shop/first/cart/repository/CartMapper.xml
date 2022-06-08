@@ -53,6 +53,15 @@
         c.customer_id = #{csId}
     </select>
 
+
+
+    <!-- 장바구니 조회   -->
+    <select id="selectCart" resultMap="cartMap">
+        SELECT *
+        FROM cart
+        WHERE cart_code = #{cartCode} AND customer_id = #{csId}
+    </select>
+
     <resultMap id="productMap" type="com.shop.first.product.domain.Product">
         <result property="prCode" column="product_code" />
         <result property="cateCode" column="cate_code" />
@@ -78,7 +87,7 @@
     <!--  장바구니 수량 변경  -->
     <update id="modifyCart">
         UPDATE cart
-        SET cart_amount = #{cartAmount}
+        SET cart_amount =#{cartAmount}
         WHERE cart_code = #{cartCode} AND customer_id = #{csId}
     </update>
 

@@ -129,8 +129,8 @@
                                 <input type="hidden" name="cartCode" value="${c.cartCode}">  
                                 <input type="hidden" name="csId" value="${loginCustomer.csId}"> 
                                 
-                                <input type="number" name="cartAmount" id="cart_Amount" value="${c.cartAmount}">
-                                <button type="button" class="modCart" onclick="modCart()">변경</button>
+                                <input type="number" name="cartAmount" id="cart_Amount" value="${c.cartAmount}" min="1">
+                                <button type="submit" class="modCart">변경</button>
                              </form>
                         </td>
                         <td>
@@ -312,10 +312,6 @@
                 
             }
 
-            function modCart() {
-                console.log();
-                //$(".modCartForm").submit();
-            }
 
         
 
