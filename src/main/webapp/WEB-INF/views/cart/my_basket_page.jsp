@@ -124,14 +124,14 @@
                             
                         </td>
                         <td>
-                        <form action="/cart/modify" method="post">
+                            <form action="/cart/modify" method="post" class="modCartForm">
 
-                            <input type="hidden" name="cartCode" value="${c.cartCode}">  
-                            <input type="hidden" name="csId" value="${loginCustomer.csId}"> 
-                            
-                            <input type="number" name="cartAmount" id="cart_Amount" value="${c.cartAmount}">
-                            <button type="submit">변경</button>
-                        </form>
+                                <input type="hidden" name="cartCode" value="${c.cartCode}">  
+                                <input type="hidden" name="csId" value="${loginCustomer.csId}"> 
+                                
+                                <input type="number" name="cartAmount" id="cart_Amount" value="${c.cartAmount}">
+                                <button type="button" class="modCart" onclick="modCart()">변경</button>
+                             </form>
                         </td>
                         <td>
                             <a href="/cart/delete?cartCode=${c.cartCode}" onclick="return confirm('정말 삭제하시겠습니까?');"><i class="fas fa-times"></i></a>
@@ -310,6 +310,11 @@
           
             $(".orderPrice").text(sSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')); 
                 
+            }
+
+            function modCart() {
+                console.log();
+                //$(".modCartForm").submit();
             }
 
         

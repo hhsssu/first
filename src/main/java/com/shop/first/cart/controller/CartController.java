@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
@@ -107,9 +108,9 @@ public class CartController {
 
     //장바구니 수량 변경
     @PostMapping("/modify")
-    public String modify(int cartAmount) {
+    public String modify(int cartAmount, HttpSession session) {
         log.info("장바구니 수량변경: " + cartAmount);
         cartService.modifyCart(cartAmount);
-        return null;
+        return "redirect:/cart/list";
     }
 }//

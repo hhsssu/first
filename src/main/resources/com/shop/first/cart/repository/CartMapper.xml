@@ -79,7 +79,7 @@
     <update id="modifyCart">
         UPDATE cart
         SET cart_amount = #{cartAmount}
-        WHERE cate_code = #{cateCode} AND customer_id = #{csId}
+        WHERE cart_code = #{cartCode} AND customer_id = #{csId}
     </update>
 
 </mapper>
