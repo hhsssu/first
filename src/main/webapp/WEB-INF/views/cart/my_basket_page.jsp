@@ -321,11 +321,12 @@
             function checkDelete() {
                 let url = "/cart/checkDelete";
                 let valueArr = new Array();
-                let list = $("input[name='cartChecked']'");
+                let list = $("input[name='cartChecked']");
 
                 for(let i = 0; i < list.length; i++) {
                     if(list[i].checked) {
                         //선택되어 있으면 배열에 값들을 저장함
+                        console.log(list[i].value);
                         valueArr.push(list[i].value);
                     }
                 }
@@ -334,7 +335,7 @@
                     alert("선택된 상품이 없습니다.");
                 } else {
                     let chk = confirm("정말 삭제하시겠습니까?");
-                    $a.jax({
+                    $.ajax({
                         url : url, //전송 URL
                         type: 'POST',
                         traditional: true,
@@ -342,7 +343,7 @@
                             valueArr : valueArr //보내고자하는 data 변수 설정
                         },
                         success: function(jdata) {
-                            if(jdata === 1) {
+                            if(jdata = 1) {
                                 alert("삭제했습니다.");
                                 location.replace("/cart/list"); //페이지 새로고침
                             } else {

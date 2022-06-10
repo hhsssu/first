@@ -110,8 +110,10 @@ public class CartController {
     public String checkDelete(HttpServletRequest request) {
 
         String[] ajaxMsg = request.getParameterValues("valueArr");
+        log.info(ajaxMsg);
         int size = ajaxMsg.length;
         for (String s : ajaxMsg) {
+            log.info(s);
             cartService.delete(Integer.parseInt(s));
         }
         log.info("장바구니 선택 삭제 ");
