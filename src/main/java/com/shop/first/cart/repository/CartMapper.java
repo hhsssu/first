@@ -34,6 +34,6 @@ public interface CartMapper {
     int countCart(@Param("csId") String csId, @Param("prCode") int prCode);
 
     //장바구니 수량 수정
-    void modifyCart(int cartAmount);
+    void modifyCart(ModCart cart);
 
 }

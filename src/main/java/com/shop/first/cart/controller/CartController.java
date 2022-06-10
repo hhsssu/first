@@ -1,6 +1,7 @@
 package com.shop.first.cart.controller;
 
 import com.shop.first.cart.domain.Cart;
+import com.shop.first.cart.dto.ModCart;
 import com.shop.first.cart.service.CartService;
 import com.shop.first.customer.domain.Customer;
 import com.shop.first.product.domain.Product;
@@ -113,9 +114,9 @@ public class CartController {
 
     //장바구니 수량 변경
     @PostMapping("/modify")
-    public String modify(int cartAmount, HttpSession session) {
-        log.info("장바구니 수량변경: " + cartAmount);
-        cartService.modifyCart(cartAmount);
+    public String modify(ModCart cart, HttpSession session) {
+        log.info("장바구니 수량변경: " + cart.getCartAmount());
+        cartService.modifyCart(cart);
         return "redirect:/cart/list";
     }
 }//

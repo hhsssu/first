@@ -59,8 +59,8 @@ public class CartService {
     }
 
     //장바구니 수량 수정
-    public void modifyCart(int cartAmount) {
-        cartMapper.modifyCart(cartAmount);
+    public void modifyCart(ModCart cart) {
+        cartMapper.modifyCart(cart);
     }
 
 }//
