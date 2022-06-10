@@ -114,9 +114,11 @@ public class CartController {
 
     //장바구니 수량 변경
     @PostMapping("/modify")
-    public String modify(ModCart cart, HttpSession session) {
+    public String modify(ModCart cart) {
         log.info("장바구니 수량변경: " + cart.getCartAmount());
         cartService.modifyCart(cart);
         return "redirect:/cart/list";
     }
+
+
 }//
