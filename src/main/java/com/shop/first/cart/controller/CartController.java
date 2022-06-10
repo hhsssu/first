@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -106,8 +107,13 @@ public class CartController {
 
     //장바구니 선택 삭제
     @PostMapping("/checkDelete")
-    public String checkDelete(@RequestParam("delList") int[] list) {
-        for(int i: list) cartService.delete(i);
+    public String checkDelete(HttpServletRequest request) {
+
+        String[] ajaxMsg = request.getParameterValues("valueArr");
+        int size = ajaxMsg.length;
+        for (String s : ajaxMsg) {
+            cartService.delete(Integer.parseInt(s));
+        }
         log.info("장바구니 선택 삭제 ");
         return "redirect:/cart/list";
     }
