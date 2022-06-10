@@ -84,7 +84,7 @@
         <section id="basket-list-container">
             <div class="basket-list-title">
                 <ul class="basket-select-all">
-                    <li><input type="checkbox" id="check_all" onclick="checkAll();"></li>
+                    <li><input type="checkbox" class="allcheck" id="check_all" onclick="checkAll();"></li>
                     <li>전체선택</li>
                 </ul>
                 <ul class="basket-delete">
@@ -255,14 +255,12 @@
             let dv = 0;
 
             if (obj.checked == true) {
-
-                totalPrice += Number(cartAm) * Number(prPrice);
-                
                 if(totalPrice < 30000) {
                         dv = 3000;
                         totalPrice += 3000;
                         $(".delivery").text("+"+dv.toString());
-                    } 
+                    }
+                totalPrice += Number(cartAm) * Number(prPrice);
             } else {
                 totalPrice -= Number(cartAm) * Number(prPrice);
             }
@@ -304,7 +302,7 @@
             $(".pr_Price").text(sSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
             $(".orderPrice").text(sSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')); 
                 
-            }
+            } 
 
             $(document).ready(function(){
                 let link =  document.location.href;          //현재 페이지 url 를 가지고 옵니다.    
@@ -314,6 +312,8 @@
                         });
                 }
              });
+
+
 
             //선택삭제
             function checkDelete() {
