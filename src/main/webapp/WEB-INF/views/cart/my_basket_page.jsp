@@ -264,9 +264,8 @@
             } else {
                 totalPrice -= Number(cartAm) * Number(prPrice);
             }
-    
-            $(".pr_Price").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
-            $(".orderPrice").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
+                $(".pr_Price").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
+                $(".orderPrice").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
             }
 
 
@@ -309,6 +308,7 @@
                 if (link.match('cart')) {                          //가지고온 url 중에 cart(장바구니)이 있는지 확인합니다.
                         $( "input[type=checkbox]" ).each(function(){       //확인됐으면 모든 체크박스에 체크를 해줍니다.
                                 $(this).attr('checked', true);
+                                //calcGoodsPrice();
                         });
                 }
              });
