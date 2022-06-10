@@ -108,12 +108,10 @@ public class CartController {
     //장바구니 선택 삭제
     @PostMapping("/checkDelete")
     public String checkDelete(HttpServletRequest request) {
-
+        log.info("==장바구니 선택 삭제==");
         String[] ajaxMsg = request.getParameterValues("valueArr");
-        log.info(ajaxMsg);
-        int size = ajaxMsg.length;
         for (String s : ajaxMsg) {
-            log.info(s);
+            log.info("s:" +s);
             cartService.delete(Integer.parseInt(s));
         }
         log.info("장바구니 선택 삭제 ");

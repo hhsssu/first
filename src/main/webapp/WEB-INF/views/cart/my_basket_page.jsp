@@ -84,22 +84,19 @@
         <section id="basket-list-container">
             <div class="basket-list-title">
                 <ul class="basket-select-all">
-                    <li><input type="checkbox" id="check_all" onclick="checkAll();" ></li>
+                    <li><input type="checkbox" id="check_all" onclick="checkAll();"></li>
                     <li>전체선택</li>
                 </ul>
                 <ul class="basket-delete">
                     <li class="basket-delete-btn">
-                        <button type="submit">전체삭제</button>
+                        <button type="button" onclick="allDelete()">전체삭제</button>
                     </li>
                     <li>
                         &nbsp;
                     </li>
-                    <!-- <form action="/cart/checkDelete" method="post"> -->
-                        <input name="delList" type="hidden" value="${c.cartCode}">
-                        <li class="basket-delete-btn">
-                            <button type="button" class="checkDel" onclick="checkDelete()">선택삭제</button>
-                        </li>
-                    <!-- </form> -->
+                    <li class="basket-delete-btn">
+                        <button type="button" class="checkDel" onclick="checkDelete()">선택삭제</button>
+                    </li>
                 </ul>
             </div>
             <table class="basket-list">
@@ -278,44 +275,45 @@
             /* 체크박스 전체선택, 전체해제 */
             let fSum = 0;
             let sSum = 0;
-
             function checkAll() {
             if ($("#check_all").is(':checked')) {
                 $("input[name=cartChecked]").prop("checked", true);
-
                 let arr = new Array();
                 let chks = document.getElementsByName("cartChecked");
                 let cart = document.getElementsByName("cartAmount");
-
                 for (let i = 0; i < chks.length; i++) {
                     str = chks[i].parentElement.nextElementSibling.nextElementSibling.
                     nextElementSibling.firstElementChild.textContent;
-
                     n = parseInt(str.replace(/,/g,""));
-
                     arr[i] = n;
                     fSum = arr[i] * cart[i].value;
                     sSum += fSum
                     console.log("sSum: "+sSum);
-
                 }
-
                 
                 if(sSum < 30000) {
                         dv = 3000;
                         sSum += 3000;
                         $(".delivery").text("+"+dv.toString());
                     } 
-
             } else {
                 $("input[name=cartChecked]").prop("checked", false);
                 sSum = 0;
             }
         
-          
+            $(".pr_Price").text(sSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
             $(".orderPrice").text(sSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')); 
                 
             }
+
+            $(document).ready(function(){
+                let link =  document.location.href;          //현재 페이지 url 를 가지고 옵니다.    
+                if (link.match('cart')) {                          //가지고온 url 중에 cart(장바구니)이 있는지 확인합니다.
+                        $( "input[type=checkbox]" ).each(function(){       //확인됐으면 모든 체크박스에 체크를 해줍니다.
+                                $(this).attr('checked', true);
+                        });
+                }
+             });
 
             //선택삭제
             function checkDelete() {
@@ -353,6 +351,8 @@
                     });
                 }
             }
+
+            //전체 삭제
 
 
     </script>
