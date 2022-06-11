@@ -268,31 +268,21 @@
             if(chks.length == 0) sum = 0; dv =0;
 
             if (obj.checked == true) {
-                sum += result;
-                console.log("obj:" + obj.value);
-                console.log("if result: " +result);
-                console.log("if sum: "+sum);
-                console.log("dv"+ dv);
-                
+                sum += result;   
             } else {
                 sum -= result;
-                console.log("result: " +result);
-                console.log("sum: "+sum);
-                console.log("dv"+ dv);
-                
+
             }
 
-                delivery();
-                totalPrice = sum + dv;
-                console.log("totalPrice: "+ totalPrice);
-                $(".pr_Price").text(sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
-                $(".orderPrice").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
-                }
+            delivery();
+            totalPrice = sum + dv;
+            $(".pr_Price").text(sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
+            $(".orderPrice").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
+        }
 
 
         /* 체크박스 전체선택, 전체해제 */
         let fSum = 0;
-        let sSum = 0;
         function checkAll() {
         if ($("#check_all").is(':checked')) {
             $("input[name=cartChecked]").prop("checked", true);
@@ -305,31 +295,21 @@
                 n = parseInt(str.replace(/,/g,""));
                 arr[i] = n;
                 fSum = arr[i] * cart[i].value;
-                sSum += fSum
-                console.log("sSum: "+sSum);
+                sum += fSum
+                console.log("sum: "+sum);
             }
             
             /* 배송비 결정 */
-            if(sSum >= 30000){
-                dv = 0;
-                $(".delivery").text("+"+dv.toString());
-            } else if(sSum == 0){
-                dv = 0;
-                $(".delivery").text("+"+dv.toString());
-            } else {
-                dv = 3000;	
-                $(".delivery").text("+"+dv.toString());
-                sSum += 3000;
-            }
+            delivery();
         } else {
             $("input[name=cartChecked]").prop("checked", false);
-            sSum = 0;
+            sum = 0;
             dv = 0;
                 $(".delivery").text("+"+dv.toString());
         }
     
-        $(".pr_Price").text(sSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
-        $(".orderPrice").text(sSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')); 
+        $(".pr_Price").text(sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
+        $(".orderPrice").text(sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')); 
             
         } 
 
@@ -345,30 +325,6 @@
              });*/
 
             
-
-           /*  $(document).ready(function(){
-                $("#checkBoxId").change(function(){
-                    if($("#checkBoxId").is(":checked")){
-                        console.log();("체크박스 체크했음!");
-                    }else{
-                        console.log();("체크박스 체크 해제!");
-                    }
-                });
-            });*/
-
-
-            //전체선택 후 하나만 해제했을 때, 전체선택도 해제 해주기
-            /*
-            // 체크박스 개별 선택
-            $(".checkbox_group").on("click", ".normal", function() {
-            var checked = $(this).is(":checked");
-
-            if (!checked) {
-                $("#check_all").prop("checked", false);
-            }
-            });
-            */
-
 
 
             //선택삭제
@@ -408,7 +364,7 @@
                 }
             }
 
-            //전체 삭제
+        
 
 
     </script>
