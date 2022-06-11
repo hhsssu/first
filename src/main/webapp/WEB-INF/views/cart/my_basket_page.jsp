@@ -236,76 +236,102 @@
     </div>
 
     <script>
-
-
         let totalPrice = 0;
+        let sum = 0;
         let total = document.querySelector(".orderPrice").textContent;
         let amount = document.getElementById('cart_Amount').value;
         let price = document.querySelector('#prPrice').textContent;
         let input = document.getElementById('input_check');
         let plus_btn = document.getElementById('plus');
 
-        
+        function delivery() {
+             /* 배송비 결정 */
+             if(sum == 0){
+                dv = 0;
+                $(".delivery").text("+"+dv.toString());
+            } else if(sum >= 30000){
+                dv = 0;
+                $(".delivery").text("+"+dv.toString());
+            } else {
+                dv = 3000;	
+                $(".delivery").text("+"+dv.toString());
+            }
+
+        }
 
          // 체크박스 개별선택, 전체해제 
          function calcGoodsPrice(prPrice, obj, cartAm) {
 
-            console.log("obj: " +obj.value);
-
-            let dv = 0;
             let result = Number(cartAm) * Number(prPrice);
+            let chks = document.getElementsByName("cartChecked");
+            
+            if(chks.length == 0) sum = 0; dv =0;
 
             if (obj.checked == true) {
-                if(result < 30000) {
-                        dv = 3000;
-                        totalPrice += 3000;
-                        $(".delivery").text("+"+dv.toString());
-                    } else {
-                        dv = 0;
-                        $(".delivery").text("+"+dv.toString());
-                    }
-                totalPrice += result;
+                sum += result;
+                console.log("obj:" + obj.value);
+                console.log("if result: " +result);
+                console.log("if sum: "+sum);
+                console.log("dv"+ dv);
+                
             } else {
-                totalPrice -= result;
+                sum -= result;
+                console.log("result: " +result);
+                console.log("sum: "+sum);
+                console.log("dv"+ dv);
+                
             }
-                $(".pr_Price").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
+
+                delivery();
+                totalPrice = sum + dv;
+                console.log("totalPrice: "+ totalPrice);
+                $(".pr_Price").text(sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
                 $(".orderPrice").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
-            }
-
-
-            /* 체크박스 전체선택, 전체해제 */
-            let fSum = 0;
-            let sSum = 0;
-            function checkAll() {
-            if ($("#check_all").is(':checked')) {
-                $("input[name=cartChecked]").prop("checked", true);
-                let arr = new Array();
-                let chks = document.getElementsByName("cartChecked");
-                let cart = document.getElementsByName("cartAmount");
-                for (let i = 0; i < chks.length; i++) {
-                    str = chks[i].parentElement.nextElementSibling.nextElementSibling.
-                    nextElementSibling.firstElementChild.textContent;
-                    n = parseInt(str.replace(/,/g,""));
-                    arr[i] = n;
-                    fSum = arr[i] * cart[i].value;
-                    sSum += fSum
-                    console.log("sSum: "+sSum);
                 }
-                
-                if(sSum < 30000) {
-                        dv = 3000;
-                        sSum += 3000;
-                        $(".delivery").text("+"+dv.toString());
-                    } 
-            } else {
-                $("input[name=cartChecked]").prop("checked", false);
-                sSum = 0;
+
+
+        /* 체크박스 전체선택, 전체해제 */
+        let fSum = 0;
+        let sSum = 0;
+        function checkAll() {
+        if ($("#check_all").is(':checked')) {
+            $("input[name=cartChecked]").prop("checked", true);
+            let arr = new Array();
+            let chks = document.getElementsByName("cartChecked");
+            let cart = document.getElementsByName("cartAmount");
+            for (let i = 0; i < chks.length; i++) {
+                str = chks[i].parentElement.nextElementSibling.nextElementSibling.
+                nextElementSibling.firstElementChild.textContent;
+                n = parseInt(str.replace(/,/g,""));
+                arr[i] = n;
+                fSum = arr[i] * cart[i].value;
+                sSum += fSum
+                console.log("sSum: "+sSum);
             }
-        
-            $(".pr_Price").text(sSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
-            $(".orderPrice").text(sSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')); 
-                
-            } 
+            
+            /* 배송비 결정 */
+            if(sSum >= 30000){
+                dv = 0;
+                $(".delivery").text("+"+dv.toString());
+            } else if(sSum == 0){
+                dv = 0;
+                $(".delivery").text("+"+dv.toString());
+            } else {
+                dv = 3000;	
+                $(".delivery").text("+"+dv.toString());
+                sSum += 3000;
+            }
+        } else {
+            $("input[name=cartChecked]").prop("checked", false);
+            sSum = 0;
+            dv = 0;
+                $(".delivery").text("+"+dv.toString());
+        }
+    
+        $(".pr_Price").text(sSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
+        $(".orderPrice").text(sSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')); 
+            
+        } 
 
 
             
