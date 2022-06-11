@@ -224,7 +224,7 @@
                     <span>공지사항</span>
                     <span>고객센터</span>
                 </div>
-            </div>
+            </div>cart_Amount
             <div id="copyright">
                 <div>Copyright ⓒ2022 All rights reserved │ </div>
             </div>

@@ -18,6 +18,9 @@
 
     <!-- custom css -->
     <link rel="stylesheet" href="/css/main.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -103,8 +106,8 @@
                         <!-- 상품 상세 정보 섹션 -->
                         <div class="pd-info">
                             <h2 class="pd-title">${p.prName}</h2>
-                            <div class="pd-price">${p.prCode}</div>
-                            <div class="pd-dc-price">9,800원 <span>[2%]</span></div>
+                            <div class="pd-price"><fmt:formatNumber value="" pattern="#,###"/></div>
+                            <div class="pd-dc-price"><fmt:formatNumber value="${p.prPrice}" pattern="#,###"/>원 <span>[2%]</span></div>
                         </div>
 
                         <!-- 배송 정보 / 수량 및 옵션 선택 / 총 주문금액 섹션 -->
@@ -248,7 +251,7 @@
                                     <img src="/product/list/${a.prThumb}" alt="상품1">
                                     <div class="box-info">
                                         <span class="pd_nm">${a.prName}</span>
-                                        <span class="pd_price">${a.prPrice}</span>
+                                        <span class="pd_price"><fmt:formatNumber value="${a.prPrice}" pattern="#,###"/>원</span>
                                     </div>
                                 </a>
                             </li>
@@ -411,6 +414,18 @@
         </footer>
         <!-- //footer -->
     </div>
+
+    <script>
+        function product(a){
+            let result =  parseInt(a) + parseInt(a*0.02);
+
+            return result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "원"
+        }
+
+        document.querySelector('.pd-price').textContent = product('${p.prPrice}');
+        
+    </script>
+
 </body>
 
 </html>
