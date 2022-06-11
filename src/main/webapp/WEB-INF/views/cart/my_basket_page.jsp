@@ -253,16 +253,20 @@
             console.log("obj: " +obj.value);
 
             let dv = 0;
+            let result = Number(cartAm) * Number(prPrice);
 
             if (obj.checked == true) {
-                if(totalPrice < 30000) {
+                if(result < 30000) {
                         dv = 3000;
                         totalPrice += 3000;
                         $(".delivery").text("+"+dv.toString());
+                    } else {
+                        dv = 0;
+                        $(".delivery").text("+"+dv.toString());
                     }
-                totalPrice += Number(cartAm) * Number(prPrice);
+                totalPrice += result;
             } else {
-                totalPrice -= Number(cartAm) * Number(prPrice);
+                totalPrice -= result;
             }
                 $(".pr_Price").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
                 $(".orderPrice").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
