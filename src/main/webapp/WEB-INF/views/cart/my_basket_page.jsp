@@ -303,15 +303,41 @@
                 
             } 
 
-            $(document).ready(function(){
+
+            
+            /*  $(document).ready(function(){
                 let link =  document.location.href;          //현재 페이지 url 를 가지고 옵니다.    
                 if (link.match('cart')) {                          //가지고온 url 중에 cart(장바구니)이 있는지 확인합니다.
                         $( "input[type=checkbox]" ).each(function(){       //확인됐으면 모든 체크박스에 체크를 해줍니다.
                                 $(this).attr('checked', true);
-                                //calcGoodsPrice();
                         });
                 }
-             });
+             });*/
+
+            
+
+           /*  $(document).ready(function(){
+                $("#checkBoxId").change(function(){
+                    if($("#checkBoxId").is(":checked")){
+                        console.log();("체크박스 체크했음!");
+                    }else{
+                        console.log();("체크박스 체크 해제!");
+                    }
+                });
+            });*/
+
+
+            //전체선택 후 하나만 해제했을 때, 전체선택도 해제 해주기
+            /*
+            // 체크박스 개별 선택
+            $(".checkbox_group").on("click", ".normal", function() {
+            var checked = $(this).is(":checked");
+
+            if (!checked) {
+                $("#check_all").prop("checked", false);
+            }
+            });
+            */
 
 
 
