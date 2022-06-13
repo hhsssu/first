@@ -364,7 +364,29 @@
                 }
             }
 
-        
+            $(function(){
+                $("[type=checkbox][name=cartChecked]").on("change", function(){ //0
+                    let check = $(this).prop("checked"); //1
+                    //전체 체크
+                    if($(this).hasClass("allcheck")){ //2
+                        $("[type=checkbox][name=cartChecked]").prop("checked", check);
+
+                    //단일 체크
+                    }else{ //3
+                        let all = $("[type=checkbox][name=cartChecked].allcheck");
+                        let allcheck = all.prop("checked")
+                        if(check != allcheck){ //3-1
+                            let len = $("[type=checkbox][name=cartChecked]").not(".allcheck").length; //3-2
+                            let ckLen = $("[type=checkbox][name=cartChecked]:checked").not(".allcheck").length; //3-2
+                            if(len === ckLen){ //3-3
+                                all.prop("checked", true);
+                            }else{
+                                all.prop("checked", false);
+                            }
+                        }
+                    }
+                });
+            });
 
 
     </script>
