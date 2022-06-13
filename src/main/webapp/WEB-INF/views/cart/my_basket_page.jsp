@@ -84,7 +84,7 @@
         <section id="basket-list-container">
             <div class="basket-list-title">
                 <ul class="basket-select-all">
-                    <li><input type="checkbox" class="allcheck" id="check_all" onclick="checkAll();"></li>
+                    <li><input type="checkbox" name="cartChecked" class="allcheck" id="check_all" onclick="checkAll();"></li>
                     <li>전체선택</li>
                 </ul>
                 <ul class="basket-delete">
