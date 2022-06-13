@@ -84,7 +84,7 @@
         <section id="basket-list-container">
             <div class="basket-list-title">
                 <ul class="basket-select-all">
-                    <li><input type="checkbox" name="cartChecked" class="allcheck" id="check_all" onclick="checkAll();"></li>
+                    <li><input type="checkbox" value="0" name="cartChecked" class="allcheck" id="check_all" onclick="checkAll();"></li>
                     <li>전체선택</li>
                 </ul>
                 <ul class="basket-delete">
@@ -236,6 +236,35 @@
     </div>
 
     <script>
+
+        
+
+          //전체 선택 수정
+          $(function(){
+                $("[type=checkbox][name=cartChecked]").on("change", function(){ //0
+                    let check = $(this).prop("checked"); //1
+                    //전체 체크
+                    if($(this).hasClass("allcheck")){ //2
+                        $("[type=checkbox][name=cartChecked]").prop("checked", check);
+
+                    //단일 체크
+                    }else{ //3
+                        let all = $("[type=checkbox][name=cartChecked].allcheck");
+                        let allcheck = all.prop("checked")
+                        if(check != allcheck){ //3-1
+                            let len = $("[type=checkbox][name=cartChecked]").not(".allcheck").length; //3-2
+                            let ckLen = $("[type=checkbox][name=cartChecked]:checked").not(".allcheck").length; //3-2
+                            if(len === ckLen){ //3-3
+                                all.prop("checked", true);
+                            }else{
+                                all.prop("checked", false);
+                            }
+                        }
+                    }
+                });
+            });
+
+
         let totalPrice = 0;
         let sum = 0;
         let total = document.querySelector(".orderPrice").textContent;
@@ -281,28 +310,12 @@
         }
 
 
-        /* 체크박스 전체선택, 전체해제 */
-        let fSum = 0;
-        function checkAll() {
-        if ($("#check_all").is(':checked')) {
-            $("input[name=cartChecked]").prop("checked", true);
-            let arr = new Array();
-            let chks = document.getElementsByName("cartChecked");
-            let cart = document.getElementsByName("cartAmount");
-            for (let i = 0; i < chks.length; i++) {
-                str = chks[i].parentElement.nextElementSibling.nextElementSibling.
-                nextElementSibling.firstElementChild.textContent;
-                n = parseInt(str.replace(/,/g,""));
-                arr[i] = n;
-                fSum = arr[i] * cart[i].value;
-                sum += fSum
-                console.log("sum: "+sum);
-            }
+        
             
             /* 배송비 결정 */
             delivery();
         } else {
-            $("input[name=cartChecked]").prop("checked", false);
+            //$("input[name=cartChecked]").prop("checked", false);
             sum = 0;
             dv = 0;
                 $(".delivery").text("+"+dv.toString());
@@ -364,30 +377,7 @@
                 }
             }
 
-            $(function(){
-                $("[type=checkbox][name=cartChecked]").on("change", function(){ //0
-                    let check = $(this).prop("checked"); //1
-                    //전체 체크
-                    if($(this).hasClass("allcheck")){ //2
-                        $("[type=checkbox][name=cartChecked]").prop("checked", check);
-
-                    //단일 체크
-                    }else{ //3
-                        let all = $("[type=checkbox][name=cartChecked].allcheck");
-                        let allcheck = all.prop("checked")
-                        if(check != allcheck){ //3-1
-                            let len = $("[type=checkbox][name=cartChecked]").not(".allcheck").length; //3-2
-                            let ckLen = $("[type=checkbox][name=cartChecked]:checked").not(".allcheck").length; //3-2
-                            if(len === ckLen){ //3-3
-                                all.prop("checked", true);
-                            }else{
-                                all.prop("checked", false);
-                            }
-                        }
-                    }
-                });
-            });
-
+          
 
     </script>
 
