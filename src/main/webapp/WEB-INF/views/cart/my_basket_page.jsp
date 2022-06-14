@@ -84,7 +84,7 @@
         <section id="basket-list-container">
             <div class="basket-list-title">
                 <ul class="basket-select-all">
-                    <li><input type="checkbox" class="allcheck" id="check_all" onclick="checkAll();"></li>
+                    <li><input type="checkbox" class="allCheck" id="check_all" onclick="checkAll();"></li>
                     <li>전체선택</li>
                 </ul>
                 <ul class="basket-delete">
@@ -299,6 +299,10 @@
                 }
              });*/
 
+        /*<li><input type="checkbox" class="allCheck" id="check_all" onclick="checkAll();"></li>
+        
+         <input type="checkbox" value="${c.cartCode}" name="cartChecked" onclick="calcGoodsPrice('${product[status.index].prPrice}', this, '${c.cartAmount}')"  id="input_check">
+        */
             
         /* 체크박스 전체선택, 해제 */
         let fSum = 0;
@@ -309,7 +313,6 @@
                 let chks = document.getElementsByName("cartChecked");
                 let cart = document.getElementsByName("cartAmount");
                 for(let i = 0; chks.length; i++) {
-                    console.log("parentElement: " +chs[i].parentElement);
                     str = chks[i].parentElement.nextElementSibling.nextElementSibling.
                     nextElementSibling.firstElementChild.textContent;
                     n = parseInt(str.replace(/,/g,""));
