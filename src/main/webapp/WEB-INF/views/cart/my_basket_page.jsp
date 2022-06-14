@@ -84,7 +84,7 @@
         <section id="basket-list-container">
             <div class="basket-list-title">
                 <ul class="basket-select-all">
-                    <li><input type="checkbox" value="0" name="cartChecked" class="allcheck" id="check_all" onclick="checkAll();"></li>
+                    <li><input type="checkbox" class="allcheck" id="check_all" onclick="checkAll();"></li>
                     <li>전체선택</li>
                 </ul>
                 <ul class="basket-delete">
@@ -239,31 +239,8 @@
 
         
 
-          //전체 선택 수정
-          $(function(){
-                $("[type=checkbox][name=cartChecked]").on("change", function(){ //0
-                    let check = $(this).prop("checked"); //1
-                    //전체 체크
-                    if($(this).hasClass("allcheck")){ //2
-                        $("[type=checkbox][name=cartChecked]").prop("checked", check);
-
-                    //단일 체크
-                    }else{ //3
-                        let all = $("[type=checkbox][name=cartChecked].allcheck");
-                        let allcheck = all.prop("checked")
-                        if(check != allcheck){ //3-1
-                            let len = $("[type=checkbox][name=cartChecked]").not(".allcheck").length; //3-2
-                            let ckLen = $("[type=checkbox][name=cartChecked]:checked").not(".allcheck").length; //3-2
-                            if(len === ckLen){ //3-3
-                                all.prop("checked", true);
-                            }else{
-                                all.prop("checked", false);
-                            }
-                        }
-                    }
-                });
-            });
-
+       
+                
 
         let totalPrice = 0;
         let sum = 0;
@@ -288,7 +265,7 @@
 
         }
 
-         // 체크박스 개별선택, 전체해제 
+         // 체크박스 개별선택, 해제 
          function calcGoodsPrice(prPrice, obj, cartAm) {
 
             let result = Number(cartAm) * Number(prPrice);
@@ -309,22 +286,7 @@
             $(".orderPrice").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
         }
 
-
         
-            
-            /* 배송비 결정 */
-            delivery();
-        } else {
-            //$("input[name=cartChecked]").prop("checked", false);
-            sum = 0;
-            dv = 0;
-                $(".delivery").text("+"+dv.toString());
-        }
-    
-        $(".pr_Price").text(sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
-        $(".orderPrice").text(sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')); 
-            
-        } 
 
 
             
@@ -338,44 +300,76 @@
              });*/
 
             
-
-
-            //선택삭제
-            function checkDelete() {
-                let url = "/cart/checkDelete";
-                let valueArr = new Array();
-                let list = $("input[name='cartChecked']");
-
-                for(let i = 0; i < list.length; i++) {
-                    if(list[i].checked) {
-                        //선택되어 있으면 배열에 값들을 저장함
-                        console.log(list[i].value);
-                        valueArr.push(list[i].value);
-                    }
+        /* 체크박스 전체선택, 해제 */
+        let fSum = 0;
+        function checkAll() {
+            if($("#check_all").is(":checked")) {
+                $("input[name=cartChecked]").prop("checked", true);
+                let arr = new Array();
+                let chks = document.getElementsByName("cartChecked");
+                let cart = document.getElementsByName("cartAmount");
+                for(let i = 0; chks.length; i++) {
+                    console.log("parentElement: " +chs[i].parentElement);
+                    str = chks[i].parentElement.nextElementSibling.nextElementSibling.
+                    nextElementSibling.firstElementChild.textContent;
+                    n = parseInt(str.replace(/,/g,""));
+                    arr[i] = n;
+                    fSum = arr[i] * cart[i].value;
+                    sum += fSum;
+                    console.log("sum:" +sum);
                 }
-                
-                if(valueArr.length === 0) {
-                    alert("선택된 상품이 없습니다.");
-                } else {
-                    let chk = confirm("정말 삭제하시겠습니까?");
-                    $.ajax({
-                        url : url, //전송 URL
-                        type: 'POST',
-                        traditional: true,
-                        data: {
-                            valueArr : valueArr //보내고자하는 data 변수 설정
-                        },
-                        success: function(jdata) {
-                            if(jdata = 1) {
-                                alert("삭제했습니다.");
-                                location.replace("/cart/list"); //페이지 새로고침
-                            } else {
-                                alert("삭제 실패!");
-                            }
-                        }
-                    });
+
+                /* 배송비 결정 */
+                delivery();
+            } else {
+                $("input[name=cartChecked]").prop("checked", false);
+                sum = 0;
+                dv = 0;
+                    $(".delivery").text("+"+dv.toString());
+            }
+            $(".pr_Price").text(sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
+            $(".orderPrice").text(sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
+        }
+
+            
+
+
+        //선택삭제
+        function checkDelete() {
+            let url = "/cart/checkDelete";
+            let valueArr = new Array();
+            let list = $("input[name='cartChecked']");
+
+            for(let i = 0; i < list.length; i++) {
+                if(list[i].checked) {
+                    //선택되어 있으면 배열에 값들을 저장함
+                    console.log(list[i].value);
+                    valueArr.push(list[i].value);
                 }
             }
+            
+            if(valueArr.length === 0) {
+                alert("선택된 상품이 없습니다.");
+            } else {
+                let chk = confirm("정말 삭제하시겠습니까?");
+                $.ajax({
+                    url : url, //전송 URL
+                    type: 'POST',
+                    traditional: true,
+                    data: {
+                        valueArr : valueArr //보내고자하는 data 변수 설정
+                    },
+                    success: function(jdata) {
+                        if(jdata = 1) {
+                            alert("삭제했습니다.");
+                            location.replace("/cart/list"); //페이지 새로고침
+                        } else {
+                            alert("삭제 실패!");
+                        }
+                    }
+                });
+            }
+        }
 
           
 
