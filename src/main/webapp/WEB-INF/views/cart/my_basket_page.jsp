@@ -324,6 +324,9 @@
 
                 /* 배송비 결정 */
                 delivery();
+                
+                
+
             } else {
                 $("input[name=cartChecked]").prop("checked", false);
                 sum = 0;
@@ -375,6 +378,35 @@
         }
 
           
+        /*        
+        //전체 선택 수정
+        $(function(){
+            $("[type=checkbox][name=cartChecked]").on("change", function(){ //0
+                let check = $(this).prop("checked"); //1
+                //전체 체크
+                if($(this).hasClass("allCheck")){ //2
+                    $("[type=checkbox][name=cartChecked]").prop("checked", check);
+
+                //단일 체크
+                }else{ //3
+                    let all = $("[type=checkbox][name=cartChecked].allCheck");
+                    let allcheck = all.prop("checked")
+                    if(check != allcheck){ //3-1
+                        let len = $("[type=checkbox][name=cartChecked]").not(".allCheck").length; //3-2
+                        let ckLen = $("[type=checkbox][name=cartChecked]:checked").not(".allCheck").length; //3-2
+                        if(len === ckLen){ //3-3
+                            all.prop("checked", true);
+                        }else{
+                            all.prop("checked", false);
+                        }
+                    }
+                }
+            });
+        }); 
+
+        if(chks.length ) */
+
+        
 
     </script>
 
