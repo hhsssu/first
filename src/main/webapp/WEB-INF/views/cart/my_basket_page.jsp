@@ -312,7 +312,7 @@
                 let arr = new Array();
                 let chks = document.getElementsByName("cartChecked");
                 let cart = document.getElementsByName("cartAmount");
-                for(let i = 0; chks.length; i++) {
+                for(let i = 0; i< chks.length; i++) {
                     str = chks[i].parentElement.nextElementSibling.nextElementSibling.
                     nextElementSibling.firstElementChild.textContent;
                     n = parseInt(str.replace(/,/g,""));
