@@ -273,12 +273,21 @@
             
             if(chks.length == 0) sum = 0; dv =0;
 
-            console.log("chks.length: " +chks.length);
+
+
             
-            let count = 1;
+            
+            let count = 1; //전체선택 해지 설정할 임의의 변수 설정
+            let num = 0;
 
             if (obj.checked == true) {
-                sum += result;   
+                sum += result;
+                num++;
+                console.log("num: "+ num);
+                console.log("chks.length: " +chks.length);
+                if(num == chks.length) {
+                    $("input[id=check_all]").prop("checked", true); //전체 선택 설정
+                }   
             } else {
                 sum -= result;
                 count--; //체크 해제되고 count가 0이 된다면
