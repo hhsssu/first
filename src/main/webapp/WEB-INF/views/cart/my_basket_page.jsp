@@ -237,10 +237,6 @@
 
     <script>
 
-        
-
-       
-                
 
         let totalPrice = 0;
         let sum = 0;
@@ -295,26 +291,10 @@
             $(".orderPrice").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
         }
 
-        /*
+        /* 참고 블로그 https://myhappyman.tistory.com/180
           3-2. 페이지에 노출된 체크 박스의 개수와 체크된 개수가 같은지 확인을 하기 위해 값을 가져옵니다.
          여기서 .not()메소드를 사용하여 전체 체크박스는 제외하였습니다.
         3-3. 가져온 개수가 서로 같다면 전체가 이미 선택된 것이므로 전체체크박스에도 선택처리를 합니다.
-        */
-
-
-            
-            /*  $(document).ready(function(){
-                let link =  document.location.href;          //현재 페이지 url 를 가지고 옵니다.    
-                if (link.match('cart')) {                          //가지고온 url 중에 cart(장바구니)이 있는지 확인합니다.
-                        $( "input[type=checkbox]" ).each(function(){       //확인됐으면 모든 체크박스에 체크를 해줍니다.
-                                $(this).attr('checked', true);
-                        });
-                }
-             });*/
-
-        /*<li><input type="checkbox" class="allCheck" id="check_all" onclick="checkAll();"></li>
-        
-         <input type="checkbox" value="${c.cartCode}" name="cartChecked" onclick="calcGoodsPrice('${product[status.index].prPrice}', this, '${c.cartAmount}')"  id="input_check">
         */
             
         /* 체크박스 전체선택, 해제 */
@@ -337,9 +317,7 @@
                 }
 
                 /* 배송비 결정 */
-                delivery();
-                
-                
+                delivery();  
 
             } else {
                 $("input[name=cartChecked]").prop("checked", false);
@@ -391,35 +369,7 @@
             }
         }
 
-          
-        /*        
-        //전체 선택 수정
-        $(function(){
-            $("[type=checkbox][name=cartChecked]").on("change", function(){ //0
-                let check = $(this).prop("checked"); //1
-                //전체 체크
-                if($(this).hasClass("allCheck")){ //2
-                    $("[type=checkbox][name=cartChecked]").prop("checked", check);
-
-                //단일 체크
-                }else{ //3
-                    let all = $("[type=checkbox][name=cartChecked].allCheck");
-                    let allcheck = all.prop("checked")
-                    if(check != allcheck){ //3-1
-                        let len = $("[type=checkbox][name=cartChecked]").not(".allCheck").length; //3-2
-                        let ckLen = $("[type=checkbox][name=cartChecked]:checked").not(".allCheck").length; //3-2
-                        if(len === ckLen){ //3-3
-                            all.prop("checked", true);
-                        }else{
-                            all.prop("checked", false);
-                        }
-                    }
-                }
-            });
-        }); 
-
-        if(chks.length ) */
-
+     
         
 
     </script>
