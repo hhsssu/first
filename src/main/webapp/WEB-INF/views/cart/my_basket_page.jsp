@@ -273,11 +273,16 @@
             
             if(chks.length == 0) sum = 0; dv =0;
 
+            console.log("chks.length: " +chks.length);
+            
+            let count = 1;
+
             if (obj.checked == true) {
                 sum += result;   
             } else {
                 sum -= result;
-
+                count--; //체크 해제되고 count가 0이 된다면
+                $("input[id=check_all]").prop("checked", false); //전체 선택 해제
             }
 
             delivery();
