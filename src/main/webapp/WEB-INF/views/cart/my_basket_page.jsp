@@ -273,20 +273,15 @@
             
             if(chks.length == 0) sum = 0; dv =0;
 
-
-
-            
-            
             let count = 1; //전체선택 해지 설정할 임의의 변수 설정
-            let num = 0;
 
             if (obj.checked == true) {
                 sum += result;
-                num++;
-                console.log("num: "+ num);
-                console.log("chks.length: " +chks.length);
-                if(num == chks.length) {
-                    $("input[id=check_all]").prop("checked", true); //전체 선택 설정
+                let len = $("[type=checkbox][name=cartChecked]").not(".allCheck").length; //3-2
+                let ckLen = $("[type=checkbox][name=cartChecked]:checked").not(".allCheck").length; //3-2
+                console.log(len);
+                if(len == ckLen) {
+                    $("input[id=check_all]").prop("checked", true); //전체 선택 설정 //3-3
                 }   
             } else {
                 sum -= result;
@@ -300,7 +295,11 @@
             $(".orderPrice").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
         }
 
-        
+        /*
+          3-2. 페이지에 노출된 체크 박스의 개수와 체크된 개수가 같은지 확인을 하기 위해 값을 가져옵니다.
+         여기서 .not()메소드를 사용하여 전체 체크박스는 제외하였습니다.
+        3-3. 가져온 개수가 서로 같다면 전체가 이미 선택된 것이므로 전체체크박스에도 선택처리를 합니다.
+        */
 
 
             
