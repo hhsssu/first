@@ -1226,7 +1226,7 @@ footer .goTop {
 }
 
 /* 아이디/비밀번호 입력칸 스타일 */
-#login-popup-container .login-popup-box .login-join-box form.idpw-input input{
+#login-popup-container .login-popup-box .login-join-box form.idpw-input .id-pw{
     font-size: 0.9rem;
     font-weight: 500;
     border: #ddd 1px solid;
@@ -1258,7 +1258,7 @@ footer .goTop {
     margin-bottom: 0.5rem;
 }
 
-#login-popup-container .login-popup-box .login-join-box button {
+#login-popup-container .login-popup-box .login-join-box .login-btn {
     width: 100%;
     line-height: 2rem;
     border-radius: 3px;
@@ -1268,7 +1268,7 @@ footer .goTop {
     margin-bottom: 0.4rem;
 }
 
-#login-popup-container .login-popup-box .login-join-box .login-sumit-btn button {
+#login-popup-container .login-popup-box .login-join-box .login-submit-btn .login-btn {
     /* width: 100%; */
     /* border-radius: 3px; */
     /* font-weight: 700; */

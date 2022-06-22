@@ -405,15 +405,15 @@
                         <p>로그인</p>
                     </div>
                     <form class="idpw-input" action="/customer/login" method="post" autocomplete="off" id="loginForm">
-                        <input type="text" name="csId" placeholder="아이디" id="inputId" >
-                        <input type="password" name="csPw" placeholder="비밀번호" id="inputPw">
+                        <input type="text" name="csId" placeholder="아이디" id="inputId" class="id-pw">
+                        <input type="password" name="csPw" placeholder="비밀번호" id="inputPw" class="id-pw">
                     
                     <div class="login-id-remember">
-                        <input type="checkbox" checked name="id-remember">
+                        <input type="checkbox" checked name="id-remember" class="id-rem">
                         <p>아이디 저장</p>
                     </div>
-                    <div class="login-sumit-btn"> 
-                        <input type="button" value="로그인" id="loginBtn">
+                    <div class="login-submit-btn"> 
+                        <input type="button" value="로그인" id="loginBtn" class="login-btn">
                     </div>
                     <div class="mem-search-join">
                         <a href="#">아이디/비밀번호 찾기</a>
@@ -421,10 +421,10 @@
                     </div>
 
                     <div class="sns-join">
-                        <button>카카오로 시작하기</button>
-                        <button>네이버로 시작하기</button>
-                        <button>트위터로 시작하기</button>
-                        <button>페이스북으로 시작하기</button>
+                        <button class="login-btn">카카오로 시작하기</button>
+                        <button class="login-btn">네이버로 시작하기</button>
+                        <button class="login-btn">트위터로 시작하기</button>
+                        <button class="login-btn">페이스북으로 시작하기</button>
                     </div>
                 </div>
                 </form>
