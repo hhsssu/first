@@ -23,7 +23,9 @@ public class Product {
     private String prImg4;
     private String prImg5;
     private String prDate;
-    private String prColor;
+    private String prColor; //옵션 색상
+    private String prSize;  //옵션 크기
+
 
     private static int seq;
 
@@ -33,7 +35,8 @@ public class Product {
 
     public Product(int prCode, int cateCode, String prName, int prPrice, int prYn,
                    String prImg1, String prImg2,String prImg3,
-                   String prImg4, String prImg5, int prAmount, String prThumb, String prDate, String prColor) {
+                   String prImg4, String prImg5, int prAmount, String prThumb, String prDate,
+                   String prColor, String prSize) {
         this();
         this.prCode = prCode;
         this.cateCode = cateCode;
@@ -49,6 +52,7 @@ public class Product {
         this.prImg5 = prImg5;
         this.prDate = prDate;
         this.prColor = prColor;
+        this.prSize = prSize;
     }
 
     public Product(ResultSet rs) throws SQLException {
@@ -66,6 +70,7 @@ public class Product {
         this.prImg5 = rs.getString("product_img5");
         this.prDate = rs.getString("product_date");
         this.prColor = rs.getString("product_color");
+        this.prSize = rs.getString("product_size");
     }
 
 }//
