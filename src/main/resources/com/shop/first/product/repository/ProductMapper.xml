@@ -20,6 +20,7 @@
         <result property="prImg5" column="product_img5" />
         <result property="prDate" column="product_date" />
         <result property="prColor" column="product_color" />
+        <result property="prSize" column="product_size" />
     </resultMap>
 
     <!--    //상품 목록 조회  -->
