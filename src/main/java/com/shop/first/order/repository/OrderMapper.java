@@ -12,12 +12,12 @@ public interface OrderMapper {
     List<Order> getArticles();
 
     //주문 상세 조회
-    Order getContent(int optionCode);
+    Order getContent(int orderCode);
 
     //주문하기
     boolean insert(Order order);
 
     //주문 취소
-    boolean cancel(int optionCode);
+    boolean cancel(int orderCode);
 
 }//
