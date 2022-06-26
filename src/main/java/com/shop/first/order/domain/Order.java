@@ -16,6 +16,6 @@ public class Order {
     private String roadAddr; //도로명주소
     private String lotNumAddr; //지번주소
     private String extraAddr; //상세주소
-    
+
 
 }//
