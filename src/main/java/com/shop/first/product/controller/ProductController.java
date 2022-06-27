@@ -113,7 +113,7 @@ public class ProductController extends HttpServlet {
 
         productService.write(product);
         log.info(product);
-        return "redirect:/main/index";
+        return "redirect:/";
     }
 
 

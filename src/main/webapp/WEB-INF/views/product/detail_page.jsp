@@ -143,13 +143,21 @@
                                     </tr>
                                     <tr>
                                         <th>
-                                            옵션 선택
+                                            옵션 선택 - 1
                                         </th>
                                         <td class="sale-option">
-                                            <select name="amount" id="option" size="1">
-                                                <option value="blue">블루 체크</option>
-                                                <option value="puple">퍼플 체크</option>
-                                                <option value="yellow">옐로우 도트</option>
+                                            <select name="prColor" id="option" size="1">
+                                                <option value="${p.prColor}">${p.prColor}</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            옵션 선택 - 2
+                                        </th>
+                                        <td class="sale-option">
+                                            <select name="prSize" id="option" size="1">
+                                                <option value="${p.prSize}">${p.prSize}</option>
                                             </select>
                                         </td>
                                     </tr>

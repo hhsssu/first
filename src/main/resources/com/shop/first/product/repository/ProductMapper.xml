@@ -25,12 +25,7 @@
 
     <!--    //상품 목록 조회  -->
     <select id="getArticles" resultMap="productMap">
-        <![CDATA[
-            SELECT
-                *
-           FROM
-           product
-        ]]>
+        SELECT * FROM product
     </select>
 
     <!--    //상품 상세 조회-->
@@ -46,11 +41,11 @@
         (product_code, cate_code, product_name, product_price,
         product_yn, product_amount, product_thumb, product_img1,
         product_img2, product_img3, product_img4, product_img5
-        ,product_color)
+        ,product_color,product_size)
         VALUES
         (seq_product_code.nextval, #{cateCode} , #{prName}, #{prPrice},
         #{prYn}, #{prAmount}, #{prThumb}, #{prImg1}, #{prImg2}, #{prImg3},
-        #{prImg4}, #{prImg5}, #{prColor})
+        #{prImg4}, #{prImg5}, #{prColor}, #{prSize})
     </insert>
 
 
