@@ -2,6 +2,7 @@ package com.shop.first.product.controller;
 
 import com.shop.first.product.domain.Product;
 import com.shop.first.product.service.ProductService;
+import com.shop.first.productoption.domain.ProductOption;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
@@ -47,13 +48,16 @@ public class ProductController extends HttpServlet {
 
     //상품 등록 화면 요청(화면)
     @GetMapping("/write")
-    public String write() {
+    public String write(Model model, ProductOption option) {
         log.info("/product/write - GET!");
 
         /*Product product = (Product) session.getAttribute("newProduct");
         if (product == null) {
             return "redirect:/home";
         }*/
+        model.addAttribute("c",option.getPrColor());
+        model.addAttribute("s",option.getPrSize());
+
         return "product/product_insert";
     }
 

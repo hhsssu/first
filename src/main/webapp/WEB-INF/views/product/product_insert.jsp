@@ -111,13 +111,19 @@
     </p>
 
 
-    <c:forEach var="o" items="${option}"> 
+    
     <p>
         <label>
-          <input type="checkbox" value="o" > <!-- onclick="location.href='list.jsp' -->
+          <input type="checkbox" value="${c.prColor}" > 
         </label>
     </p>
-    </c:forEach>
+   
+    <p>
+        <label>
+          <input type="checkbox" value="${s.prSize}" > 
+        </label>
+    </p>
+    
   
 
     <p>
