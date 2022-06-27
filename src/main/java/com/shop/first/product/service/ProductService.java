@@ -24,9 +24,8 @@ public class ProductService {
     }
 
     //상품 등록 중간 처리
-    public boolean write(Product product) {
+    public void write(Product product) {
         productMapper.insert(product);
-        return true;
     }
 
     //상세 조회 중간 처리
