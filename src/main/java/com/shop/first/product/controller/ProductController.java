@@ -51,7 +51,7 @@ public class ProductController extends HttpServlet {
 
     //상품 등록 화면 요청(화면)
     @GetMapping("/write")
-    public String write(Model model, ProductOption option) {
+    public String write(Model model) {
         log.info("/product/write - GET!");
 
         /*Product product = (Product) session.getAttribute("newProduct");
@@ -70,9 +70,6 @@ public class ProductController extends HttpServlet {
                              @RequestParam("files") MultipartFile[] files) throws Exception  {
 
         log.info("상픔 등록 요청 - POST!");
-
-
-        //String uploadPath = request.getSession().getServletContext().getRealPath("/"); webapp
 
         String uploadPath = "C:\\testImg";
 

@@ -116,15 +116,21 @@
 
         <p>
             <label>
-            <input type="checkbox" name="prColor" value="${list.prColor}" > ${list.prColor}
+                <c:if test="${!empty list.prColor}"> 
+                    <input type="checkbox" name="prColor" value="${list.prColor}" > ${list.prColor}
+                </c:if>
             </label>
+            
         </p>
     
+        
         <p>
             <label>
-            <input type="checkbox" name="prSize" value="${list.prSize}" > ${list.prSize}
+                <c:if test="${!empty list.prSize}"> 
+                    <input type="checkbox" name="prSize" value="${list.prSize}" > ${list.prSize}
+                </c:if>
             </label>
-        </p>   
+        </p>  
 
     </c:forEach>
   
