@@ -3,6 +3,7 @@ package com.shop.first.product.controller;
 import com.shop.first.product.domain.Product;
 import com.shop.first.product.service.ProductService;
 import com.shop.first.productoption.domain.ProductOption;
+import com.shop.first.productoption.service.ProductOptionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,8 @@ import java.util.List;
 public class ProductController extends HttpServlet {
 
     private final ProductService productService;
+
+    private final ProductOptionService productOptionService;
 
     //상품 상세 조회(화면)
     @GetMapping("/info")
@@ -55,8 +58,8 @@ public class ProductController extends HttpServlet {
         if (product == null) {
             return "redirect:/home";
         }*/
-        model.addAttribute("c",option.getPrColor());
-        model.addAttribute("s",option.getPrSize());
+        List<ProductOption> list = productOptionService.getList();
+        model.addAttribute("list",list);
 
         return "product/product_insert";
     }

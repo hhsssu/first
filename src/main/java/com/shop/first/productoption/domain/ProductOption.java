@@ -1,6 +1,7 @@
 package com.shop.first.productoption.domain;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -8,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Getter @Setter @ToString
+@RequiredArgsConstructor
 public class ProductOption {
 
     private int optionCode;

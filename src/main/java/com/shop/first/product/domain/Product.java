@@ -26,7 +26,6 @@ public class Product {
     private String prColor; //옵션 색상
     private String prSize;  //옵션 크기
 
-
     private static int seq;
 
     public Product() {

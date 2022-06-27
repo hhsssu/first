@@ -13,7 +13,7 @@
 
     <!--    //상품 목록 조회  -->
     <select id="getArticles" resultMap="optionMap">
-            SELECT * FROM product_option
+        SELECT * FROM product_option
     </select>
 
 

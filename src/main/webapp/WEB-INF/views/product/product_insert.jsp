@@ -111,19 +111,22 @@
     </p>
 
 
+
+    <c:forEach var="list" items="${list}">   
+
+        <p>
+            <label>
+            <input type="checkbox" name="prColor" value="${list.prColor}" > ${list.prColor}
+            </label>
+        </p>
     
-    <p>
-        <label>
-          <input type="checkbox" value="${c.prColor}" > 
-        </label>
-    </p>
-   
-    <p>
-        <label>
-          <input type="checkbox" value="${s.prSize}" > 
-        </label>
-    </p>
-    
+        <p>
+            <label>
+            <input type="checkbox" name="prSize" value="${list.prSize}" > ${list.prSize}
+            </label>
+        </p>   
+
+    </c:forEach>
   
 
     <p>
