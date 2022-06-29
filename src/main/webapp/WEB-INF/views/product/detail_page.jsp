@@ -150,7 +150,9 @@
                                                 <select name="prColor" id="option" size="1">
                                                     <option value="">색상</option>
                                                     <c:forEach var="opt" items="${opt}">
-                                                        <option value="${opt.prColor}">${opt.prColor}</option>
+                                                        <c:if test="${!empty opt.prColor}">
+                                                            <option value="${opt.prColor}">${opt.prColor}</option>
+                                                        </c:if>
                                                     </c:forEach>
                                                 </select>
                                             </td>
@@ -164,7 +166,9 @@
                                                 <select name="prSize" id="option" size="1">
                                                     <option value="">사이즈</option>
                                                     <c:forEach var="opt" items="${opt}">
-                                                        <option value="${opt.prSize}">${opt.prSize}</option>
+                                                        <c:if test="${!empty opt.prSize}">
+                                                            <option value="${opt.prSize}">${opt.prSize}</option>
+                                                        </c:if>
                                                     </c:forEach>
                                                 </select>
                                             </td>
