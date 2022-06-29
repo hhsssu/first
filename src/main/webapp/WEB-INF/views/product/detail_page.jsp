@@ -141,28 +141,35 @@
                                             </select>
                                         </td>
                                     </tr>
-                                    <c:forEach var="opt" items="${opt}">
+                                    
                                         <tr>
                                             <th>
                                                 옵션 선택 - 1
                                             </th>
                                             <td class="sale-option">
                                                 <select name="prColor" id="option" size="1">
-                                                    <option value="${opt.prColor}">${opt.prColor}</option>
+                                                    <option value="">색상</option>
+                                                    <c:forEach var="opt" items="${opt}">
+                                                        <option value="${opt.prColor}">${opt.prColor}</option>
+                                                    </c:forEach>
                                                 </select>
                                             </td>
                                         </tr>
+                                        
                                         <tr>
                                             <th>
                                                 옵션 선택 - 2
                                             </th>
                                             <td class="sale-option">
                                                 <select name="prSize" id="option" size="1">
-                                                    <option value="${opt.prSize}">${opt.prSize}</option>
+                                                    <option value="">사이즈</option>
+                                                    <c:forEach var="opt" items="${opt}">
+                                                        <option value="${opt.prSize}">${opt.prSize}</option>
+                                                    </c:forEach>
                                                 </select>
                                             </td>
-                                        </tr>
-                                    </c:forEach>
+                                        </tr>-->
+                                   
                                     <!-- 총 주문 금액 -->
                                      <tr class="total-sum">
                                         <th class="total-text">총 주문 금액</th>
