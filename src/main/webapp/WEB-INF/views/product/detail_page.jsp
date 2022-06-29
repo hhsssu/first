@@ -141,26 +141,28 @@
                                             </select>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th>
-                                            옵션 선택 - 1
-                                        </th>
-                                        <td class="sale-option">
-                                            <select name="prColor" id="option" size="1">
-                                                <option value="${p.prColor}">${p.prColor}</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            옵션 선택 - 2
-                                        </th>
-                                        <td class="sale-option">
-                                            <select name="prSize" id="option" size="1">
-                                                <option value="${p.prSize}">${p.prSize}</option>
-                                            </select>
-                                        </td>
-                                    </tr>
+                                    <c:forEach var="opt" items="${opt}">
+                                        <tr>
+                                            <th>
+                                                옵션 선택 - 1
+                                            </th>
+                                            <td class="sale-option">
+                                                <select name="prColor" id="option" size="1">
+                                                    <option value="${opt.prColor}">${opt.prColor}</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                옵션 선택 - 2
+                                            </th>
+                                            <td class="sale-option">
+                                                <select name="prSize" id="option" size="1">
+                                                    <option value="${opt.prSize}">${opt.prSize}</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
                                     <!-- 총 주문 금액 -->
                                      <tr class="total-sum">
                                         <th class="total-text">총 주문 금액</th>

@@ -17,8 +17,13 @@ public class ProductOptionService {
 
     //옵션 목록 중간 처리
     public List<ProductOption> getList() {
-
         return productOptionMapper.getArticles();
+    }
+
+    //상품 옵션 조회 중간처리
+    public List<ProductOption> getOption(int prCode) {
+        log.info("옵션 조회 중간처리 - Service");
+        return  productOptionMapper.getOption(prCode);
     }
 
 

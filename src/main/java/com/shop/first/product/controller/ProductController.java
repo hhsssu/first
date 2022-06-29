@@ -41,7 +41,9 @@ public class ProductController extends HttpServlet {
         Product product = productService.get(prCode);
         model.addAttribute("p",product);
 
-        //ProductOption productOption =
+        List<ProductOption> optionList = productOptionService.getOption(prCode);
+        model.addAttribute("opt", optionList);
+        log.info("optionList:" +optionList);
 
         List<Product> productList = productService.getList();
         model.addAttribute("articles", productList);

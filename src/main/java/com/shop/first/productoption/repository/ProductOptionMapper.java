@@ -8,9 +8,10 @@ import java.util.List;
 @Mapper
 public interface ProductOptionMapper {
 
-    //옵션 조회
+    //전체 옵션 조회
     List<ProductOption> getArticles();
 
+    //상품 옵션 조회
     List<ProductOption> getOption(int prCode);
 
 }//
