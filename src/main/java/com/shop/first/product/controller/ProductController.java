@@ -39,8 +39,9 @@ public class ProductController extends HttpServlet {
         log.info("상세조회요청 - (화면)" + prCode + session.getAttribute("loginCustomer") );
 
         Product product = productService.get(prCode);
-
         model.addAttribute("p",product);
+
+        //ProductOption productOption =
 
         List<Product> productList = productService.getList();
         model.addAttribute("articles", productList);

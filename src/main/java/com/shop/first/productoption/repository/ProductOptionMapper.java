@@ -11,5 +11,6 @@ public interface ProductOptionMapper {
     //옵션 조회
     List<ProductOption> getArticles();
 
+    List<ProductOption> getOption(int prCode);
 
 }//

@@ -7,6 +7,8 @@
 
     <resultMap id="optionMap" type="com.shop.first.productoption.domain.ProductOption">
         <result property="optionCode" column="option_code" />
+        <result property="prCode" column="product_code" />
+        <result property="cateCode" column="cate_code" />
         <result property="prColor" column="product_color" />
         <result property="prSize" column="product_size" />
     </resultMap>
