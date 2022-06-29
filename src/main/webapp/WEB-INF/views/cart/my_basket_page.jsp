@@ -115,7 +115,8 @@
                         
                         <td>
                             <p>${product[status.index].prName}</p>
-                            <p>색상: ${product[status.index].prColor}</p>
+                            <p>색상: ${c.prColor}</p>
+                            <p>사이즈: ${c.prSize}</p>
                         </td>
                        
                         <td>
