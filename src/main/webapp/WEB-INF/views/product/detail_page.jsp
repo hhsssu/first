@@ -147,7 +147,7 @@
                                                 옵션 선택 - 1
                                             </th>
                                             <td class="sale-option">
-                                                <select name="prColor" id="option" size="1">
+                                                <select name="prColor" id="option1" size="1">
                                                     <option value="">색상</option>
                                                     <c:forEach var="opt" items="${opt}">
                                                         <c:if test="${!empty opt.prColor}">
@@ -163,7 +163,7 @@
                                                 옵션 선택 - 2
                                             </th>
                                             <td class="sale-option">
-                                                <select name="prSize" id="option" size="1">
+                                                <select name="prSize" id="option2" size="1">
                                                     <option value="">사이즈</option>
                                                     <c:forEach var="opt" items="${opt}">
                                                         <c:if test="${!empty opt.prSize}">

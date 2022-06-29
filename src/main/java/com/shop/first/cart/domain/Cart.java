@@ -16,6 +16,8 @@ public class Cart {
     private int cartChecked; // 0과 1로
     private int cartAmount;
     private int cartTotalPrice;
+    private String prColor; //옵션 색상
+    private String prSize;  //옵션 크기
 
     private static int seqCart;
 
@@ -24,13 +26,15 @@ public class Cart {
     }
 
     public Cart(int cartCode, String csId, int prCode, int cartChecked,
-                int cartAmount, int cartTotalPrice) {
+                int cartAmount, int cartTotalPrice, String prColor, String prSize) {
         this.cartCode = cartCode;
         this.csId = csId;
         this.prCode = prCode;
         this.cartChecked = cartChecked;
         this.cartAmount = cartAmount;
         this.cartTotalPrice = cartTotalPrice;
+        this.prColor = prColor;
+        this.prSize = prSize;
     }
 
     public Cart(ResultSet rs) throws SQLException {
@@ -40,6 +44,8 @@ public class Cart {
         this.cartChecked = rs.getInt("cart_checked");
         this.cartAmount = rs.getInt("cart_amount");
         this.cartTotalPrice = rs.getInt("cart_total_price");
+        this.prColor = rs.getString("product_color");
+        this.prSize = rs.getString("product_size");
     }
 
 }//
