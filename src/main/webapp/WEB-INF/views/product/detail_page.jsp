@@ -130,7 +130,7 @@
                                             주문 수량
                                         </th>
                                          <!-- 장바구니 / 바로구매 버튼 섹션 -->
-                                         <form action="/cart/add" method="post">
+                                    <form action="/cart/add" method="post">
                                         <td class="sale-amount">
                                             <select name="cartAmount" id="amount" size="1">
                                                 <option value="1">1</option>
@@ -187,7 +187,8 @@
                            
 
                                 <input type="hidden" name="csId" value="${loginCustomer.csId}"> 
-                                <input type="hidden" name="prCode" value="${p.prCode}">    
+                                <input type="hidden" name="prCode" value="${p.prCode}">   
+                                 
 
                                 <div class="sale-basket-btn">
                                     <button id="opbtn01" type="submit">장바구니</button>
