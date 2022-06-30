@@ -44,7 +44,8 @@
     <select id="listCart" resultMap="cartMap">
         SELECT
         c.cart_code, m.customer_id,
-        p.product_code, c.cart_amount
+        p.product_code, c.cart_amount,
+        c.product_color, c.product_size
         FROM
         customer m , cart c , product p
         WHERE
