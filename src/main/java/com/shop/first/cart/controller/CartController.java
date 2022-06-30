@@ -89,11 +89,6 @@ public class CartController {
             productList.add(product);
             model.addAttribute("product",productList);
         }
-
-        //장바구니 전체 금액 호출
-        //int sumTotal = cartService.sumTotal(csId);
-
-        // return "redirect:/cart/list?csId="+loginCustomer.getCsId();
         return "cart/my_basket_page";
     }
 

@@ -13,16 +13,18 @@
         <result property="prSize" column="product_size" />
     </resultMap>
 
-    <!--    //옵션 조회  -->
-    <select id="getArticles" resultMap="optionMap">
-        SELECT * FROM product_option
-    </select>
-
     <!--    //상품 옵션 조회  -->
     <select id="getOption" resultMap="optionMap">
         SELECT * FROM product_option
         WHERE product_code = #{prCode}
     </select>
+
+    <!--    //옵션 조회  -->
+    <select id="getArticles" resultMap="optionMap">
+        SELECT * FROM product_option
+    </select>
+
+
 
 
 </mapper>

@@ -172,7 +172,7 @@
                                                     </c:forEach>
                                                 </select>
                                             </td>
-                                        </tr>-->
+                                        </tr>
                                    
                                     <!-- 총 주문 금액 -->
                                      <tr class="total-sum">

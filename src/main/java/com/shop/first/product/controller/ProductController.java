@@ -57,10 +57,6 @@ public class ProductController extends HttpServlet {
     public String write(Model model) {
         log.info("/product/write - GET!");
 
-        /*Product product = (Product) session.getAttribute("newProduct");
-        if (product == null) {
-            return "redirect:/home";
-        }*/
         List<ProductOption> list = productOptionService.getList();
         model.addAttribute("list",list);
 
