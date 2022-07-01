@@ -21,64 +21,70 @@
  
     <p>
         <label>
-            # 주문코드  : <input type="text" name="prName">
+            # 주문코드  : <input type="text" value="${ord.orderCode}">
         </label>
     </p>
         
     <p>
         <label>
-            # 주문자명  : <input type="text" name="prName">
+            # 주문자명  : <input type="text" value="${loginCustomer.csName}">
         </label>
     </p>
 
     <p>
         <label>
-            # 연락처  : <input type="text" name="prName">
+            # 연락처  : <input type="text" value="${ord.csPhone}">
         </label>
     </p>
 
 
     <p>
         <label>
-            # 우편번호  : <input type="text" name="prName">
+            # 우편번호  : <input type="text" value="${ord.postCode}">
         </label>
     </p>
 
     <p>
         <label>
-            # 도로명주소  : <input type="text" name="prName">
+            # 도로명주소  : <input type="text" value="${ord.roadAddr}">
         </label>
     </p>
         
     
     <p>
         <label>
-            # 지번주소  : <input type="text" name="prName">
+            # 지번주소  : <input type="text" value="${ord.lotNumAddr}">
         </label>
     </p>
 
     <p>
         <label>
-            # 상세주소  : <input type="text" name="prName">
+            # 상세주소  : <input type="text" value="${ord.extraAddr}">
         </label>
     </p>
 
     <p>
         <label>
-            # 주문날짜  : <input type="text" name="prName">
+            # 구매수량  : <input type="text" value="${ord.orderAmount}">
         </label>
     </p>
 
     <p>
         <label>
-            # 배송비  : <input type="text" name="prName">
+            # 주문날짜  : <input type="text" value="${ord.orderDate}">
+        </label>
+    </p>
+
+    <p>
+        <label>
+            # 배송비  : <input type="text" value="${ord.deliPrice}">
         </label>
     </p>
 
     
     <p>
         <label>
-            # 주문총금액  : <input type="text" name="prName">
+            # 주문총금액  : <input type="text" value="${ord.orderTotalPrice}">
         </label>
     </p>
         
