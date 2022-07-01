@@ -22,7 +22,8 @@ public class Order {
     private String prColor; //옵션 색상
     private String prSize;  //옵션 크기
     private int orderTotalPrice;
-    private String orderDate;
+    private String orderDate; //주문한 날짜
+    private int deliPrice; // 배송료
 
     private static int seqOrder;
 
@@ -34,7 +35,7 @@ public class Order {
                  String roadAddr, String lotNumAddr,
                  String extraAddr, int cartCode, int orderAmount,
                  String prColor, String prSize, int orderTotalPrice,
-                 String orderDate) {
+                 String orderDate, int deliPrice) {
         this.orderCode = orderCode;
         this.csName = csName;
         this.csPhone = csPhone;
@@ -48,6 +49,7 @@ public class Order {
         this.prSize = prSize;
         this.orderTotalPrice = orderTotalPrice;
         this.orderDate = orderDate;
+        this.deliPrice = deliPrice;
     }
 
     public Order(ResultSet rs) throws SQLException {
@@ -63,5 +65,6 @@ public class Order {
         this.prSize = rs.getString("product_size");
         this.orderTotalPrice = rs.getInt("order_total_price");
         this.orderDate = rs.getString("order_date");
+        this.orderTotalPrice = rs.getInt("order_deli_price");
     }
 }//
