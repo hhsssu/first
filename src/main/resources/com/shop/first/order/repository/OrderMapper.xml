@@ -29,33 +29,26 @@
 
     <!-- //주문 상세 조회  -->
     <select id="getContent" resultType="com.shop.first.order.domain.Order" resultMap="orderMap">
-        DELETE FROM cart
+        DELETE FROM product_order
         WHERE order_code = #{orderCode}
     </select>
 
 
     <!-- 주문하기  -->
     <insert id="insert">
-        INSERT INTO cart (order_code, customer_id, customer_name, customer_phone, customer_post_code, customer_road_addr,
-        customer_lot_num_addr, customer_extra_addr, cart_code, product_color, product_size, order_total_price, )
-        VALUES (seq_product_order.nextval, #{csId}, #{prCode}, #{cartAmount}, #{prColor}, #{prSize})
+        INSERT INTO product_order (order_code, customer_id, customer_name, customer_phone,
+        customer_post_code, customer_road_addr, customer_lot_num_addr, customer_extra_addr,
+        cart_code, product_color, product_size, order_total_price,  order_deli_price)
+        VALUES (seq_product_order.nextval, #{csId}, #{csName}, #{csPhone}, #{postCode}, #{roadAddr},
+        #{lotNumAddr}, #{extraAddr}, #{cartCode}, #{prColor}, #{prSize}
+        #{orderTotalPrice}, #{deliPrice})
     </insert>
 
-    <!-- 장바구니 목록   -->
-    <select id="listCart" resultMap="cartMap">
-        SELECT
-        c.cart_code, m.customer_id,
-        p.product_code, c.cart_amount,
-        c.product_color, c.product_size
-        FROM
-        customer m , cart c , product p
-        WHERE
-        p.product_code = c.product_code
-        AND
-        m.customer_id = c.customer_id
-        AND
-        c.customer_id = #{csId}
-    </select>
+    <!-- //주문 취소   -->
+    <delete id="cancel">
+        DELETE FROM product_order
+        WHERE order_code = #{orderCode}
+    </delete>
 
 
 
