@@ -11,6 +11,7 @@ import java.sql.SQLException;
 public class Order {
 
     private int orderCode;
+    private String csId;
     private String csName;
     private String csPhone;
     private String postCode;
@@ -31,12 +32,13 @@ public class Order {
         this.cartCode = ++seqOrder;
     }
 
-    public Order(int orderCode, String csName, String csPhone, String postCode,
+    public Order(int orderCode, String csId, String csName, String csPhone, String postCode,
                  String roadAddr, String lotNumAddr,
                  String extraAddr, int cartCode, int orderAmount,
                  String prColor, String prSize, int orderTotalPrice,
                  String orderDate, int deliPrice) {
         this.orderCode = orderCode;
+        this.csId = csId;
         this.csName = csName;
         this.csPhone = csPhone;
         this.postCode = postCode;
@@ -54,6 +56,7 @@ public class Order {
 
     public Order(ResultSet rs) throws SQLException {
         this.orderCode = rs.getInt("order_code");
+        this.csId = rs.getString("customer_id");
         this.csName = rs.getString("customer_name");
         this.csPhone = rs.getString("customer_phone");
         this.postCode = rs.getString("customer_post_code");
@@ -65,6 +68,6 @@ public class Order {
         this.prSize = rs.getString("product_size");
         this.orderTotalPrice = rs.getInt("order_total_price");
         this.orderDate = rs.getString("order_date");
-        this.orderTotalPrice = rs.getInt("order_deli_price");
+        this.deliPrice = rs.getInt("order_deli_price");
     }
 }//
