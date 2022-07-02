@@ -207,8 +207,8 @@
                 </tbody>
             </table>
             <div class="bk-btn-box">
-                <button type="submit" class="bk-btn">전체주문</button>
-                <button type="submit" class="bk-btn">선택주문</button>
+                <button type="button" onclick="allOrder()" class="bk-btn">전체주문</button>
+                <button type="button" onclick="checkOrder()" class="bk-btn">선택주문</button>
             </div>
             
         </div>
@@ -370,6 +370,17 @@
             }
         }
 
+
+
+        // 전체 주문
+        function allOrder() {
+
+        }
+
+        //선택 주문 
+        function checkOrder() {
+            
+        }
      
         
 
