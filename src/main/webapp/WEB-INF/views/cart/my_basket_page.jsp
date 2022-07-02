@@ -207,8 +207,10 @@
                 </tbody>
             </table>
             <div class="bk-btn-box">
-                <button type="button" onclick="allOrder()" class="bk-btn">전체주문</button>
-                <button type="button" onclick="checkOrder()" class="bk-btn">선택주문</button>
+                <form action="/cart/modify" method="post" class="modCartForm">
+                    <button type="button" onclick="allOrder()" class="bk-btn">전체주문</button>
+                    <button type="button" onclick="checkOrder()" class="bk-btn">선택주문</button>
+                </form>
             </div>
             
         </div>
@@ -379,7 +381,7 @@
 
         //선택 주문 
         function checkOrder() {
-            
+
         }
      
         

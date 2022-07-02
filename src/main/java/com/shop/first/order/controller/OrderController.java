@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/order")
 @Log4j2
@@ -25,10 +27,11 @@ public class OrderController {
 
     private final ProductMapper productMapper;
 
+    //주문하기
     @PostMapping
-    public String create(Cart cart) {
+    public String create(Cart cart, HttpSession session) {
         //cartMapper.order(cart);
-        return "redirect:/orders";
+        return "order/order_list";
     }
    // @GetMapping
     /*
