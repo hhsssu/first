@@ -2,6 +2,7 @@ package com.shop.first.order.controller;
 
 import com.shop.first.cart.domain.Cart;
 import com.shop.first.cart.repository.CartMapper;
+import com.shop.first.customer.domain.Customer;
 import com.shop.first.customer.repository.CustomerMapper;
 import com.shop.first.product.repository.ProductMapper;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/order")
@@ -29,7 +31,10 @@ public class OrderController {
 
     //주문하기
     @PostMapping
-    public String create(Cart cart, HttpSession session) {
+    public String insert(Cart cart, HttpSession session)  throws IOException {
+
+        log.info("주문 생성");
+        Customer loginCustomer = (Customer) session.getAttribute("loginCustomer");
         //cartMapper.order(cart);
         return "order/order_list";
     }
