@@ -4,6 +4,8 @@ import com.shop.first.cart.domain.Cart;
 import com.shop.first.cart.repository.CartMapper;
 import com.shop.first.customer.domain.Customer;
 import com.shop.first.customer.repository.CustomerMapper;
+import com.shop.first.order.domain.Order;
+import com.shop.first.order.repository.OrderMapper;
 import com.shop.first.product.repository.ProductMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/order")
@@ -28,6 +31,8 @@ public class OrderController {
     private final CartMapper cartMapper;
 
     private final ProductMapper productMapper;
+
+    private final OrderMapper orderMapper;
 
     //주문하기
     @PostMapping
@@ -62,5 +67,17 @@ public class OrderController {
         model.addAttribute("orders", orders);
         return "orders/index";
     } */
+
+    // 주문 내역
+    @GetMapping("/list")
+    public String list(HttpSession session, Model model) {
+        log.info("주문 내역 Controller!(화면)");
+
+        Customer loginCustomer = (Customer) session.getAttribute("loginCustomer");
+        //주문내역 정보
+        List<Order> orderListList = orderMapper.getArticles();
+
+        return null;
+    }
 
 }//
