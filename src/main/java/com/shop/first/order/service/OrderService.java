@@ -6,11 +6,13 @@ import com.shop.first.order.domain.Order;
 import com.shop.first.order.repository.OrderMapper;
 import com.shop.first.product.repository.ProductMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Log4j2
 @RequiredArgsConstructor
 public class OrderService {
 
@@ -26,6 +28,12 @@ public class OrderService {
     //주문 내역 조회 중간처리
     public List<Order> list(String csId) {
         return orderMapper.getArticles(csId);
+    }
+
+    //주문하기 중간처리
+    public boolean insert(Order order) {
+        log.info("주문하기 OrderService!" + order);
+        return orderMapper.insert(order);
     }
 
 
