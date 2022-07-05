@@ -75,7 +75,7 @@ public class OrderController {
 
         Customer loginCustomer = (Customer) session.getAttribute("loginCustomer");
         //주문내역 정보
-        List<Order> orderListList = orderMapper.getArticles();
+        List<Order> orderListList = orderMapper.getArticles(loginCustomer.getCsId());
 
         return null;
     }
