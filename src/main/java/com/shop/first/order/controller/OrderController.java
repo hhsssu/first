@@ -2,11 +2,16 @@ package com.shop.first.order.controller;
 
 import com.shop.first.cart.domain.Cart;
 import com.shop.first.cart.repository.CartMapper;
+import com.shop.first.cart.service.CartService;
 import com.shop.first.customer.domain.Customer;
 import com.shop.first.customer.repository.CustomerMapper;
+import com.shop.first.customer.service.CustomerService;
 import com.shop.first.order.domain.Order;
 import com.shop.first.order.repository.OrderMapper;
+import com.shop.first.order.service.OrderService;
 import com.shop.first.product.repository.ProductMapper;
+import com.shop.first.product.service.ProductService;
+import com.sun.org.apache.xpath.internal.operations.Or;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
@@ -26,21 +31,23 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OrderController {
 
-    private final CustomerMapper customerMapper;
+    private final CustomerService customerService;
 
-    private final CartMapper cartMapper;
+    private final CartService cartService;
 
-    private final ProductMapper productMapper;
+    private final ProductService productService;
 
-    private final OrderMapper orderMapper;
+    private final OrderService orderService;
 
     //주문하기
     @PostMapping("/add")
-    public String insert(Cart cart, HttpSession session)  throws IOException {
+    public String insert(Order order, HttpSession session)  throws IOException {
 
-        log.info("주문 생성");
+        log.info("주문 생성" + order);
         Customer loginCustomer = (Customer) session.getAttribute("loginCustomer");
         //cartMapper.order(cart);
+        orderService.insert(order);
+
         return "order/order_list";
     }
    // @GetMapping
@@ -75,7 +82,7 @@ public class OrderController {
 
         Customer loginCustomer = (Customer) session.getAttribute("loginCustomer");
         //주문내역 정보
-        List<Order> orderListList = orderMapper.getArticles(loginCustomer.getCsId());
+        List<Order> orderListList = orderService.list(loginCustomer.getCsId());
 
 
 
