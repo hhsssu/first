@@ -2,9 +2,13 @@ package com.shop.first.order.service;
 
 import com.shop.first.cart.repository.CartMapper;
 import com.shop.first.customer.repository.CustomerMapper;
+import com.shop.first.order.domain.Order;
+import com.shop.first.order.repository.OrderMapper;
 import com.shop.first.product.repository.ProductMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -15,7 +19,16 @@ public class OrderService {
     private final CartMapper cartMapper;
 
     private final ProductMapper productMapper;
-    //주문
+
+    private final OrderMapper orderMapper;
+
+
+    //주문 내역 조회 중간처리
+    public List<Order> list(String csId) {
+        return orderMapper.getArticles(csId);
+    }
+
+
     /*
     @Transactional
     public Long order(Long memberId, Long itemId, int count){
@@ -40,5 +53,7 @@ public class OrderService {
         return order.getId();
 
     } */
+
+
 
 }//
