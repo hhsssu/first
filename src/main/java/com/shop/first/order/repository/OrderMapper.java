@@ -9,7 +9,7 @@ import java.util.List;
 public interface OrderMapper {
 
     //주문 내역 조회
-    List<Order> getArticles();
+    List<Order> getArticles(String csId);
 
     //주문 상세 조회
     Order getContent(int orderCode);
