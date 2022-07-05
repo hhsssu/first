@@ -35,7 +35,7 @@ public class OrderController {
     private final OrderMapper orderMapper;
 
     //주문하기
-    @PostMapping
+    @PostMapping("/add")
     public String insert(Cart cart, HttpSession session)  throws IOException {
 
         log.info("주문 생성");
@@ -77,7 +77,9 @@ public class OrderController {
         //주문내역 정보
         List<Order> orderListList = orderMapper.getArticles(loginCustomer.getCsId());
 
-        return null;
+
+
+        return "order/order_list";
     }
 
 }//

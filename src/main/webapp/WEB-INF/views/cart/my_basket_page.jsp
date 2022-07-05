@@ -207,7 +207,7 @@
                 </tbody>
             </table>
             <div class="bk-btn-box">
-                <form action="/cart/modify" method="post" class="modCartForm">
+                <form action="/order/add" method="post" class="modCartForm">
                     <button type="button" onclick="allOrder()" class="bk-btn">전체주문</button>
                     <button type="button" onclick="checkOrder()" class="bk-btn">선택주문</button>
                 </form>
