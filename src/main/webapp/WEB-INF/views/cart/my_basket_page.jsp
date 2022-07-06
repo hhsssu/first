@@ -233,7 +233,19 @@
                 <form action="/order/add" method="post">
 
                     <input type="hidden" name="csId" value="${loginCustomer.csId}"> 
+                    <input type="hidden" name="csName" value="${loginCustomer.csName}"> 
+                    <input type="hidden" name="csPhone" value="${loginCustomer.csPhone}"> 
+                    <input type="hidden" name="postCode" value="${loginCustomer.postCode}"> 
+                    <input type="hidden" name="roadAddr" value="${loginCustomer.roadAddr}"> 
+                    <input type="hidden" name="lotNumAddr" value="${loginCustomer.lotNumAddr}"> 
+                    <input type="hidden" name="extraAddr" value="${loginCustomer.extraAddr}"> 
                     <input type="hidden" name="cartCode" value="${c.cartCode}">  
+                    <input type="hidden" name="orderAmount" value="${c.cartAmount}">  
+                    <input type="hidden" name="prColor" value="${c.prColor}">  
+                    <input type="hidden" name="prSize" value="${c.prSize}">  
+                    <input type="hidden" name="orderTotalPrice" value="">  
+
+
                     <button type="button" id="allOrder" class="bk-btn">전체주문</button> 
                     <button type="button" id="checkOrder" class="bk-btn" onclick="check_Order()">선택주문</button>
                 </form>
@@ -318,6 +330,8 @@
             totalPrice = sum + dv;
             $(".pr_Price").text(sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
             $(".orderPrice").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
+
+            $('input[name=orderTotalPrice]').attr('value',totalPrice);
 
         }
 
