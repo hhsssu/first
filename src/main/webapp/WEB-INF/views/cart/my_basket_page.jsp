@@ -125,7 +125,7 @@
                             
                         </td>
                         <td>
-                            <form action="/cart/modify" method="post" class="modCartForm">
+                            <form action="/cart/modify" method="post">
 
                                 <input type="hidden" name="cartCode" value="${c.cartCode}">  
                                 <input type="hidden" name="csId" value="${loginCustomer.csId}"> 
@@ -207,12 +207,12 @@
                 </tbody>
             </table>
             <div class="bk-btn-box">
-                <form action="/order/add" method="post" class="modCartForm">
+                <form action="/order/add" method="post">
 
                     <input type="hidden" name="csId" value="${loginCustomer.csId}"> 
 
-                    <button type="button" onclick="allOrder()" class="bk-btn">전체주문</button>
-                    <button type="button" onclick="checkOrder()" class="bk-btn">선택주문</button>
+                  <!--  <button type="button" onclick="mySubmit(1)" class="bk-btn">전체주문</button> -->
+                    <button type="button" onclick="mySubmit(2)" class="bk-btn">선택주문</button>
                 </form>
             </div>
             
@@ -377,16 +377,17 @@
 
 
 
-        // 전체 주문
-        function allOrder() {
+        //주문
+        function mySubmit() {
+            if(index == 1) {
 
+            } else if (index == 2) {
+
+            }
+            document.myForm.submit();
         }
 
-        //선택 주문 
-        function checkOrder() {
-
-        }
-     
+   
         /**
          ① 여러개를 쓰고 싶을때
 
