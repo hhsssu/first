@@ -210,9 +210,9 @@
                 <form action="/order/add" method="post">
 
                     <input type="hidden" name="csId" value="${loginCustomer.csId}"> 
-
-                  <!--  <button type="button" onclick="mySubmit(1)" class="bk-btn">전체주문</button> -->
-                    <button type="button" onclick="mySubmit(2)" class="bk-btn">선택주문</button>
+                    <input type="hidden" name="cartCode" value="${c.cartCode}">  
+                    <button type="button" onclick="mySubmit(1)" class="bk-btn">전체주문</button> 
+                    <button type="button" onclick="checkOrder()" class="bk-btn">선택주문</button>
                 </form>
             </div>
             
@@ -378,13 +378,10 @@
 
 
         //주문
-        function mySubmit() {
-            if(index == 1) {
+        function checkOrder() {
+           
 
-            } else if (index == 2) {
 
-            }
-            document.myForm.submit();
         }
 
    
