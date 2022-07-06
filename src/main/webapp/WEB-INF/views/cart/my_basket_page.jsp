@@ -42,14 +42,37 @@
                     <a href="#">카테고리</a>
                 </nav>
 
+
+                  <!-- 
+                      <section class="search">
+                    <form action="/board/list" method="get">
+                    <select id="search-type" class="form-select" name="type">
+                        <option value="title">제목</option>
+                        <option value="content">내용</option>
+                        <option value="writer">작성자</option>
+                        <option value="titleContent">제목+내용</option>
+                    </select>
+
+                    <input class="form-control" type="text" name="keyword" value="${pageInfo.page.keyword}">
+
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </section>
+
+                   -->
+
                 <!-- 검색/찜/장바구니 -->
                 <nav class="tnb">
                     <a href="#">
-                        <form action="/search" class="search">
+                        <form action="/cart/list" method="get" class="search">
                             <label>
                                 <span class="lnr lnr-magnifier"></span>
                                 <input type="text" placeholder="검색어를 입력하세요" id="search">
-                                <i class="fas fa-search"></i>
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
                             </label>
                         </form>
                     </a>
@@ -378,11 +401,11 @@
 
 
         //주문
-        function checkOrder() {
+        //function checkOrder() {
            
 
 
-        }
+        //}
 
    
         /**
