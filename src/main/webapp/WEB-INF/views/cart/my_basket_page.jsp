@@ -244,6 +244,7 @@
                     <input type="hidden" name="prColor" value="${c.prColor}">  
                     <input type="hidden" name="prSize" value="${c.prSize}">  
                     <input type="hidden" name="orderTotalPrice" value="">  
+                  
 
 
                     <button type="button" id="allOrder" class="bk-btn">전체주문</button> 

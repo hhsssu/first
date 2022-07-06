@@ -38,10 +38,10 @@
     <insert id="insert">
         INSERT INTO product_order (order_code, customer_id, customer_name, customer_phone,
         customer_post_code, customer_road_addr, customer_lot_num_addr, customer_extra_addr,
-        cart_code, product_color, product_size, order_total_price,  order_deli_price)
+        cart_code, product_color, product_size, order_total_price)
         VALUES (seq_product_order.nextval, #{csId}, #{csName}, #{csPhone}, #{postCode}, #{roadAddr},
         #{lotNumAddr}, #{extraAddr}, #{cartCode}, #{prColor}, #{prSize}
-        #{orderTotalPrice}, #{deliPrice})
+        #{orderTotalPrice})
     </insert>
 
     <!-- //주문 취소   -->

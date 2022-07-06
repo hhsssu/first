@@ -46,6 +46,7 @@ public class OrderController {
         log.info("주문 생성" + order);
         Customer loginCustomer = (Customer) session.getAttribute("loginCustomer");
         //cartMapper.order(cart);
+        if(order.getOrderTotalPrice() > 30000) order.setDeliPrice(3000);
         orderService.insert(order);
 
         return "order/order_list";

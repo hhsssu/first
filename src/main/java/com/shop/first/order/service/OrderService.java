@@ -32,7 +32,7 @@ public class OrderService {
 
     //주문하기 중간처리
     public boolean insert(Order order) {
-        log.info("주문하기 OrderService!" + order);
+        log.info("주문하기 OrderService!");
         return orderMapper.insert(order);
     }
 
