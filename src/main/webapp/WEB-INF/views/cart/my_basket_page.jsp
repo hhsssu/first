@@ -234,8 +234,8 @@
 
                     <input type="hidden" name="csId" value="${loginCustomer.csId}"> 
                     <input type="hidden" name="cartCode" value="${c.cartCode}">  
-                    <button type="button" onclick="mySubmit(1)" class="bk-btn">전체주문</button> 
-                    <button type="button" onclick="checkOrder()" class="bk-btn">선택주문</button>
+                    <button type="button" id="allOrder" class="bk-btn">전체주문</button> 
+                    <button type="button" id="checkOrder" class="bk-btn">선택주문</button>
                 </form>
             </div>
             
@@ -408,24 +408,6 @@
         //}
 
    
-        /**
-         ① 여러개를 쓰고 싶을때
-
-            <form method='post'>//[get/post]중에 선택
-
-            ...
-
-            <input type="submit" value="삭제" formaction = "php/measure_del.php" formtarget = '_blank' onclick=\"measure_del()\"></td></tr>
-
-            ...
-
-            <input type="submit" value="수정" formaction="php/measure_update.php" formtarget="_blank" style="width:70px; height:30px; margin-bottom: 30px;">
-
-            ...
-
-            </form>
-         * /
-
     </script>
 
 </body>
