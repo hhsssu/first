@@ -317,7 +317,7 @@
             if (obj.checked == true) {
                 $('#hiddenCartCode').attr('value', obj.value);
 
-                console.log("test: "+obj.parentElement.nextElementSibling.nextElementSibling.firstElementChild.
+                console.log("색상: "+obj.parentElement.nextElementSibling.nextElementSibling.firstElementChild.
                 nextElementSibling.lastElementChild.textContent);
 
                 sum += result;
