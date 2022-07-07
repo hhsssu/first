@@ -21,6 +21,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
@@ -41,7 +44,8 @@ public class OrderController {
 
     //주문하기
     @PostMapping("/add")
-    public String insert(Order order, HttpSession session)  throws IOException {
+    public String insert(Order order, HttpSession session,
+                         HttpServletRequest request, HttpServletResponse response)  throws IOException, ServletException {
 
         log.info("주문 생성" + order);
         Customer loginCustomer = (Customer) session.getAttribute("loginCustomer");
@@ -52,6 +56,13 @@ public class OrderController {
             order.setDeliPrice(0);
         }
         order.setCsId(loginCustomer.getCsId());
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
+
+        int cartCode = Integer.parseInt(request.getParameter("cartCode"));
+        log.info(cartCode);
+
+
         orderService.insert(order);
 
         return "redirect:order/order_list";
