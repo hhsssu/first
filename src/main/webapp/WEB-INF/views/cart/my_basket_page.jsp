@@ -317,8 +317,20 @@
             if (obj.checked == true) {
                 $('#hiddenCartCode').attr('value', obj.value);
 
-                console.log("색상: "+obj.parentElement.nextElementSibling.nextElementSibling.firstElementChild.
-                nextElementSibling.lastElementChild.textContent);
+                let color = obj.parentElement.nextElementSibling.nextElementSibling.firstElementChild.
+                nextElementSibling.lastElementChild.textContent;
+
+                let size = obj.parentElement.nextElementSibling.nextElementSibling.firstElementChild.
+                nextElementSibling.nextElementSibling.lastElementChild.textContent;
+
+                let amount;
+                
+                console.log("amount : " + amount);
+
+                console.log("c+s : " + color + size);
+
+                $('#hiddenPrColor').attr('value', color);
+                $('#hiddenPrSize').attr('value', size);
 
                 sum += result;
                 let len = $("[type=checkbox][name=cartChecked]").not(".allCheck").length; //3-2
