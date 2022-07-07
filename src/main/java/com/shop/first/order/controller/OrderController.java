@@ -46,10 +46,15 @@ public class OrderController {
         log.info("주문 생성" + order);
         Customer loginCustomer = (Customer) session.getAttribute("loginCustomer");
         //cartMapper.order(cart);
-        if(order.getOrderTotalPrice() > 30000) order.setDeliPrice(3000);
+        if(order.getOrderTotalPrice() > 30000) {
+            order.setDeliPrice(3000);
+        } else {
+            order.setDeliPrice(0);
+        }
+        order.setCsId(loginCustomer.getCsId());
         orderService.insert(order);
 
-        return "order/order_list";
+        return "redirect:order/order_list";
     }
    // @GetMapping
     /*
@@ -85,7 +90,7 @@ public class OrderController {
         //주문내역 정보
         List<Order> orderListList = orderService.list(loginCustomer.getCsId());
 
-
+        model.addAttribute("ord", orderListList);
 
         return "order/order_list";
     }
