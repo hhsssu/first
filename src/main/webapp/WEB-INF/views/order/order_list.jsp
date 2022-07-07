@@ -15,7 +15,7 @@
 
 <body>
 
-  
+<c:forEach var="ord" items="${ord}"> 
     <h1>${loginCustomer.csName}님의 주문내역</h1>
    
  
@@ -89,6 +89,7 @@
     </p>
         
 
+</c:forEach>
 
     
 
