@@ -240,9 +240,9 @@
                         <input type="hidden" name="lotNumAddr" value="${loginCustomer.lotNumAddr}"> 
                         <input type="hidden" name="extraAddr" value="${loginCustomer.extraAddr}"> 
                         <input type="hidden" name="cartCode" value="" id="hiddenCartCode" >  
-                        <input type="hidden" name="orderAmount" value="${c.cartAmount}">  
-                        <input type="hidden" name="prColor" value="${c.prColor}">  
-                        <input type="hidden" name="prSize" value="${c.prSize}">  
+                        <input type="hidden" name="orderAmount" value="" id="hiddenOrderAmount">  
+                        <input type="hidden" name="prColor" value="" id="hiddenPrColor">  
+                        <input type="hidden" name="prSize" value="" id="hiddenPrSize">  
                         <input type="hidden" name="orderTotalPrice" value="">  
                     </c:forEach>
 
