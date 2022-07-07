@@ -239,7 +239,7 @@
                         <input type="hidden" name="roadAddr" value="${loginCustomer.roadAddr}"> 
                         <input type="hidden" name="lotNumAddr" value="${loginCustomer.lotNumAddr}"> 
                         <input type="hidden" name="extraAddr" value="${loginCustomer.extraAddr}"> 
-                        <input type="hidden" name="cartCode" value="${c.cartCode}">  
+                        <input type="hidden" name="cartCode" value="" id="hiddenCartCode" >  
                         <input type="hidden" name="orderAmount" value="${c.cartAmount}">  
                         <input type="hidden" name="prColor" value="${c.prColor}">  
                         <input type="hidden" name="prSize" value="${c.prSize}">  
@@ -313,7 +313,10 @@
 
             let count = 1; //전체선택 해지 설정할 임의의 변수 설정
 
+
             if (obj.checked == true) {
+                $('#hiddenCartCode').attr('value', obj.value);
+
                 sum += result;
                 let len = $("[type=checkbox][name=cartChecked]").not(".allCheck").length; //3-2
                 let ckLen = $("[type=checkbox][name=cartChecked]:checked").not(".allCheck").length; //3-2

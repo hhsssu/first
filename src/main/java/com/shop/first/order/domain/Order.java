@@ -29,7 +29,7 @@ public class Order {
     private static int seqOrder;
 
     public Order() {
-        this.cartCode = ++seqOrder;
+        this.orderCode = ++seqOrder;
     }
 
     public Order(int orderCode, String csId, String csName, String csPhone, String postCode,
