@@ -138,8 +138,8 @@
                         
                         <td>
                             <p>${product[status.index].prName}</p>
-                            <p>색상: ${c.prColor}</p>
-                            <p>사이즈: ${c.prSize}</p>
+                            <p><span>색상:</span> <span>${c.prColor}</span></p>
+                            <p><span>사이즈:</span> <span>${c.prSize}</span></p>
                         </td>
                        
                         <td>
@@ -316,6 +316,9 @@
 
             if (obj.checked == true) {
                 $('#hiddenCartCode').attr('value', obj.value);
+
+                console.log("test: "+obj.parentElement.nextElementSibling.nextElementSibling.firstElementChild.
+                nextElementSibling.lastElementChild.textContent);
 
                 sum += result;
                 let len = $("[type=checkbox][name=cartChecked]").not(".allCheck").length; //3-2
