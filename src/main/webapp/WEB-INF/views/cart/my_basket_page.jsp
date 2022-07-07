@@ -248,7 +248,7 @@
 
 
                     <button type="button" id="allOrder" class="bk-btn">전체주문</button> 
-                    <button type="button" id="checkOrder" class="bk-btn" onclick="check_Order()">선택주문</button>
+                    <button type="submit" id="checkOrder" class="bk-btn">선택주문</button>
                 </form>
             </div>
             
@@ -418,39 +418,7 @@
 
         //주문
         function check_Order() {
-            let url = "/order/add";
-            let valueArr = new Array();
-            let list = $("input[name='cartChecked']");
-
-            for(let i = 0; i < list.length; i++) {
-                if(list[i].checked) {
-                    //선택되어 있으면 배열에 값들을 저장함
-                    console.log(list[i].value);
-                    valueArr.push(list[i].value);
-                }
-            }
-            
-            if(valueArr.length === 0) {
-                alert("선택된 상품이 없습니다.");
-            } else {
-                let chk = confirm("선택된 상품들을 주문합니다. :)");
-                $.ajax({
-                    url : url, //전송 URL
-                    type: 'POST',
-                    traditional: true,
-                    data: {
-                        valueArr : valueArr //보내고자하는 data 변수 설정
-                    },
-                    success: function(jdata) {
-                        if(jdata = 1) {
-                            alert("주문했습니다.");
-                            location.replace("/order/list"); //페이지 새로고침
-                        } else {
-                            alert("주문 실패!");
-                        }
-                    }
-                });
-            }
+           
 
 
         }
