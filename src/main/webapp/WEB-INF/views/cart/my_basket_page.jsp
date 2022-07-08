@@ -334,6 +334,16 @@
 
                 console.log("c+s : " + color + size);
 
+
+                let colorArr = new Array();
+                let sizeArr = new Array();
+                let amountArr = new Array();
+                let nameArr = new Array();
+                for(let i = 0; i< chks.length; i++) {
+                   colorArr[i] =
+                }
+
+                
                 $('#hiddenPrColor').attr('value', color);
                 $('#hiddenPrSize').attr('value', size);
                 $('#hiddenOrderAmount').attr('value', amount);
