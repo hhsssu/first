@@ -323,7 +323,8 @@
                 let size = obj.parentElement.nextElementSibling.nextElementSibling.firstElementChild.
                 nextElementSibling.nextElementSibling.lastElementChild.textContent;
 
-                let amount;
+                let amount = obj.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling
+                .firstElementChild.firstElementChild.nextElementSibling.nextElementSibling.value;
                 
                 console.log("amount : " + amount);
 
