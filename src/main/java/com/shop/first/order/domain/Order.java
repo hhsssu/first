@@ -67,6 +67,7 @@ public class Order {
         this.prColor = rs.getString("product_color");
         this.prSize = rs.getString("product_size");
         this.orderTotalPrice = rs.getInt("order_total_price");
+        this.orderAmount = rs.getInt("order_amount");
         this.orderDate = rs.getString("order_date");
         this.deliPrice = rs.getInt("order_deli_price");
     }

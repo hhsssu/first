@@ -18,6 +18,7 @@
         <result property="prSize" column="product_size" />
         <result property="orderTotalPrice" column="order_total_price" />
         <result property="orderDate" column="order_date" />
+        <result property="orderAmount" column="order_amount" />
         <result property="deliPrice" column="order_deli_price" />
     </resultMap>
 
@@ -38,12 +39,12 @@
     <insert id="insert">
         INSERT INTO product_order (order_code, customer_id, customer_name, customer_phone,
                                 customer_post_code, customer_road_addr, customer_lot_num_addr,
-                                customer_extra_addr, cart_code,
-                                product_color,  product_size, order_total_price)
+                                customer_extra_addr, cart_code, order_amount,
+                                product_color,  product_size, order_deli_price, order_total_price)
         VALUES (seq_product_order.nextval, #{csId}, #{csName}, #{csPhone},
                                  #{postCode}, #{roadAddr},   #{lotNumAddr},
-                                #{extraAddr}, #{cartCode},
-                                #{prColor}, #{prSize}, #{orderTotalPrice})
+                                #{extraAddr}, #{cartCode}, #{orderAmount},
+                                #{prColor}, #{prSize}, #{deliPrice},#{orderTotalPrice})
     </insert>
 
     <!-- //주문 취소   -->

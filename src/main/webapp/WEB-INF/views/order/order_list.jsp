@@ -21,70 +21,70 @@
  
     <p>
         <label>
-            # 주문코드  : <input type="text" value="${ord.orderCode}">
+            # 주문코드  : <input type="text" value="${ord.orderCode}" readonly>
         </label>
     </p>
         
     <p>
         <label>
-            # 주문자명  : <input type="text" value="${loginCustomer.csName}">
+            # 주문자명  : <input type="text" value="${loginCustomer.csName}" readonly>
         </label>
     </p>
 
     <p>
         <label>
-            # 연락처  : <input type="text" value="${ord.csPhone}">
+            # 연락처  : <input type="text" value="${ord.csPhone}" readonly>
         </label>
     </p>
 
 
     <p>
         <label>
-            # 우편번호  : <input type="text" value="${ord.postCode}">
+            # 우편번호  : <input type="text" value="${ord.postCode}" readonly>
         </label>
     </p>
 
     <p>
         <label>
-            # 도로명주소  : <input type="text" value="${ord.roadAddr}">
+            # 도로명주소  : <input type="text" value="${loginCustomer.roadAddr}" readonly>
         </label>
     </p>
         
     
     <p>
         <label>
-            # 지번주소  : <input type="text" value="${ord.lotNumAddr}">
+            # 지번주소  : <input type="text" value="${loginCustomer.lotNumAddr}" readonly>
         </label>
     </p>
 
     <p>
         <label>
-            # 상세주소  : <input type="text" value="${ord.extraAddr}">
+            # 상세주소  : <input type="text" value="${loginCustomer.extraAddr}" readonly>
         </label>
     </p>
 
     <p>
         <label>
-            # 구매수량  : <input type="text" value="${ord.orderAmount}">
+            # 구매수량  : <input type="text" value="${ord.orderAmount}" readonly>
         </label>
     </p>
 
     <p>
         <label>
-            # 주문날짜  : <input type="text" value="${ord.orderDate}">
+            # 주문날짜  : <input type="text" value="${ord.orderDate}" readonly>
         </label>
     </p>
 
     <p>
         <label>
-            # 배송비  : <input type="text" value="${ord.deliPrice}">
+            # 배송비  : <input type="text" value="${ord.deliPrice}" readonly>
         </label>
     </p>
 
     
     <p>
         <label>
-            # 주문총금액  : <input type="text" value="${ord.orderTotalPrice}">
+            # 주문총금액  : <input type="text" value="${ord.orderTotalPrice}" readonly>
         </label>
     </p>
         

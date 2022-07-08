@@ -232,6 +232,15 @@
             <div class="bk-btn-box">
                 <form action="/order/add" method="post">
                     <c:forEach var="c" items="${cart}">
+                    
+                        <input type="hidden" name="cartCode" value="" id="hiddenCartCode" >  
+                        <input type="hidden" name="orderAmount" value="" id="hiddenOrderAmount">  
+                        <input type="hidden" name="prColor" value="" id="hiddenPrColor">  
+                        <input type="hidden" name="prSize" value="" id="hiddenPrSize">  
+                        <input type="hidden" name="orderTotalPrice" value="">  
+                        <input type="hidden" name="deliPrice" value="">  
+                    </c:forEach>
+
                         <input type="hidden" name="csId" value="${loginCustomer.csId}"> 
                         <input type="hidden" name="csName" value="${loginCustomer.csName}"> 
                         <input type="hidden" name="csPhone" value="${loginCustomer.csPhone}"> 
@@ -239,12 +248,6 @@
                         <input type="hidden" name="roadAddr" value="${loginCustomer.roadAddr}"> 
                         <input type="hidden" name="lotNumAddr" value="${loginCustomer.lotNumAddr}"> 
                         <input type="hidden" name="extraAddr" value="${loginCustomer.extraAddr}"> 
-                        <input type="hidden" name="cartCode" value="" id="hiddenCartCode" >  
-                        <input type="hidden" name="orderAmount" value="" id="hiddenOrderAmount">  
-                        <input type="hidden" name="prColor" value="" id="hiddenPrColor">  
-                        <input type="hidden" name="prSize" value="" id="hiddenPrSize">  
-                        <input type="hidden" name="orderTotalPrice" value="">  
-                    </c:forEach>
 
 
                     <button type="button" id="allOrder" class="bk-btn">전체주문</button> 
@@ -332,6 +335,7 @@
 
                 $('#hiddenPrColor').attr('value', color);
                 $('#hiddenPrSize').attr('value', size);
+                $('#hiddenOrderAmount').attr('value', amount);
 
                 sum += result;
                 let len = $("[type=checkbox][name=cartChecked]").not(".allCheck").length; //3-2
@@ -352,6 +356,11 @@
             $(".orderPrice").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
 
             $('input[name=orderTotalPrice]').attr('value',totalPrice);
+            if(dv == 0) {
+                $('input[name=deliPrice]').attr('value', 0);
+            } else {
+                $('input[name=deliPrice]').attr('value', 3000);
+            }
 
         }
 
