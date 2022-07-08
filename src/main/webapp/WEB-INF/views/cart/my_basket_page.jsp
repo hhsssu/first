@@ -235,6 +235,7 @@
                     
                         <input type="hidden" name="cartCode" value="" id="hiddenCartCode" >  
                         <input type="hidden" name="orderAmount" value="" id="hiddenOrderAmount">  
+                        <input type="hidden" name="prName" value="" id="hiddenPrName">  
                         <input type="hidden" name="prColor" value="" id="hiddenPrColor">  
                         <input type="hidden" name="prSize" value="" id="hiddenPrSize">  
                         <input type="hidden" name="orderTotalPrice" value="">  

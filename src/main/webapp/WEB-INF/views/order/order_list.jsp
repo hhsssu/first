@@ -63,6 +63,27 @@
         </label>
     </p>
 
+      
+    <p>
+        <label>
+            # 상품명  : <input type="text" value="${ord.prName}" readonly>
+        </label>
+    </p>
+
+    
+    <p>
+        <label>
+            # 색상  : <input type="text" value="${ord.prColor}" readonly>
+        </label>
+    </p>
+
+    <p>
+        <label>
+            # 사이즈  : <input type="text" value="${ord.prSize}" readonly>
+        </label>
+    </p>
+
+
     <p>
         <label>
             # 구매수량  : <input type="text" value="${ord.orderAmount}" readonly>

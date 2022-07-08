@@ -20,8 +20,9 @@ public class Order {
     private String extraAddr; //상세주소
     private int cartCode;
     private int orderAmount;
-    private String prColor; //옵션 색상
-    private String prSize;  //옵션 크기
+    private String prColor; // 색상
+    private String prSize;  // 크기
+    private String prName;  // 상품명
     private int orderTotalPrice;
     private String orderDate; //주문한 날짜
     private int deliPrice; // 배송료
@@ -32,10 +33,10 @@ public class Order {
         this.orderCode = ++seqOrder;
     }
 
-    public Order(int orderCode, String csId, String csName, String csPhone, String postCode,
-                 String roadAddr, String lotNumAddr,
+    public Order(int orderCode, String csId, String csName, String csPhone,
+                 String postCode, String roadAddr, String lotNumAddr,
                  String extraAddr, int cartCode, int orderAmount,
-                 String prColor, String prSize, int orderTotalPrice,
+                 String prColor, String prSize, String prName, int orderTotalPrice,
                  String orderDate, int deliPrice) {
         this.orderCode = orderCode;
         this.csId = csId;
@@ -47,6 +48,7 @@ public class Order {
         this.extraAddr = extraAddr;
         this.cartCode = cartCode;
         this.orderAmount = orderAmount;
+        this.prName = prName;
         this.prColor = prColor;
         this.prSize = prSize;
         this.orderTotalPrice = orderTotalPrice;
@@ -64,6 +66,7 @@ public class Order {
         this.lotNumAddr = rs.getString("customer_lot_num_addr");
         this.extraAddr = rs.getString("customer_extra_addr");
         this.cartCode = rs.getInt("cart_code");
+        this.prName = rs.getString("product_name");
         this.prColor = rs.getString("product_color");
         this.prSize = rs.getString("product_size");
         this.orderTotalPrice = rs.getInt("order_total_price");
