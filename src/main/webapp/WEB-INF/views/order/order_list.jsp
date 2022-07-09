@@ -66,7 +66,7 @@
       
     <p>
         <label>
-            # 상품명  : <input type="text" value="${ord.prName}" readonly>
+            # 상품명  : ${ord.prName}
         </label>
     </p>
 

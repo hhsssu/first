@@ -340,15 +340,9 @@
                 let name =  obj.parentElement.nextElementSibling.nextElementSibling.
                 firstElementChild.textContent;
 
-                let cartCode = obj.value;
+                let cartCode = obj.value; //장바구니 코드 변수 생성
 
-                console.log("amount : " + amount);
-                console.log("name: " + name);
-                console.log("c+s : " + color + size);
-
-                
-
-                if(!codeArr.includes(cartCode)) {
+                if(!codeArr.includes(cartCode)) { //장바구니 코드가 중복되지 않으면 각 배열에 추가
                     codeArr.push(cartCode);
                     colorArr.push(color);
                     sizeArr.push(size);
@@ -356,21 +350,16 @@
                     nameArr.push(name);
                 }
                
-                let amountSum = 0;
+                let amountSum = 0; 
+                //총 구매 수량 합계를 위한 반복문
                 for(let i = 0; i< amountArr.length; i++) {
                     amountSum += parseInt(amountArr[i]); 
                 }
-             
-                console.log("codeArr: "+  codeArr );
-                console.log("cArr: "+  colorArr );
-                console.log("sArr: "+  sizeArr );
-                console.log("nArr: "+  nameArr );
-                console.log("AArr: "+  amountArr );
-                console.log("AArr SUM: "+  amountSum );
 
+                //(input type = "hidden")속성 값 추가 
                 $('#hiddenPrColor').attr('value', colorArr);
                 $('#hiddenPrSize').attr('value', sizeArr);
-                $('#hiddenOrderAmount').attr('value', amountSum);
+                $('#hiddenOrderAmount').attr('value', amountSum); 
                 $('#hiddenPrName').attr('value', nameArr);
 
                 sum += result;
@@ -388,9 +377,11 @@
 
             delivery();
             totalPrice = sum + dv;
+            //가격에 콤마(,) 추가
             $(".pr_Price").text(sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
             $(".orderPrice").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
 
+            //배송비가 0면 0전달, 아니면 3000을 전달
             $('input[name=orderTotalPrice]').attr('value',totalPrice);
             if(dv == 0) {
                 $('input[name=deliPrice]').attr('value', 0);

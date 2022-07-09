@@ -175,13 +175,13 @@
                                         </tr>
                                    
                                     <!-- 총 주문 금액 -->
-                                     <tr class="total-sum">
+                                      <!--<tr class="total-sum">
                                         <th class="total-text">총 주문 금액</th>
                                         <td class="total-price">
                                             <span class="total-amount"> 총 수량 <span>1</span> 개</span>
                                             <span>9,800</span>원
                                         </td>
-                                    </tr> 
+                                    </tr>  -->
                                 </tbody>
                             </table>
                            
@@ -191,7 +191,7 @@
                                  
 
                                 <div class="sale-basket-btn">
-                                    <button id="opbtn01" type="submit">장바구니</button>
+                                    <button id="opbtn01" type="image.png">장바구니</button>
                                     <button id="opbtn02" type="submit">바로구매</button>
                                 </div> 
                             </form>

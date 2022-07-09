@@ -61,30 +61,7 @@ public class OrderController {
 
         return "redirect:/order/list";
     }
-   // @GetMapping
-    /*
-    //참고 블로그
-    https://cloudstudying.kr/lectures/321
 
-    public String index(Model model) {
-        // 현재 사용자
-        int currUserId = cartMapper.selectUserByEmail(principal.getName()).getId();
-        // 주문 목록
-        List<CartVO> orders = userMapper.getOrders(currUserId);
-        // 주문별 아이템
-        for (CartVO order : orders) {
-            order.setItems(cartMapper.getItems(order));
-            // 아이템-책
-            int sum = 0;
-            for (ItemVO i : order.getItems()) {
-                i.setBook(bookMapper.getBook(i.getBook_id()));
-                sum += i.getPrice() * i.getAmount();
-            }
-            order.setTotalPrice(sum);
-        }
-        model.addAttribute("orders", orders);
-        return "orders/index";
-    } */
 
     // 주문 내역
     @GetMapping("/list")
