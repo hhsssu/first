@@ -356,16 +356,21 @@
                     nameArr.push(name);
                 }
                
+                let amountSum = 0;
+                for(let i = 0; i< amountArr.length; i++) {
+                    amountSum += parseInt(amountArr[i]); 
+                }
              
                 console.log("codeArr: "+  codeArr );
                 console.log("cArr: "+  colorArr );
                 console.log("sArr: "+  sizeArr );
-                console.log("AArr: "+  amountArr );
                 console.log("nArr: "+  nameArr );
+                console.log("AArr: "+  amountArr );
+                console.log("AArr SUM: "+  amountSum );
 
                 $('#hiddenPrColor').attr('value', colorArr);
                 $('#hiddenPrSize').attr('value', sizeArr);
-                $('#hiddenOrderAmount').attr('value', amountArr);
+                $('#hiddenOrderAmount').attr('value', amountSum);
                 $('#hiddenPrName').attr('value', nameArr);
 
                 sum += result;
