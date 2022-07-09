@@ -307,6 +307,12 @@
 
         }
 
+        let codeArr = new Array(); 
+        let colorArr = new Array();
+        let sizeArr = new Array();
+        let amountArr = new Array();
+        let nameArr = new Array();
+
          // 체크박스 개별선택, 해제 
          function calcGoodsPrice(prPrice, obj, cartAm) {
 
@@ -317,6 +323,7 @@
 
             let count = 1; //전체선택 해지 설정할 임의의 변수 설정
 
+           
 
             if (obj.checked == true) {
                 $('#hiddenCartCode').attr('value', obj.value);
@@ -330,23 +337,36 @@
                 let amount = obj.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling
                 .firstElementChild.firstElementChild.nextElementSibling.nextElementSibling.value;
                 
-                console.log("amount : " + amount);
+                let name =  obj.parentElement.nextElementSibling.nextElementSibling.
+                firstElementChild.textContent;
 
+                let cartCode = obj.value;
+
+                console.log("amount : " + amount);
+                console.log("name: " + name);
                 console.log("c+s : " + color + size);
 
-
-                let colorArr = new Array();
-                let sizeArr = new Array();
-                let amountArr = new Array();
-                let nameArr = new Array();
-                for(let i = 0; i< chks.length; i++) {
-                   colorArr[i] =
-                }
-
                 
-                $('#hiddenPrColor').attr('value', color);
-                $('#hiddenPrSize').attr('value', size);
-                $('#hiddenOrderAmount').attr('value', amount);
+
+                if(!codeArr.includes(cartCode)) {
+                    codeArr.push(cartCode);
+                    colorArr.push(color);
+                    sizeArr.push(size);
+                    amountArr.push(amount);
+                    nameArr.push(name);
+                }
+               
+             
+                console.log("codeArr: "+  codeArr );
+                console.log("cArr: "+  colorArr );
+                console.log("sArr: "+  sizeArr );
+                console.log("AArr: "+  amountArr );
+                console.log("nArr: "+  nameArr );
+
+                $('#hiddenPrColor').attr('value', colorArr);
+                $('#hiddenPrSize').attr('value', sizeArr);
+                $('#hiddenOrderAmount').attr('value', amountArr);
+                $('#hiddenPrName').attr('value', nameArr);
 
                 sum += result;
                 let len = $("[type=checkbox][name=cartChecked]").not(".allCheck").length; //3-2
