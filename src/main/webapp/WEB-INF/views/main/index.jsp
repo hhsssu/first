@@ -401,6 +401,9 @@
         <section id="login-popup-container" class="hide__">
             <div class="login-popup-box">
                 <div class="login-join-box">
+                    <div>
+                        <i class="fas fa-times"></i>
+                    </div>
                     <div class="login-text">
                         <p>로그인</p>
                     </div>
