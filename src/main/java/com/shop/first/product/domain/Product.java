@@ -25,6 +25,8 @@ public class Product {
     private String prDate;
     private String prColor; //옵션 색상
     private String prSize;  //옵션 크기
+    private String keyword; //검색 키워드
+
 
     private static int seq;
 
