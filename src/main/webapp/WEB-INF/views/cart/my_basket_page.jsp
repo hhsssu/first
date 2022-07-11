@@ -88,7 +88,8 @@
                 <input type="submit" value="조회">
             </form>
 
-
+            //참고 블로그
+            https://dlgkstjq623.tistory.com/354
                    -->
 
                 <!-- 검색/찜/장바구니 -->
