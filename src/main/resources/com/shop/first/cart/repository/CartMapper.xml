@@ -42,18 +42,20 @@
 
     <!-- 장바구니 목록   -->
     <select id="listCart" resultMap="cartMap">
-        SELECT
-        c.cart_code, m.customer_id,
-        p.product_code, c.cart_amount,
-        c.product_color, c.product_size
-        FROM
-        customer m , cart c , product p
-        WHERE
-        p.product_code = c.product_code
-        AND
-        m.customer_id = c.customer_id
-        AND
-        c.customer_id = #{csId}
+        <![CDATA[
+            SELECT
+            c.cart_code, m.customer_id,
+            p.product_code, c.cart_amount,
+            c.product_color, c.product_size
+            FROM
+            customer m , cart c , product p
+            WHERE
+            p.product_code = c.product_code
+            AND
+            m.customer_id = c.customer_id
+            AND
+            c.customer_id = #{csId}
+          ]]>
     </select>
 
 
