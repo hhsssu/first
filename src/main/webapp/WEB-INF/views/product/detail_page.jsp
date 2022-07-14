@@ -83,6 +83,7 @@
                 <!-- 해당 상품 이미지/텍스트 상자 -->
                 <div class="pd-detail-wrap">
                     <!-- 상세 메인 이미지 상자 -->
+                    <!-- 클래스 active 설정 https://www.11st.co.kr/products/2823218247 -->
                     <div class="pd-detail-img-wrap">
                         <div class="main-img">
                             <img src="/product/list/${p.prThumb}" alt="상품 메인 이미지">
