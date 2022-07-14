@@ -82,7 +82,7 @@
 
         <!-- section content > basket list -->
         <section id="basket-list-container">
-            <div class="basket-list-title">
+            <div class="basket-list-title hide"> <!-- 장바구니가 비어있을 시 hide클래스 추가 -->
                 <ul class="basket-select-all">
                     <li><input type="checkbox" class="allCheck" id="check_all" onclick="checkAll();"></li>
                     <li>전체선택</li>
@@ -99,7 +99,8 @@
                     </li>
                 </ul>
             </div>
-            <table class="basket-list">
+
+            <table class="basket-list hide"> <!-- 장바구니가 비어있을 시 hide클래스 추가 -->
                 <tbody class="basket-list-pd">
                     <c:forEach var="c" items="${cart}" varStatus="status">
 
@@ -176,9 +177,16 @@
         </section>
         <!-- //section content > basket list -->
 
+        <!-- section content > basket empty -->
+        <div class="basket-empty"> <!-- 장바구니에 하나라도 담겨있을 시 hide클래스 추가 -->
+            <p>장바구니에 담은 상품이 없습니다.</p>
+            <button>상품 담으러 가기</button>
+        </div>
+        <!-- //section content > basket empty -->
+        
         <!-- section content > basket total -->
         <section id="basket-total-container">
-            <div>
+            <div class="hide"> <!-- 장바구니가 비어있을 시 hide클래스 추가 -->
                 <table class="basket-total-box">
                     <tbody class="basket-total">
                         <tr>
