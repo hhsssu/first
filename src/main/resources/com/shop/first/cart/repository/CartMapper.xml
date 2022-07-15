@@ -12,6 +12,8 @@
         <result property="cartChecked" column="cart_checked" />
         <result property="cartAmount" column="cart_amount" />
         <result property="cartTotalPrice" column="cart_total_price" />
+        <result property="prColor" column="product_color" />
+        <result property="prSize" column="product_size" />
     </resultMap>
 
     <!-- 장바구니 동일한 상품 레코드 확인   -->
@@ -34,23 +36,26 @@
 
     <!-- 장바구니 추가   -->
     <insert id="insert">
-        INSERT INTO cart (cart_code, customer_id, product_code, cart_amount)
-        VALUES (seq_cart.nextval, #{csId}, #{prCode}, #{cartAmount})
+        INSERT INTO cart (cart_code, customer_id, product_code, cart_amount, product_color, product_size)
+        VALUES (seq_cart.nextval, #{csId}, #{prCode}, #{cartAmount}, #{prColor}, #{prSize})
     </insert>
 
     <!-- 장바구니 목록   -->
     <select id="listCart" resultMap="cartMap">
-        SELECT
-        c.cart_code, m.customer_id,
-        p.product_code, c.cart_amount
-        FROM
-        customer m , cart c , product p
-        WHERE
-        p.product_code = c.product_code
-        AND
-        m.customer_id = c.customer_id
-        AND
-        c.customer_id = #{csId}
+        <![CDATA[
+            SELECT
+            c.cart_code, m.customer_id,
+            p.product_code, c.cart_amount,
+            c.product_color, c.product_size
+            FROM
+            customer m , cart c , product p
+            WHERE
+            p.product_code = c.product_code
+            AND
+            m.customer_id = c.customer_id
+            AND
+            c.customer_id = #{csId}
+          ]]>
     </select>
 
 

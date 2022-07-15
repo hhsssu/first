@@ -3,7 +3,6 @@ package com.shop.first.customer.controller;
 import com.shop.first.customer.domain.Customer;
 import com.shop.first.customer.dto.ModCustomer;
 import com.shop.first.customer.service.CustomerService;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;

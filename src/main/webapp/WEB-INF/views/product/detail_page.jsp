@@ -83,6 +83,7 @@
                 <!-- 해당 상품 이미지/텍스트 상자 -->
                 <div class="pd-detail-wrap">
                     <!-- 상세 메인 이미지 상자 -->
+                    <!-- 클래스 active 설정 https://www.11st.co.kr/products/2823218247 -->
                     <div class="pd-detail-img-wrap">
                         <div class="main-img">
                             <img src="/product/list/${p.prThumb}" alt="상품 메인 이미지">
@@ -132,6 +133,7 @@
                                         <th>
                                             주문 수량
                                         </th>
+
                                         <!-- 장바구니 / 바로구매 버튼 섹션 -->
                                         <form action="/cart/add" method="post">
                                             <td class="sale-amount">
@@ -143,29 +145,72 @@
                                                     <option value="5">5</option>
                                                 </select>
                                             </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            옵션 선택
-                                        </th>
-                                        <td class="sale-option">
-                                            <select name="amount" id="option" size="1">
-                                                <option value="blue">블루 체크</option>
-                                                <option value="puple">퍼플 체크</option>
-                                                <option value="yellow">옐로우 도트</option>
+
+                                         <!-- 장바구니 / 바로구매 버튼 섹션 -->
+                                    <form action="/cart/add" method="post">
+                                        <td class="sale-amount">
+                                            <select name="cartAmount" id="amount" size="1">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
                                             </select>
                                         </td>
+
                                     </tr>
+                                    
+                                        <tr>
+                                            <th>
+                                                옵션 선택 - 1
+                                            </th>
+                                            <td class="sale-option">
+                                                <select name="prColor" id="option1" size="1">
+                                                    <option value="">색상</option>
+                                                    <c:forEach var="opt" items="${opt}">
+                                                        <c:if test="${!empty opt.prColor}">
+                                                            <option value="${opt.prColor}">${opt.prColor}</option>
+                                                        </c:if>
+                                                    </c:forEach>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <th>
+                                                옵션 선택 - 2
+                                            </th>
+                                            <td class="sale-option">
+                                                <select name="prSize" id="option2" size="1">
+                                                    <option value="">사이즈</option>
+                                                    <c:forEach var="opt" items="${opt}">
+                                                        <c:if test="${!empty opt.prSize}">
+                                                            <option value="${opt.prSize}">${opt.prSize}</option>
+                                                        </c:if>
+                                                    </c:forEach>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                   
                                     <!-- 총 주문 금액 -->
+
                                     <tr class="total-sum">
+
+                                      <!--<tr class="total-sum">
+
                                         <th class="total-text">총 주문 금액</th>
                                         <td class="total-price">
                                             <span class="total-amount"> 총 수량 <span>1</span> 개</span>
                                             <span>9,800</span>원
                                         </td>
+
                                     </tr>
+
+                                    </tr>  -->
+
                                 </tbody>
                             </table>
+
 
 
                             <input type="hidden" name="csId" value="${loginCustomer.csId}">
@@ -175,6 +220,16 @@
                                 <button id="opbtn01" type="submit">장바구니</button>
                                 <button id="opbtn02" type="submit">바로구매</button>
                             </div>
+
+                                <input type="hidden" name="csId" value="${loginCustomer.csId}"> 
+                                <input type="hidden" name="prCode" value="${p.prCode}">   
+                                 
+
+                                <div class="sale-basket-btn">
+                                    <button id="opbtn01" type="image.png">장바구니</button>
+                                    <button id="opbtn02" type="submit">바로구매</button>
+                                </div> 
+
                             </form>
                         </div>
                     </div>

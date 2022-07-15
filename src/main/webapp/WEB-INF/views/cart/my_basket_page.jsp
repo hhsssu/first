@@ -42,14 +42,66 @@
                     <a href="#">카테고리</a>
                 </nav>
 
+
+                  <!-- 
+                      <section class="search">
+                    <form action="/board/list" method="get">
+                    <select id="search-type" class="form-select" name="type">
+                        <option value="title">제목</option>
+                        <option value="content">내용</option>
+                        <option value="writer">작성자</option>
+                        <option value="titleContent">제목+내용</option>
+                    </select>
+
+                    <input class="form-control" type="text" name="keyword" value="${pageInfo.page.keyword}">
+
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </section>
+
+
+
+            //장바구니 검색 참고
+            <form name="form1" method="post" action="list.do">
+            
+                <select name="search_option">
+                    <option value="user_id"
+            <c:if test="${map.search_option == 'user_id'}">selected</c:if>
+            >작성자</option>
+            
+                    <option value="title" 
+            <c:if test="${map.search_option == 'title'}">selected</c:if>
+                    >제목</option>
+            
+                    <option value="content" 
+            <c:if test="${map.search_option == 'content'}">selected</c:if>
+                    >내용</option>
+            
+                    <option value="all" 
+            <c:if test="${map.search_option == 'all'}">selected</c:if>
+                    >작성자+내용+제목</option>
+            
+                </select>
+                <input name="keyword" value="${map.keyword}">
+                <input type="submit" value="조회">
+            </form>
+
+            //참고 블로그
+            https://dlgkstjq623.tistory.com/354
+                   -->
+
                 <!-- 검색/찜/장바구니 -->
                 <nav class="tnb">
                     <a href="#">
-                        <form action="/search" class="search">
+                        <form action="/cart/list" method="get" class="search">
                             <label>
                                 <span class="lnr lnr-magnifier"></span>
                                 <input type="text" placeholder="검색어를 입력하세요" id="search">
-                                <i class="fas fa-search"></i>
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
                             </label>
                         </form>
                     </a>
@@ -103,6 +155,32 @@
             <table class="basket-list hide"> <!-- 장바구니가 비어있을 시 hide클래스 추가 -->
                 <tbody class="basket-list-pd">
                     <c:forEach var="c" items="${cart}" varStatus="status">
+
+                        
+                    <tr class="basket-pd-info">
+                       
+                        <td>
+                            <input type="checkbox" value="${c.cartCode}" name="cartChecked" onclick="calcGoodsPrice('${product[status.index].prPrice}', this, '${c.cartAmount}')"  id="input_check">
+                        </td>
+                        <td class="basket-pd-img">
+                            <img src="/product/list/${product[status.index].prThumb}" alt="상품 이미지">
+                        </td>
+                        
+                        
+                        <td>
+                            <p>${product[status.index].prName}</p>
+                            <p><span>색상:</span> <span>${c.prColor}</span></p>
+                            <p><span>사이즈:</span> <span>${c.prSize}</span></p>
+                        </td>
+                       
+                        <td>
+                            <span id="prPrice"><fmt:formatNumber value="${product[status.index].prPrice}" pattern="#,###"/></span>
+                            <span>원</span>
+                            
+                        </td>
+                        <td>
+                            <form action="/cart/modify" method="post">
+
 
                         <tr class="basket-pd-info">
 
@@ -186,6 +264,7 @@
         
         <!-- section content > basket total -->
         <section id="basket-total-container">
+
             <div class="hide"> <!-- 장바구니가 비어있을 시 hide클래스 추가 -->
                 <table class="basket-total-box">
                     <tbody class="basket-total">
@@ -222,6 +301,65 @@
                     <button type="submit" class="bk-btn">전체주문</button>
                     <button type="submit" class="bk-btn">선택주문</button>
                 </div>
+
+
+            <div>
+            <table class="basket-total-box">
+                <tbody class="basket-total">
+                    <tr>
+                        <th>
+                            상품금액
+                        </th>
+                        <td>
+                            <span class="pr_Price">0</span>
+                            <span>원</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            배송비
+                        </th>
+                        <td>
+                            <span class="delivery">0</span>
+                            <span>원</span>
+                        </td>
+                    </tr>
+                    <tr class="bk-total">
+                        <th>
+                            결제예정금액
+                        </th>
+                        <td>
+                            <span class="orderPrice">0</span>
+                            <span>원</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="bk-btn-box">
+                <form action="/order/add" method="post">
+                    <c:forEach var="c" items="${cart}">
+                    
+                        <input type="hidden" name="cartCode" value="" id="hiddenCartCode" >  
+                        <input type="hidden" name="orderAmount" value="" id="hiddenOrderAmount">  
+                        <input type="hidden" name="prName" value="" id="hiddenPrName">  
+                        <input type="hidden" name="prColor" value="" id="hiddenPrColor">  
+                        <input type="hidden" name="prSize" value="" id="hiddenPrSize">  
+                        <input type="hidden" name="orderTotalPrice" value="">  
+                        <input type="hidden" name="deliPrice" value="">  
+                    </c:forEach>
+
+                        <input type="hidden" name="csId" value="${loginCustomer.csId}"> 
+                        <input type="hidden" name="csName" value="${loginCustomer.csName}"> 
+                        <input type="hidden" name="csPhone" value="${loginCustomer.csPhone}"> 
+                        <input type="hidden" name="postCode" value="${loginCustomer.postCode}"> 
+                        <input type="hidden" name="roadAddr" value="${loginCustomer.roadAddr}"> 
+                        <input type="hidden" name="lotNumAddr" value="${loginCustomer.lotNumAddr}"> 
+                        <input type="hidden" name="extraAddr" value="${loginCustomer.extraAddr}"> 
+
+
+                    <button type="button" id="allOrder" class="bk-btn">전체주문</button> 
+                    <button type="submit" id="checkOrder" class="bk-btn">선택주문</button>
+                </form>
 
             </div>
         </section>
@@ -272,8 +410,19 @@
 
         }
 
+
         // 체크박스 개별선택, 해제 
         function calcGoodsPrice(prPrice, obj, cartAm) {
+
+        let codeArr = new Array(); 
+        let colorArr = new Array();
+        let sizeArr = new Array();
+        let amountArr = new Array();
+        let nameArr = new Array();
+
+         // 체크박스 개별선택, 해제 
+         function calcGoodsPrice(prPrice, obj, cartAm) {
+
 
             let result = Number(cartAm) * Number(prPrice);
             let chks = document.getElementsByName("cartChecked");
@@ -283,7 +432,45 @@
 
             let count = 1; //전체선택 해지 설정할 임의의 변수 설정
 
+           
+
             if (obj.checked == true) {
+                $('#hiddenCartCode').attr('value', obj.value);
+
+                let color = obj.parentElement.nextElementSibling.nextElementSibling.firstElementChild.
+                nextElementSibling.lastElementChild.textContent;
+
+                let size = obj.parentElement.nextElementSibling.nextElementSibling.firstElementChild.
+                nextElementSibling.nextElementSibling.lastElementChild.textContent;
+
+                let amount = obj.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling
+                .firstElementChild.firstElementChild.nextElementSibling.nextElementSibling.value;
+                
+                let name =  obj.parentElement.nextElementSibling.nextElementSibling.
+                firstElementChild.textContent;
+
+                let cartCode = obj.value; //장바구니 코드 변수 생성
+
+                if(!codeArr.includes(cartCode)) { //장바구니 코드가 중복되지 않으면 각 배열에 추가
+                    codeArr.push(cartCode);
+                    colorArr.push(color);
+                    sizeArr.push(size);
+                    amountArr.push(amount);
+                    nameArr.push(name);
+                }
+               
+                let amountSum = 0; 
+                //총 구매 수량 합계를 위한 반복문
+                for(let i = 0; i< amountArr.length; i++) {
+                    amountSum += parseInt(amountArr[i]); 
+                }
+
+                //(input type = "hidden")속성 값 추가 
+                $('#hiddenPrColor').attr('value', colorArr);
+                $('#hiddenPrSize').attr('value', sizeArr);
+                $('#hiddenOrderAmount').attr('value', amountSum); 
+                $('#hiddenPrName').attr('value', nameArr);
+
                 sum += result;
                 let len = $("[type=checkbox][name=cartChecked]").not(".allCheck").length; //3-2
                 let ckLen = $("[type=checkbox][name=cartChecked]:checked").not(".allCheck").length; //3-2
@@ -299,8 +486,23 @@
 
             delivery();
             totalPrice = sum + dv;
+
             $(".pr_Price").text(sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
             $(".orderPrice").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+
+            //가격에 콤마(,) 추가
+            $(".pr_Price").text(sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
+            $(".orderPrice").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));  
+
+            //배송비가 0면 0전달, 아니면 3000을 전달
+            $('input[name=orderTotalPrice]').attr('value',totalPrice);
+            if(dv == 0) {
+                $('input[name=deliPrice]').attr('value', 0);
+            } else {
+                $('input[name=deliPrice]').attr('value', 3000);
+            }
+
+
         }
 
         /* 참고 블로그 https://myhappyman.tistory.com/180
@@ -381,6 +583,20 @@
                 });
             }
         }
+
+
+
+
+
+        //주문
+        function check_Order() {
+           
+
+
+        }
+
+   
+
     </script>
 
 </body>
