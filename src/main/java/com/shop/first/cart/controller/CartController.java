@@ -70,13 +70,16 @@ public class CartController {
 
     //장바구니 목록
     @GetMapping("/list")
-    public String list(HttpSession session, Model model) {
+    public String list(HttpSession session, Model model, HttpServletResponse response) {
 
         log.info("장바구니 목록 Controller! (화면)");
 
         Customer loginCustomer = (Customer) session.getAttribute("loginCustomer");
+
         //장바구니 정보
         List<Cart> cartList = cartService.listCart(loginCustomer.getCsId());
+
+
 
         log.info(cartList);
         model.addAttribute("cart",cartList);
