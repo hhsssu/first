@@ -485,6 +485,7 @@
         }
 
 
+        //enter 누를 때 이벤트
         $('input[type="text"]').keydown(function() {
               if (event.keyCode === 13) {
              event.preventDefault();
@@ -508,6 +509,19 @@
                     $("#loginForm").submit();
                 }
             }
+        });
+
+
+        //로그인 클릭 
+        $('#loginBtn').click(function() {
+             if( $('#inputId').val() === '' || $('#inputId').val() === null ) {
+                    alert("아이디를 입력하세요");
+                } else if( $('#inputPw').val() === '' || $('#inputPw').val() === null ) {
+                    
+                   alert("비밀번호를 입력하세요");
+                } else {
+                    $("#loginForm").submit();
+                }
         });
 
 
