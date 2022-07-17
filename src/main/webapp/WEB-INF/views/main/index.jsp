@@ -42,10 +42,10 @@
                     <a href="#">베스트</a>
                     <a href="#">카테고리</a>
                 </nav>
-                <!-- 검색/찜/장바구니  상품 이름 검색하기 https://kimvampa.tistory.com/175 -->
+                <!-- 검색/찜/장바구니  상품 이름 검색하기 https://mycodearchive.tistory.com/m/183-->
                 <nav class="tnb">
                     <a href="#">
-                        <form action="/product/info" class="search">
+                        <form action="/product/list" class="search">
                             <label>
                                 <span class="lnr lnr-magnifier"></span>
                                 <input type="text" placeholder="검색어를 입력하세요" id="search" name="keyword">

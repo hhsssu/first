@@ -14,10 +14,13 @@ public interface ProductMapper {
     //상품 상세 조회
     Product getContent(int prCode);
 
+    //상품 검색
+    //List<Product> getProduct(String keyword);
+
     //상품 등록
     boolean insert(Product product);
 
-    //상품 상젝
+    //상품 삭제
     boolean delete(int prCode);
 
 }//

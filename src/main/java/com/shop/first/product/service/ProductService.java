@@ -23,6 +23,12 @@ public class ProductService {
         return articles;
     }
 
+    // 상품 검색 중간 처리
+    /*
+    public List<Product> getProductList(String keyword) {
+        productMapper.getProduct(keyword);
+    } */
+
     //상품 등록 중간 처리
     public void write(Product product) {
         productMapper.insert(product);
