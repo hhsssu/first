@@ -35,10 +35,10 @@
     </select>
 
     <!--    //상품 검색-->
-    <select id="getProduct" resultMap="productMap">
-        SELECT * FROM product
-        WHERE product_name = #{keyword}
-    </select>
+<!--    <select id="getProduct" resultMap="productMap">-->
+<!--        SELECT * FROM product-->
+<!--        WHERE product_name = #{keyword}-->
+<!--    </select>-->
 
 
     <!--    //상품 등록-->
