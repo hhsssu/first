@@ -1099,6 +1099,7 @@ footer .goTop {
     margin-bottom: 20em;
 }
 
+
 .basket-empty p {
     font-size: 2em;
     font-weight: 600;
@@ -1307,7 +1308,6 @@ footer .goTop {
 
 #login-popup-container .login-popup-box .login-join-box .login-submit-btn .login-btn {
     /* width: 100%; */
-    /* border-radius: 3px; */
     /* font-weight: 700; */
     line-height: 3rem;
     font-size: 1rem;
@@ -1327,4 +1327,5 @@ footer .goTop {
 #login-popup-container .login-popup-box .login-join-box .mem-search-join a {
     font-size: 0.8rem;
 }
+
 /* ==================== main_page login style fin 🟨 ========================= */
