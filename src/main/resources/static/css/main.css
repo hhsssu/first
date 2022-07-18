@@ -1092,6 +1092,33 @@ footer .goTop {
 }
 
 
+/* 담은 상품이 없을 시 스타일 */
+.basket-empty {
+    text-align: center;
+    margin-top: 10em;
+    margin-bottom: 20em;
+}
+
+.basket-empty p {
+    font-size: 2em;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 1.5em;
+    cursor: default;
+}
+
+.basket-empty button {
+    padding: 0.3em 5em;
+    font-size: 1.2em;
+    font-weight: 500;
+    background: #FFA500;
+    color: #fff;
+    border-radius: 6px;
+    line-height: 2.5em;
+    cursor: pointer;
+}
+
+
 /* 상품 결제금액 합산 스타일 */
 #basket-total-container {
     width: 70%;

@@ -56,7 +56,7 @@
                     <a href="#" class="sign-in-up" id="singUpBtn" onclick="javascript:doDisplay()">
                         <span>로그인</span>
                     </a>
-                    <a href="#" class="sign-in-up">
+                    <a href="/customer/account" class="sign-in-up">
                         <span>회원가입</span>
                     </a>
                     <a href="#"><i class="far fa-heart"></i></a>
