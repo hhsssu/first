@@ -51,6 +51,14 @@ public class ProductController extends HttpServlet {
         return "product/detail_page";
     }
 
+    //상품 검색(화면)
+    /*
+    @GetMapping("/list")
+    public String content(String keyword, Model model, HttpSession session) throws Exception{
+
+
+    }*/
+
 
     //상품 등록 화면 요청(화면)
     @GetMapping("/write")
