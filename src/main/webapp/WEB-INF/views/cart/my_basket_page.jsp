@@ -6,45 +6,17 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The dishes Mall - 장바구니</title>
-    <!-- reset css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
-
-    <!-- fontawesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
-
-    <!-- custom css -->
-    <link rel="stylesheet" href="/css/main.css">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <%@ include file="../include/static-head.jsp" %>
 </head>
 
 <body>
     <div class="wrap">
 
         <!-- header -->
-        <header class="">
-            <div class="inner-header">
-                <h1 class="logo">
-                    <a href="#">
-                        <img src="/image/Title_ex.png" alt="메인 로고 이미지">
-                    </a>
-                </h1>
-
-                <!-- 메인 네비게이션바 -->
-                <nav class="gnb">
-                    <a href="#">신상품</a>
-                    <a href="#">베스트</a>
-                    <a href="#">카테고리</a>
-                </nav>
-
-
-                  <!-- 
-                      <section class="search">
+        <%@ include file="../include/header.jsp" %>
+                <!-- 
+                    <section class="search">
                     <form action="/board/list" method="get">
                     <select id="search-type" class="form-select" name="type">
                         <option value="title">제목</option>
@@ -90,33 +62,8 @@
 
             //참고 블로그
             https://dlgkstjq623.tistory.com/354
-                   -->
+            -->
 
-                <!-- 검색/찜/장바구니 -->
-                <nav class="tnb">
-                    <a href="#">
-                        <form action="/cart/list" method="get" class="search">
-                            <label>
-                                <span class="lnr lnr-magnifier"></span>
-                                <input type="text" placeholder="검색어를 입력하세요" id="search">
-                                <button class="btn btn-primary" type="submit">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </label>
-                        </form>
-                    </a>
-                    <a href="#" class="sign-in-up">
-                        <span>로그인</span>
-                    </a>
-                    <a href="#" class="sign-in-up">
-                        <span>회원가입</span>
-                    </a>
-                    <a href="#"><i class="far fa-heart"></i></a>
-                    <a href="#"><i class="fas fa-cart-plus"></i></a>
-                    </ul>
-                </nav>
-            </div>
-        </header>
         <!-- //header -->
 
         <!-- section content > page banner -->
@@ -366,23 +313,7 @@
         <!-- //section content > basket total -->
 
         <!-- footer -->
-        <footer style="clear: both;">
-            <div id="site-map">
-                <div>
-                    <span>회사 소개</span>
-                    <span>이용약관</span>
-                    <span>개인정보 처리방침</span>
-                    <span>공지사항</span>
-                    <span>고객센터</span>
-                </div>
-            </div>cart_Amount
-            <div id="copyright">
-                <div>Copyright ⓒ2022 All rights reserved │ </div>
-            </div>
-            <p class="goTop">
-                ▲ <br> TOP
-            </p>
-        </footer>
+        <%@ include file="../include/footer.jsp" %>
         <!-- //footer -->
     </div>
 
