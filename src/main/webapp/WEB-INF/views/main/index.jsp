@@ -421,10 +421,13 @@
         }
 
 
-        $('input[type="text"]').keydown(function () {
-            if (event.keyCode === 13) {
-                event.preventDefault();
-                if ($('#inputId').val() === '' || $('#inputId').val() === null) {
+
+        //enter 누를 때 이벤트
+        $('input[type="text"]').keydown(function() {
+              if (event.keyCode === 13) {
+             event.preventDefault();
+             if( $('#inputId').val() === '' || $('#inputId').val() === null ) {
+
                     //$("#inputId").attr("placeholder", "아이디를 입력하세요");
                     //$("#inputId").css("background", "#00B261");
                     alert("아이디를 입력하세요");
@@ -445,6 +448,31 @@
                 }
             }
         });
+
+
+
+        //로그인 클릭 
+        $('#loginBtn').click(function() {
+             if( $('#inputId').val() === '' || $('#inputId').val() === null ) {
+                    alert("아이디를 입력하세요");
+                } else if( $('#inputPw').val() === '' || $('#inputPw').val() === null ) {
+                    
+                   alert("비밀번호를 입력하세요");
+                } else {
+                    $("#loginForm").submit();
+                }
+        });
+
+
+        
+        function cartList(target) {
+            if(target) {
+                location.href = "/cart/list";
+            } else {
+                alert("로그인 후 이용해주세요 :)");
+            }
+        }
+      
     </script>
 
 </body>

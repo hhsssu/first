@@ -586,7 +586,7 @@ footer .goTop {
     flex: 1;
 }
 
-.pd-detail-wrap .pd-detail-img-wrap .main-img {
+.pd-detail-wrap .pd-detail-img-wrap .main-img  {
     width: 500px;
 }
 
@@ -607,7 +607,7 @@ footer .goTop {
     cursor: pointer;
 }
 
-.pd-detail-wrap .pd-detail-img-wrap .add-img li:hover::after {
+.pd-detail-wrap .pd-detail-img-wrap .add-img  li:hover::after {
     position: absolute;
     content: "";
     top: 0;

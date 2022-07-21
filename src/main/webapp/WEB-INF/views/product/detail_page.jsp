@@ -36,17 +36,20 @@
                     <!-- 클래스 active 설정 https://www.11st.co.kr/products/2823218247 -->
                     <div class="pd-detail-img-wrap">
                         <div class="main-img">
-                            <img src="/product/list/${p.prThumb}" alt="상품 메인 이미지">
+                            <img src="/product/list/${p.prThumb}" class="m-img" alt="상품 메인 이미지">
                         </div>
                         <ul class="add-img">
                             <li>
-                                <img src="/product/list/${p.prImg1}" alt="상품 부가 이미지">
+                                <img src="/product/list/${p.prThumb}"  class="d-image" alt="상품 부가 이미지">
                             </li>
                             <li>
-                                <img src="/product/list/${p.prImg2}" alt="상품 부가 이미지">
+                                <img src="/product/list/${p.prImg1}"  class="d-image" alt="상품 부가 이미지">
                             </li>
                             <li>
-                                <img src="/product/list/${p.prImg3}" alt="상품 부가 이미지">
+                                <img src="/product/list/${p.prImg2}"  class="d-image" alt="상품 부가 이미지">
+                            </li>
+                            <li>
+                                <img src="/product/list/${p.prImg3}"  class="d-image" alt="상품 부가 이미지">
                             </li>
                         </ul>
                     </div>
@@ -409,14 +412,31 @@
     </div>
 
     <script>
-        function product(a) {
-            let result = parseInt(a) + parseInt(a * 0.02);
+
+        
+        //가격에 ,(콤마) 생성하는 함수
+        function product(a){
+            let result =  parseInt(a) + parseInt(a*0.02);
+
 
             return result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "원"
         }
 
         document.querySelector('.pd-price').textContent = product('${p.prPrice}');
+
+
+
+        //상품 이미지 클릭시 함수
+        $(".d-image").click(function(){
+            let imgSrc = $(this).attr("src");
+            console.log(imgSrc);
+            $(".m-img").attr("src", imgSrc); //메인 이미지 img src 변경
+            /*참고 블로그 https://solbel.tistory.com/1070 */
+            });
+
+
     </script>
+
 
 </body>
 
