@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!-- header -->
-        <header>
+        <header id="header-container">
             <div class="inner-header">
                 <h1 class="logo">
                     <a href="#">
@@ -41,3 +41,10 @@
             </div>
         </header>
         <!-- //header -->
+        <script>
+            
+            $(document).scroll(function () {
+			var $nav = $("#header-container");
+			$nav.toggleClass('scroll', $(this).scrollTop() > $nav.height());
+		});
+        </script>
