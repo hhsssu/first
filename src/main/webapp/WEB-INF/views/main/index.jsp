@@ -348,11 +348,11 @@
 
 
         <!-- section login popUp container -->
-        <section id="login-popup-container" class="hide__">
+        <section id="login-popup-container">
             <div class="login-popup-box">
                 <div class="login-join-box">
                     <div>
-                        <i class="fas fa-times"></i>
+                        <i class="fas fa-times" onclick="javascript:noneDisplay()"></i>
                     </div>
                     <div class="login-text">
                         <p>로그인</p>
@@ -415,9 +415,16 @@
 
 
     <script>
+        // 로그인 창 열기
         function doDisplay() {
             document.getElementById("login-popup-container").style.display = "block";
             document.querySelector(".login-popup-box").style.display = "block";
+        }
+
+        // 로그인 창 닫기
+        function noneDisplay() {
+            document.getElementById("login-popup-container").style.display = "none";
+            document.querySelector(".login-popup-box").style.display = "none";
         }
 
 
